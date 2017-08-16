@@ -1,0 +1,171 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('WIC product')
+
+  body
+    .wrapper
+      .base
+        +header()
+
+        .main_content
+          .section_inner
+            .product_info
+              .product_photo
+                a.product_block(href='product.html')
+                  .product_bg
+                  .product_img.spotted
+                    img.shadowed(src='i/orbi_big.png')
+
+              .product_description
+                .block_title Oribe Silverati Shampoo
+                
+                .product_volume
+                  .fl
+                    .input_w.select_box_v1
+                      select.select2(data-placeholder='Выберите объем')
+                        option(selected disabled)
+                        option 1л
+                        option 2л
+                        option 3л
+            
+                .product_price от 1 420 руб.
+
+                ul.product_options
+                  li
+                    .caption_tip Информация
+                    
+                    p Шампунь для окрашенных в пепельный и седых волос
+                  
+                  li
+                    .caption_tip Характеристики
+                    
+                    dl.product_params
+                      dt Тип средства
+                      dd Уход и питание
+                  
+                      dt Бренд
+                      dd Alterna
+                      
+                      dt Коллекция
+                      dd Caviar Moisture
+                  
+                      dt Категория
+                      dd Для волос
+                      
+                ul.product_description_footer
+                  li
+                    a.btn_black.btn_v1.product_btn(href='#')
+                      span Купить
+                  li
+                    a.btn_black_bd.btn_v1.product_btn(href='#')
+                      span Отложить
+                      
+            .product_seo
+              .product_seo_col._col_1
+                .block_title Основные<br>ингридиенты
+                    
+                h3 Морской шелк ®
+                  
+                p Смесь морских растительных ингредиентов обеспечивает уникальное увлажнение и помогает восстановить поврежденные волосы.
+
+                h3 Экстракт икры
+                  
+                p Аминокислоты и жирные кислоты Omega 3 помогают разгладить волос и придать блеска.
+                
+                h3 Комплекс , контролирующий возраст волос ®
+                  
+                p Контролирует естественное, химическое старение, а также старение под воздействием окружающей среды. Входящий в состав экстракт икры и витамина С помогают разглаживать волос и придавать волосам сияние.
+
+                h3 Энзимотерапия
+                  
+                p Эксклюзивный комплекс энзимов и минералов создан обеспечивает волосы жизненно необходимыми питательными веществами для поддержания здоровья волос.
+
+                h3 Сохранение цвета ®
+                  
+                p Поддерживающая технология блокирует потерю цвета.
+                
+              .product_seo_col._col_2
+                .block_title Описание
+                  
+                p.lh_25 Smoothing Hydra-Gelée Nourishing Hair Perfector – легкий гель для увлажнения и разглаживания волос. Многофункциональный гель кондиционирует волосы, убирая несовершенства, обеспечивает волосам мгновенную гладкость без утяжеления и здоровый естественный блеск. Средство завершает уход за волосами и делает их идеально здоровыми с красивым натуральным блеском.
+                  
+            .block_title Связанные товары
+              
+            ul.filter_list._related
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_1.png')
+                      
+                  .product_info
+                    .product_name Oribe Signature Conditioner A Daily Indulgence
+                    .product_price 1 090-5 250 руб.
+                    p Кондиционер для ежедневного ухода "Вдохновения дня"
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_2.png')
+                      
+                  .product_info
+                    .product_name Oribe Silverati Shampoo
+                    .product_price 3 420 руб.
+                    p Шампунь для окрашенных в пепельный и седых волос 
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product_sale.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_4.png')
+                    .product_tip._sale Sale
+                      
+                  .product_info
+                    .product_name Sebastian Resintek Hypershine With Intense Memory Hold
+                    .product_price
+                      span 1 600 руб. 
+                      span._old_price 2 000 руб.
+                    p Жидкий воск для фиксации и текстуры
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product_new.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_5.png')
+                    .product_tip._new New
+                      
+                  .product_info
+                    .product_name Lebel Proedit Bounce Fit Shampoo
+                    .product_price 1 650 руб.
+                    p Восстанавливающий шампунь для сильно поврежденных, сухих, лом...
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+                        
+
+      +footer()
+
+    +scripts(2)

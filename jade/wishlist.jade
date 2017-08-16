@@ -1,0 +1,250 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('WIC wishlist')
+
+  body
+    .wrapper
+      .base
+        +header()
+
+        .main_content
+                  
+          .section_inner
+            .block_title Отложенное
+              
+            .filter_sort
+              .fl: .mb
+                .caption_tip 12 продуктов отложено
+
+              .fr
+                .input_w.select_box_v1
+                  select.select2
+                    option Добавленные недавно
+                    option Добавленные давно
+                
+            ul.filter_list._fav
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_1.png')
+
+                  .product_rm.productRemove
+                  .product_info
+                    .product_name Oribe Signature Conditioner A Daily Indulgence
+                    .product_price 1 090-5 250 руб.
+                    p Кондиционер для ежедневного ухода "Вдохновения дня"
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+                          
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_2.png')
+
+                  .product_rm.productRemove
+                  .product_info
+                    .product_name Oribe Silverati Shampoo
+                    .product_price 3 420 руб.
+                    p Шампунь для окрашенных в пепельный и седых волос 
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+                          
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                    .product_status._in_cart Товар добавлен в&nbsp;корзину
+                    
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_4.png')
+                    .product_tip._sale Sale
+
+                  .product_rm.productRemove
+                  .product_info
+                    .product_name Sebastian Resintek Hypershine With Intense Memory Hold
+                    .product_price 
+                      span 1 600 руб. 
+                      span._old_price 2 000 руб.
+                    p Жидкий воск для фиксации и текстуры
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+                          
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_5.png')
+                    .product_tip._new New
+
+                  .product_rm.productRemove
+                  .product_info
+                    .product_name Lebel Proedit Bounce Fit Shampoo
+                    .product_price 1 650 руб.
+                    p Восстанавливающий шампунь для сильно поврежденных, сухих, лом...
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+                          
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_6.png')
+
+                  .product_rm.productRemove
+                  .product_info
+                    .product_name Oribe Bright Blonde Radiance and Repair Treatment
+                    .product_price 4 080 руб.
+                    p Спрей-уход сияние и восстановление для светлых волос
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+                          
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_7.png')
+                    .product_tip._new New
+
+                  .product_rm.productRemove
+                  .product_info
+                    .product_name Sebastian Penetraitt Conditioner
+                    .product_price 600-3 400 руб.
+                    p Кондиционер для восстановления и гладкости волос
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+                          
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_8.png')
+                    .product_tip._sale Sale
+
+                  .product_rm.productRemove
+                  .product_info
+                    .product_name Sebastian Resintek Hypershine With Intense Memory Hold
+                    .product_price 
+                      span 1 600 руб. 
+                    p Жидкий воск для фиксации и текстуры
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+                          
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_5.png')
+                    .product_tip._new New
+
+                  .product_rm.productRemove
+                  .product_info
+                    .product_name Lebel Proedit Bounce Fit Shampoo
+                    .product_price 1 650 руб.
+                    p Восстанавливающий шампунь для сильно поврежденных, сухих, лом...
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+                          
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_6.png')
+
+                  .product_rm.productRemove
+                  .product_info
+                    .product_name Oribe Bright Blonde Radiance and Repair Treatment
+                    .product_price 4 080 руб.
+                    p Спрей-уход сияние и восстановление для светлых волос
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+                          
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_7.png')
+                    .product_tip._new New
+
+                  .product_rm.productRemove
+                  .product_info
+                    .product_name Sebastian Penetraitt Conditioner
+                    .product_price 600-3 400 руб.
+                    p Кондиционер для восстановления и гладкости волос
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+                          
+              li
+                .product_unit._buy_box
+                  a.product_block(href='product.html')
+                    .product_bg
+                      img(src='i/oribe_gray_bg.jpg')
+                    .product_img
+                      img.shadowed(src='i/product_8.png')
+                    .product_tip._sale Sale
+
+                  .product_rm.productRemove
+                  .product_info
+                    .product_name Sebastian Resintek Hypershine With Intense Memory Hold
+                    .product_price 
+                      span 1 600 руб. 
+                    p Жидкий воск для фиксации и текстуры
+
+                    .product_buy_box
+                      a.gl_link.show_more.addToCart(href='#')
+                        span Добавить в корзину
+            
+            .show_more_block
+              a.btn_v3.show_more_btn.btn_gray(href='#')
+                span Показать ещё
+                        
+                        
+
+      +footer()
+
+    +scripts(2)

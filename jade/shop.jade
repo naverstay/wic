@@ -1,0 +1,358 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('WIC shop')
+
+  body
+    .wrapper._store_menu
+      .base
+        +header(true)
+
+        .main_content
+          .section_inner
+            .partners_slider.partnersSlider
+              .slider_arrows
+                .slide_prev
+                .slide_next
+              .slide: a.partner_link(href='#'): img(src='i/partner_1.png')
+              .slide: a.partner_link(href='#'): img(src='i/partner_2.png')
+              .slide: a.partner_link(href='#'): img(src='i/partner_3.png')
+              .slide: a.partner_link(href='#'): img(src='i/partner_4.png')
+              .slide: a.partner_link(href='#'): img(src='i/partner_5.png')
+              .slide: a.partner_link(href='#'): img(src='i/partner_6.png')
+                  
+          .filter_section
+            form.section_inner(action='#')
+              .filter_block
+                .filter_collapse
+                  a.filter_link.toggleFilter(href='#filter')
+                    span.filter_icon 
+                    span Фильтр
+                    span.filter_counter 2
+                #filter(style='display:none;')
+                  .filter_expand
+                    .filter_col
+                      label.f_label.f_label_v1(for='price_min') Цена, руб.
+                      .input_w.toddler_v1
+                        #price_range.toddler(data-control-min='#price_min' data-control-max='#price_max' data-min=0 data-max=20000)
+                      .f_row.f_row_v2
+                        .f_cell
+                          span от
+                          .input_w
+                            input#price_min.f_input_v2.f_input.text_center(data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': true, 'groupSeparator': ' ', 'digits': 0, 'digitsOptional': false")
+                        .f_cell
+                          span до
+                          .input_w
+                            input#price_max.f_input_v2.f_input.text_center(data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': true, 'groupSeparator': ' ', 'digits': 0, 'digitsOptional': false")
+                
+                      .f_row
+                        +check('Только со скидкой')
+                          
+                    .filter_col.cb
+                      .f_label.f_label_v1() Бренды
+                          
+                      .filter_scroller.mCSB
+                        ul.option_list
+                          +loop_while(3)
+                            li
+                              +check('Alterna')
+                            li
+                              +check('Sebastian')
+                            li
+                              +check('CND')
+                            li
+                              +check('Caviar')
+                            li
+                              +check('INM')
+                            
+                    .filter_col
+                      .f_label.f_label_v1() Тип продукта 
+                          
+                      .filter_scroller.mCSB
+                        ul.option_list
+                          +loop_while(1)
+                            li
+                              +check('Шампунь')
+                            li
+                              +check('Кондицонер')
+                            li
+                              +check('Маска')
+                            li
+                              +check('Масло')
+                            li
+                              +check('Масло')
+                            
+                    .filter_col
+                      .f_label.f_label_v1() Назначение
+                          
+                      .filter_scroller.mCSB
+                        ul.option_list
+                          +loop_while(1)
+                            li
+                              +check('Объём')
+                            li
+                              +check('Восстановление')
+                            li
+                              +check('Увлажнение')
+                            li
+                              +check('Блеск и сияние')
+                            li
+                              +check('Блеск и сияние')
+                            
+                    .filter_col
+                      .f_label.f_label_v1() Тип волос
+                          
+                      .filter_scroller.mCSB
+                        ul.option_list
+                          +loop_while(1)
+                            li
+                              +check('Нормальные')
+                            li
+                              +check('Светлые')
+                            li
+                              +check('Окрашенные')
+                            li
+                              +check('Тонкие')
+                            li
+                              +check('Тонкие')
+                              
+                    .filter_col.cb._last
+                      a.f_reset.fReset(href='#')
+                        span.i-close
+                        span Сбросить фильтр
+
+              .filter_sort
+                .fr
+                  .input_w.select_box_v1
+                    select.select2
+                      option Сначала дешевле
+                      option Сначала дороже
+                  
+              ul.filter_list
+                li
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_1.png')
+
+                    .product_info
+                      .product_name Oribe Signature Conditioner A Daily Indulgence
+                      .product_price 1 090-5 250 руб.
+                      p Кондиционер для ежедневного ухода "Вдохновения дня"
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+                            
+                li
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_2.png')
+
+                    .product_info
+                      .product_name Oribe Silverati Shampoo
+                      .product_price 3 420 руб.
+                      p Шампунь для окрашенных в пепельный и седых волос 
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+                            
+                li
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_3.png')
+                      .product_tip._new New
+
+                    .product_info
+                      .product_name Sebastian Penetraitt Conditioner
+                      .product_price 600-3 400 руб.
+                      p Кондиционер для восстановления и гладкости волос
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+                            
+                li
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_4.png')
+                      .product_tip._sale Sale
+
+                    .product_info
+                      .product_name Sebastian Resintek Hypershine With Intense Memory Hold
+                      .product_price 
+                        span 1 600 руб. 
+                        span._old_price 2 000 руб.
+                      p Жидкий воск для фиксации и текстуры
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+                            
+                li
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_5.png')
+                      .product_tip._new New
+
+                    .product_info
+                      .product_name Lebel Proedit Bounce Fit Shampoo
+                      .product_price 1 650 руб.
+                      p Восстанавливающий шампунь для сильно поврежденных, сухих, лом...
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+                            
+                li
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_6.png')
+
+                    .product_info
+                      .product_name Oribe Bright Blonde Radiance and Repair Treatment
+                      .product_price 4 080 руб.
+                      p Спрей-уход сияние и восстановление для светлых волос
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+                            
+                li
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_7.png')
+                      .product_tip._new New
+
+                    .product_info
+                      .product_name Sebastian Penetraitt Conditioner
+                      .product_price 600-3 400 руб.
+                      p Кондиционер для восстановления и гладкости волос
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+                            
+                li
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_8.png')
+                      .product_tip._sale Sale
+
+                    .product_info
+                      .product_name Sebastian Resintek Hypershine With Intense Memory Hold
+                      .product_price 
+                        span 1 600 руб. 
+                      p Жидкий воск для фиксации и текстуры
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+                            
+                li
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_5.png')
+                      .product_tip._new New
+
+                    .product_info
+                      .product_name Lebel Proedit Bounce Fit Shampoo
+                      .product_price 1 650 руб.
+                      p Восстанавливающий шампунь для сильно поврежденных, сухих, лом...
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+                            
+                li
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_6.png')
+
+                    .product_info
+                      .product_name Oribe Bright Blonde Radiance and Repair Treatment
+                      .product_price 4 080 руб.
+                      p Спрей-уход сияние и восстановление для светлых волос
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+                            
+                li
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_7.png')
+                      .product_tip._new New
+
+                    .product_info
+                      .product_name Sebastian Penetraitt Conditioner
+                      .product_price 600-3 400 руб.
+                      p Кондиционер для восстановления и гладкости волос
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+                            
+                li
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_8.png')
+                      .product_tip._sale Sale
+
+                    .product_info
+                      .product_name Sebastian Resintek Hypershine With Intense Memory Hold
+                      .product_price 
+                        span 1 600 руб. 
+                      p Жидкий воск для фиксации и текстуры
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+                            
+              ul.pagination_list
+                li: a.btn_v3.btn_gray_red.pagination_btn._active(href='#') 1
+                li: a.btn_v3.btn_gray_red.pagination_btn(href='#') 2
+                li: a.btn_v3.btn_gray_red.pagination_btn(href='#') 3
+                li: a.btn_v3.btn_gray_red.pagination_btn(href='#') 4
+                li: a.btn_v3.btn_gray_red.pagination_btn(href='#') ...
+                              
+
+      +footer()
+
+    +scripts(2)

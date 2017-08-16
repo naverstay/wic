@@ -1,0 +1,282 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('WIC profile')
+
+  body
+    .wrapper._profile
+      .base
+        +header()
+
+        .main_content
+          .section_inner
+            .grid_row
+              .grid_col._col_1
+                .aside
+                  ul.aside_menu
+                    li.drop_down
+                      a.aside_m_link(href='#')
+                        span Профиль
+                        span.i-chevron_right.aside_m_icon
+                        
+                    li 
+                      a.aside_m_link(href='#')
+                        span Закупки
+                        
+                    li 
+                      a.aside_m_link(href='#')
+                        span Рефералы
+                        
+                    li 
+                      a.aside_m_link(href='#')
+                        span Отслеживание заказов
+                        
+                    li 
+                      a.aside_m_link(href='#')
+                        span FAQ
+                        
+              .grid_col._col_2
+                .profile_settings
+                  .profile_settings_inner
+                    .profile_caption Салон красоты Bella
+                    
+                    dl.profile_settings_list
+                      dt адрес
+                      dd 100000, Москва, ул. Добролюбова, д. 2Б
+                      
+                      dt телефон
+                      dd +7 (495) 123 45 67
+                      
+                      dt email
+                      dd info@mywellpoint.ru
+                      
+                      dt site
+                      dd mywellpoint.ru
+                      
+                      dt пароль
+                      dd ••••••••
+                    
+                  .profile_settings_inner
+                    a.profile_settings_link(href='#')
+                      span Редактировать
+                      
+                .profile_settings
+                  .profile_settings_inner
+                    dl.profile_settings_list
+                      dt Баланс
+                      dd 
+                        span.profile_ballance 48 600 руб.
+                    
+                  .profile_settings_inner
+                    a.profile_settings_link(href='#')
+                      span Пополнить
+                      
+                .profile_settings
+                  .profile_settings_inner
+                    dl.profile_settings_list
+                      dt Баллы
+                      dd 
+                        span.profile_ballance 3 900
+                    
+                    p.clr_red +200 с последнего визита
+                    
+                .profile_settings
+                  .profile_settings_inner
+                    dl.profile_settings_list
+                      dt ваш менеджер
+                      dd Алина Матвеева
+                      
+                      dt телефон
+                      dd +7 (495) 123 45 67
+                      
+                      dt email
+                      dd info@mywellpoint.ru
+
+                  .profile_settings_inner
+                    a.profile_settings_link(href='#')
+                      span Заказать обратный звонок
+
+              .grid_col._col_3
+                .profile_msg_block._warning.msgBlock
+                  span.msg_close.msgCloseBtn
+                  
+                  .msg_title ! Заканчивается на складе
+                  p 
+                    a.msg_link(href='#') Alterna Caviar Anti-Aging Smoothing Hydra-Gelee Nourishing Hair Perfector, 1 000мл
+                  p 
+                    a.msg_link(href='#') Sebastian Resintek Hypershine With Intense Memory Hold, 75мл
+                    
+                  ul.msg_controls
+                    li
+                      a.btn_v3.btn_black.msg_btn(href='#')
+                        span Показать
+                        
+                .profile_settings.collapseHolder
+                  .profile_settings_inner._gray
+                    .profile_caption
+                      .fl Последние заказы
+                      .fr 
+                        span.settings_collapse.collapseBtn._opened
+                          span._on Скрыть
+                          span._off Показать
+                        
+                  .collapseBlock.collapse_block
+                    .profile_settings_inner
+                      dl.profile_settings_list._reverse
+                        dd Заказ 2365
+                        dt в обработке
+                        
+                        dd Заказ 1869
+                        dt в пути
+                        
+                        dd Заказ 867
+                        dt доставлен
+                        
+                    .profile_settings_inner
+                      a.profile_settings_link(href='#')
+                        span Перейти в заказы
+                        span.i-arrow_right.settings_icon
+                      
+                .profile_settings.collapseHolder
+                  .profile_settings_inner._gray
+                    .profile_caption
+                      .fl Новинки
+                      .fr 
+                        span.settings_collapse.collapseBtn._opened
+                          span._on Скрыть
+                          span._off Показать
+                        
+                  .collapseBlock.collapse_block
+                    .profile_settings_inner
+                      table.profile_orders
+                        tr
+                          th.col_1 &nbsp;
+                          th.col_2 Бренд
+                          th.col_3 Наименование
+                          th.col_4 Объём, мл
+                          th.col_5 Цена, руб.
+                          th.col_6 &nbsp;
+
+                        tr
+                          td.prod_cell.col_1
+                            a.product_block(href='product.html')
+                              .product_bg
+                                img(src='i/oribe_gray_bg.jpg')
+                              .product_img
+                                img.shadowed(src='i/product_1.png')
+                                
+                          td.col_2 Alterna Caviar
+                          td.col_3 Anti-Aging Smoothing Hydra-Gelee Nourishing Hair Perfector
+                          td.col_4.text_right 1 000
+                          td.col_5.text_right 24 390
+                          td.col_6.text_right
+                            span.i-cart.cart_icon
+                          
+                        tr
+                          td.prod_cell.col_1
+                            a.product_block(href='product.html')
+                              .product_bg
+                                img(src='i/oribe_gray_bg.jpg')
+                              .product_img
+                                img.shadowed(src='i/product_5.png')
+                                
+                          td.col_2 Sebastian
+                          td.col_3 Dark Oil
+                          td.col_4.text_right 250
+                          td.col_5.text_right 2 430
+                          td.col_6.text_right
+                            span.i-cart.cart_icon
+                          
+                        tr
+                          td.prod_cell.col_1
+                            a.product_block(href='product.html')
+                              .product_bg
+                                img(src='i/oribe_gray_bg.jpg')
+                              .product_img
+                                img.shadowed(src='i/product_6.png')
+                                
+                          td.col_2 CND
+                          td.col_3 Shellac Hollywood
+                          td.col_4.text_right 7.3
+                          td.col_5.text_right 850
+                          td.col_6.text_right
+                            span.i-cart.cart_icon
+                          
+                      .text_center
+                        .preloader
+                          img(src='i/preloader.svg' width=90)
+                      
+                .profile_settings.collapseHolder
+                  .profile_settings_inner._gray
+                    .profile_caption
+                      .fl Специальные предложения
+                      .fr 
+                        span.settings_collapse.collapseBtn._opened
+                          span._on Скрыть
+                          span._off Показать
+                        
+                  .collapseBlock.collapse_block
+                    .profile_settings_inner
+                      table.profile_orders
+                        tr
+                          th.col_1 &nbsp;
+                          th.col_2 Бренд
+                          th.col_3 Наименование
+                          th.col_4 Объём, мл
+                          th.col_5 Цена, руб.
+                          th.col_6 &nbsp;
+
+                        tr
+                          td.prod_cell.col_1
+                            a.product_block(href='product.html')
+                              .product_bg
+                                img(src='i/oribe_gray_bg.jpg')
+                              .product_img
+                                img.shadowed(src='i/product_2.png')
+                                
+                          td.col_2 Alterna Caviar
+                          td.col_3 Anti-Aging Smoothing Hydra-Gelee Nourishing Hair Perfector
+                          td.col_4.text_right 1 000
+                          td.col_5.text_right 24 390
+                          td.col_6.text_right
+                            span.i-cart.cart_icon
+                          
+                        tr
+                          td.prod_cell.col_1
+                            a.product_block(href='product.html')
+                              .product_bg
+                                img(src='i/oribe_gray_bg.jpg')
+                              .product_img
+                                img.shadowed(src='i/product_3.png')
+                                
+                          td.col_2 Sebastian
+                          td.col_3 Dark Oil
+                          td.col_4.text_right 250
+                          td.col_5.text_right 2 430
+                          td.col_6.text_right
+                            span.i-cart.cart_icon
+                          
+                        tr
+                          td.prod_cell.col_1
+                            a.product_block(href='product.html')
+                              .product_bg
+                                img(src='i/oribe_gray_bg.jpg')
+                              .product_img
+                                img.shadowed(src='i/product_4.png')
+                                
+                          td.col_2 CND
+                          td.col_3 Shellac Hollywood
+                          td.col_4.text_right 7.3
+                          td.col_5.text_right 850
+                          td.col_6.text_right
+                            span.i-cart.cart_icon
+                          
+                      .text_center
+                        .preloader
+                          img(src='i/preloader.svg' width=90)
+                      
+                      
+                    
+      +footer()
+
+    +scripts(2)

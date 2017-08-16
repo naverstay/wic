@@ -1,0 +1,390 @@
+.inp_hidden {
+  display: none;
+}
+
+.f_row {
+  @extend %clearfix;
+
+  &.f_row_v4 {
+    margin-bottom: 25px;
+  }
+
+  &.f_row_v3 {
+
+    .f_cell {
+      width: 50%;
+      float: left;
+      margin-bottom: -2px;
+
+      + .f_cell {
+        .f_input {
+          border-left: none !important;
+        }
+      }
+    }
+  }
+
+  &.f_row_v2 {
+    line-height: 32px;
+    margin-bottom: 8px;
+    margin-left: -14px;
+
+    .f_cell {
+      width: 50%;
+      float: left;
+      padding-left: 14px;
+    }
+
+    .input_w {
+      float: right;
+      width: 64px;
+    }
+  }
+
+  &.f_row_v1 {
+
+    .f_cell {
+      width: 35%;
+      float: left;
+      padding-left: 10px;
+
+      .input_w {
+        padding-top: 25px;
+        max-width: 200px;
+      }
+
+      &:first-child {
+        padding-left: 40px;
+      }
+
+      &:last-child {
+        width: 30%;
+      }
+    }
+  }
+}
+
+.f_input {
+  display: block;
+  width: 100%;
+
+  &.f_input_v1 {
+    height: 40px;
+    background: $default_t_color;
+    font: 18px/26px $FormularMedium;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+
+    &::-webkit-input-placeholder {
+      color: #fff;
+    }
+
+    &::-moz-placeholder {
+      color: #fff;
+    }
+
+  }
+
+  &.f_input_v2 {
+    height: 32px;
+    padding: 6px;
+    background: #ededed;
+    font: 14px/20px $AvenirNextDemiBold;
+    color: #000;
+  }
+
+  &.f_input_v3 {
+    height: 74px;
+    padding: 22px;
+    border: 2px solid #000;
+    background: none;
+    font: 16px/30px $AvenirNextDemiBold;
+    color: #000;
+  }
+
+  &.f_input_v4 {
+    height: 52px;
+    padding: 2px 0;
+    border: none;
+    background: none;
+    font: 36px/48px $AvenirNextItalic;
+    color: #000;
+  }
+}
+
+textarea.f_input_v3.f_input {
+  height: 345px;
+}
+
+.select_box_v1 {
+  text-align: left;
+
+  .select2-container--default {
+    .select2-results > .select2-results__options {
+      max-height: 260px;
+      //border: solid #000;
+      //border-width: 0 2px 2px;
+    }
+
+    .select2-dropdown {
+      border-radius: 0 !important;
+    }
+
+    .select2-results__option {
+      font-size: 16px;
+      line-height: 20px;
+      padding: 11px 20px;
+    }
+
+    .select2-container {
+
+    }
+
+    .select2-selection__rendered {
+      min-width: 240px;
+      padding-right: 40px;
+      padding-left: 16px;
+      font: 16px/44px $AvenirNextMedium;
+    }
+
+    .select2-selection__placeholder {
+      color: $placeholder_color;
+    }
+
+    .select2-selection--single {
+      @include transition_all(border .3s);
+      background: #fafafa;
+      border-radius: 0;
+      border: 2px solid transparent;
+      height: 48px;
+      box-shadow: none;
+
+      &:hover {
+        border-color: #000;
+
+        .select2-selection__arrow:before {
+
+        }
+      }
+    }
+
+    .select2-selection__arrow {
+      @extend %icon_pseudo;
+      height: 48px;
+
+      &:before {
+        @include transition_all(color .3s);
+        position: absolute;
+        font-size: 12px;
+        height: 12px;
+        top: 50%;
+        margin-top: -5px;
+        right: 20px;
+        font-weight: 700;
+        content: $i-chevron_down;
+      }
+
+      b {
+        display: none;
+      }
+    }
+  }
+
+  &.dropdown_small {
+    .select2-container--default {
+      .select2-results > .select2-results__options {
+        max-height: 120px;
+      }
+    }
+  }
+
+  .select2-container--open {
+    .select2-selection__arrow {
+
+      &:before {
+        content: $i-chevron_up;
+      }
+    }
+  }
+}
+
+.f_label {
+
+  &.f_label_v1 {
+    display: inline-block;
+    vertical-align: top;
+    font: 16px $FormularBold;
+    margin-bottom: 24px;
+  }
+
+}
+
+.f_check {
+
+  &.f_check_v1 {
+    font: 14px $AvenirNextRegular;
+    cursor: pointer;
+
+    .check_text {
+      display: block;
+      position: relative;
+      padding-left: 24px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -5px;
+        height: 10px;
+        width: 10px;
+        border: 2px solid #000;
+      }
+    }
+
+    &:hover {
+      .check_text {
+        &:before {
+          background: #ccc;
+        }
+      }
+    }
+
+    .inp_hidden:checked ~ .check_text {
+      font-family: $AvenirNextDemiBold;
+
+      &:before {
+        background: #000;
+      }
+    }
+  }
+}
+
+.toddler_v1 {
+  padding: 8px 8px 27px;
+
+  .noUi-target {
+    border: none;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 4px;
+      margin-top: -2px;
+      background: #ededed;
+    }
+  }
+
+  .noUi-connect {
+    border: none;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 4px;
+      margin-top: -2px;
+      background: #ee4b84;
+    }
+  }
+
+  .noUi-handle {
+    border: none;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 21px;
+      background: #4a4a4a;
+      width: 8px;
+      height: 6px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 13px;
+      right: 0;
+      width: 0;
+      height: 0;
+      background: none;
+    }
+
+    &.noUi-handle-lower {
+
+      &:after {
+        left: 9px;
+      }
+
+      &:before {
+        left: 9px;
+        border-top: 8px solid transparent;
+        border-right: 8px solid #4a4a4a;
+      }
+
+      .noUi-tooltip {
+        left: 17px;
+      }
+    }
+
+    &.noUi-handle-upper {
+
+      &:after {
+        left: 17px;
+      }
+
+      &:before {
+        left: 17px;
+        border-top: 8px solid transparent;
+        border-left: 8px solid #4a4a4a;
+      }
+
+      .noUi-tooltip {
+        left: auto;
+        right: 17px;
+      }
+    }
+  }
+
+  .noUi-tooltip {
+    @include transform_translate(0, 0);
+    bottom: 50%;
+    background: none;
+    border: none;
+    padding: 0;
+    font: 12px $AvenirNextRegular;
+  }
+
+}
+
+.f_reset {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 25px;
+  font: 16px/20px $FormularBold;
+  color: $default_t_color;
+
+  span {
+
+    + span {
+      padding-left: 20px;
+    }
+  }
+}
+
+
+

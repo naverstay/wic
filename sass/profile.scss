@@ -1,0 +1,296 @@
+.grid_row {
+  @extend %clearfix;
+  margin-left: -20px;
+  margin-bottom: 55px;
+}
+
+.grid_col {
+  float: left;
+  padding-left: 20px;
+
+  &._col_1 {
+    width: 2/12 * 100%;
+  }
+
+  &._col_2 {
+    width: 3/12 * 100%;
+  }
+
+  &._col_3 {
+    width: 7/12 * 100%;
+  }
+}
+
+.aside_menu {
+
+  li {
+    border-bottom: 1px solid #fff;
+
+    &.drop_down {
+      border-bottom-width: 4px;
+    }
+  }
+}
+
+.aside_m_link {
+  display: block;
+  position: relative;
+  padding: 16px 30px 16px 16px;
+  background: #000;
+  color: #fff;
+  font: 16px/1.4 $AvenirNextRegular;
+}
+
+.aside_m_icon {
+  position: absolute;
+  top: 50%;
+  height: 20px;
+  right: 5px;
+  font-weight: 800;
+  margin-top: -12px;
+  line-height: 20px;
+}
+
+.profile_settings {
+  border: 1px solid #d8d8d8;
+  margin-bottom: 24px;
+}
+
+.profile_settings_inner {
+  padding: 24px 16px 23px;
+
+  &._gray {
+    background: #f9f9f9;
+  }
+
+  p {
+    font-size: 18px;
+    margin: 12px 0 2px;
+  }
+
+  .collapse_block &,
+  + .profile_settings_inner {
+    border-top: 1px solid #d8d8d8;
+  }
+
+  .profile_caption {
+    margin-bottom: 24px;
+  }
+}
+
+.profile_caption {
+  font: 20px/25px $FormularBlack;
+}
+
+.profile_settings_list {
+
+  dt {
+    opacity: .6;
+    margin-bottom: 2px;
+  }
+
+  dd {
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 17px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &._reverse {
+    dt {
+      margin-bottom: 17px;
+
+      &:last-child {
+        margin-bottom: 1px;
+      }
+    }
+
+    dd {
+      margin-bottom: 2px;
+    }
+  }
+}
+
+.profile_settings_link {
+  font: 16px/20px $FormularBold;
+  color: $default_t_color;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.settings_icon {
+  padding-left: 70px;
+  font-size: 38px;
+  line-height: 20px;
+}
+
+.profile_ballance {
+  font: 28px/38px $AvenirNextMedium;
+}
+
+.profile_msg_block {
+  position: relative;
+  padding: 24px 40px 24px 16px;
+  margin-bottom: 24px;
+
+  &._warning {
+    background: #ee4b84;
+    color: #fff;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 15px;
+    max-width: 550px;
+  }
+}
+
+.msg_title {
+  font: 20px/25px $FormularBlack;
+  margin-bottom: 24px;
+}
+
+.msg_link {
+  text-decoration: underline;
+  color: #fff;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.msg_controls {
+  @extend %clearfix;
+  margin-left: -15px;
+
+  li {
+    float: left;
+    padding-left: 15px;
+    margin-top: 17px;
+  }
+}
+
+.msg_close {
+  @extend %icon_pseudo;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  cursor: pointer;
+  
+  &:before {
+    content: $i-close;
+    font-size: 20px;
+  }
+}
+
+.settings_collapse {
+  cursor: pointer;
+  font: 14px/25px $AvenirNextRegular;
+
+  span {
+    display: block;
+  }
+
+  ._on {
+    display: none;
+  }
+
+  &._opened {
+    ._on {
+      display: block;
+    }
+
+    ._off {
+      display: none;
+    }
+  }
+}
+
+.preloader {
+  display: inline-block;
+  vertical-align: top;
+  margin: -15px 0 -40px;
+
+  img {
+    display: block;
+  }
+}
+
+.profile_orders {
+  width: 100%;
+  border-collapse: collapse;
+
+  th {
+    font: 14px $FormularMedium;
+    padding: 0 10px 16px 0;
+    border-bottom: 1px solid #d8d8d8;
+    text-align: left;
+  }
+
+  td {
+    font: 14px $FormularMedium;
+    padding: 15px 10px 9px 0;
+    vertical-align: top;
+    border-bottom: 1px solid #d8d8d8;
+    line-height: 1.4;
+  }
+
+  .col_1 {
+    width: 77px;
+  }
+
+  .col_2 {
+    width: 18%;
+  }
+
+  .col_3 {
+    width: 28.5%;
+  }
+
+  .col_4 {
+    white-space: nowrap;
+    width: 14%;
+  }
+
+  .col_5 {
+    white-space: nowrap;
+    width: 14%;
+  }
+
+  .col_6 {
+  }
+
+  .prod_cell {
+    .product_bg,
+    .product_block {
+      width: 64px;
+      height: 64px;
+      overflow: hidden;
+    }
+
+    .product_img {
+      max-width: 100%;
+      max-height: 100%;
+
+      img {
+        max-width: 26px;
+        max-height: 50px;
+      }
+    }
+  }
+}
+
+.cart_icon {
+  font-size: 20px;
+}
+

@@ -1,0 +1,185 @@
+//*************************** header
+
+.header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  > .section_inner {
+    position: relative;
+    padding-top: 37px;
+    min-height: 104px;
+    line-height: 24px;
+    text-align: center;
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 10px;
+      left: 10px;
+      height: 4px;
+      background: #000;
+    }
+  }
+}
+
+.logo_block {
+  float: left;
+}
+
+.logo {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+
+  svg,
+  img {
+    @include transition_all(fill .3s);
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+  }
+
+  #logo_layer {
+    @include transition_all(fill .3s);
+  }
+
+  &:hover svg {
+    #logo_layer {
+      fill: #ee4b84;
+    }
+  }
+}
+
+// *********  menu
+
+.user_menu {
+  float: right;
+
+  li {
+    float: left;
+    padding-left: 25px;
+
+    &._small {
+      padding-left: 11px;
+    }
+  }
+}
+
+.main_menu {
+
+  @include respond-to-min($resp_step_2) {
+
+  }
+
+}
+
+.main_menu {
+
+  .header & {
+    margin-left: 120px;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .footer & {
+    float: right;
+  }
+
+  li {
+    float: left;
+    padding-left: 25px;
+  }
+}
+
+.menu_link {
+  @include transition_all(color .3s);
+  cursor: pointer;
+  position: relative;
+  display: block;
+  text-decoration: none;
+  font: 14px/24px $FormularRegular;
+  color: #000;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &:hover {
+    color: #ee4b84;
+  }
+
+  ._active & {
+    cursor: default;
+    color: #b43864;
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 1px;
+      background: #b43864;
+      top: 50%;
+      margin-top: 1px;
+      right: -8px;
+      left: -8px;
+    }
+  }
+}
+
+.menu_l_icon {
+  font-size: 20px;
+}
+
+.store_menu_holder {
+
+}
+
+.store_menu {
+  background: #b43864;
+  text-align: center;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  padding: 0 117px;
+
+  li {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 20px 5px;
+  }
+}
+
+.store_link {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  font: 16px/22px $AvenirNextRegular;
+  color: #fff;
+  padding: 5px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    height: 4px;
+    width: 32px;
+    background: #fff;
+    margin-left: -16px;
+    display: none;
+  }
+
+  &:hover,
+  ._active & {
+    font-family: $AvenirNextDemiBold;
+
+    &:before {
+      display: block;
+    }
+  }
+
+}

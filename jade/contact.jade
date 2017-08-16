@@ -1,0 +1,64 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('WIC contact')
+
+  body
+    .wrapper._contacts
+      .base
+        +header()
+
+        .main_content
+          .section_inner
+            .block_title Наши контакты
+
+            ul.contact_info
+              li
+                .caption_tip По вопросам сотрудничества
+              
+                dl.contact_list
+                  dt телефон
+                  dd
+                    a.gl_link(href='tel:+74951234567') +7 (495) 123 45 67
+                  
+                  dt email
+                  dd 
+                    a.gl_link(href='mailto:info@mywellpoint.ru') info@mywellpoint.ru 
+                  
+              li
+                .caption_tip По вопросам оплаты и доставки
+              
+                dl.contact_list
+                  dt телефон
+                  dd
+                    a.gl_link(href='tel:+74951234567') +7 (495) 123 45 67
+                  
+                  dt email
+                  dd 
+                    a.gl_link(href='mailto:info@mywellpoint.ru') info@mywellpoint.ru 
+                  
+            .block_title Написать нам
+              
+            .contact_form
+              form(action='#')
+                .f_row.f_row_v3
+                  .f_cell
+                    .input_w
+                      input.f_input_v3.f_input(placeholder='Ваше имя')
+                
+                  .f_cell
+                    .input_w
+                      input.f_input_v3.f_input(placeholder='Ваш email')
+                
+                .f_row.f_row_v4
+                  .f_cell
+                    .input_w
+                      textarea.f_input_v3.f_input(placeholder='Ваше сообщение')
+                
+                .f_row.f_row_v2
+                  .f_cell
+                    button.btn_v3.btn_black.contact_btn Отправить
+
+      +footer()
+
+    +scripts(2)
