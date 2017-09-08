@@ -29,7 +29,10 @@ html(lang='ru')
                           
                         .product_info
                           p Жидкий воск для<br>фиксации и текстуры
-                          .product_name Sebastian Resintek<br>Hypershine With Intense<br>Memory Hold
+                          .product_name 
+                            span Sebastian Resintek<br>Hypershine With Intense 
+                            span.dt_vis <br>
+                            span  Memory Hold
                           
               .slider_controls._right
                 .slide_prev
@@ -38,7 +41,7 @@ html(lang='ru')
         .partners_section
           .section_inner
             .partners_block
-              ul.partners_list
+              ul.partners_list.tab_vis
                 li: a.partner_link(href='#'): img(src='i/partner_1.png')
                 li: a.partner_link(href='#'): img(src='i/partner_2.png')
                 li: a.partner_link(href='#'): img(src='i/partner_3.png')
@@ -67,7 +70,7 @@ html(lang='ru')
         .service_section
           .section_inner.clearfix
             .service_block
-              .service_img
+              .service_img.tab_vis
                 img(src='i/service_1.jpg')
                     
               .caption_tip._white наша уникальность
@@ -90,11 +93,60 @@ html(lang='ru')
         .popular_section
           .section_inner
             .block_title Популярные<br>продукты
-            .popular_slider.popularSlider
-              +loop_while(5)
-                .slide
-                  ul.popuplar_list
-                    li
+            .popular_slider.popularSlider.popuplar_list
+              +loop_while(3)
+                .slide.popuplar_l_item
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_signature_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_1.png')
+
+                    .product_info
+                      .product_name Oribe Signature Conditioner A Daily Indulgence
+                      p Кондиционер для ежедневного ухода "Вдохновения дня"
+
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+
+                .slide.popuplar_l_item
+                  .product_unit._buy_box
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_silverati_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_2.png')
+
+                    .product_info
+                      .product_name Oribe Silverati Shampoo
+                      p Шампунь для окрашенных в пепельный и седых волос 
+                      .product_buy_box
+                        a.gl_link.show_more(href='#')
+                          span Купить
+
+                .slide._wide.popuplar_l_item
+                  .popular_box
+                    .product_unit._buy_box
+                      a.product_block(href='product.html')
+                        .product_bg
+                          img(src='i/sebastian_conditioner_bg.jpg')
+                        .product_img
+                          img.shadowed(src='i/product_9.png')
+
+                      .product_info
+                        .product_name Sebastian Penetraitt Conditioner
+                        p Кондиционер для восстановления и гладкости волос 
+
+                        .product_buy_box
+                          a.gl_link.show_more._white(href='#')
+                            span Купить
+
+
+                //-.slide
+                  .popuplar_list
+                    .popuplar_l_item
                       .product_unit._buy_box
                         a.product_block(href='product.html')
                           .product_bg
@@ -110,7 +162,7 @@ html(lang='ru')
                             a.gl_link.show_more(href='#')
                               span Купить
                               
-                    li
+                    .popuplar_l_item
                       .product_unit._buy_box
                         a.product_block(href='product.html')
                           .product_bg
@@ -125,7 +177,7 @@ html(lang='ru')
                             a.gl_link.show_more(href='#')
                               span Купить
                             
-                    li._wide
+                    ._wide.popuplar_l_item
                       .popular_box
                         .product_unit._buy_box
                           a.product_block(href='product.html')
@@ -142,6 +194,8 @@ html(lang='ru')
                               a.gl_link.show_more._white(href='#')
                                 span Купить
                 
+                                
+                                
               .slider_controls._left
                 .slide_prev
                 .slide_next
@@ -180,11 +234,11 @@ html(lang='ru')
             ul.share_list
               li: a.share_link(href='#'): img(src='i/share_2.jpg')
               li._upper: a.share_link(href='#'): img(src='i/share_1.jpg')
-              li: .share_link
+              li.tab_vis: .share_link
               li: a.share_link(href='#'): img(src='i/share_4.jpg')
               li._upper: a.share_link(href='#'): img(src='i/share_3.jpg')
-              li: a.share_link(href='#'): img(src='i/share_6.jpg')
-              li: .share_link._half
+              li: a.share_link.share_mod_1(href='#'): img(src='i/share_6.jpg')
+              li.tab_vis: .share_link._half
               li._upper: a.share_link(href='#'): img(src='i/share_5.jpg')
               
               

@@ -8,9 +8,9 @@ html(lang='ru')
       .base
         +header()
 
-        .main_content
+        .main_content._inner
           .section_inner
-            .product_info
+            .product_info_block
               .product_photo
                 a.product_block(href='product.html')
                   .product_bg
@@ -18,7 +18,10 @@ html(lang='ru')
                     img.shadowed(src='i/orbi_big.png')
 
               .product_description
-                .block_title Oribe Silverati Shampoo
+                .block_title
+                  span Oribe Silverati 
+                  span.wide_hidden <br> 
+                  span  Shampoo
                 
                 .product_volume
                   .fl
@@ -62,38 +65,46 @@ html(lang='ru')
                       span Отложить
                       
             .product_seo
-              .product_seo_col._col_1
-                .block_title Основные<br>ингридиенты
+              .product_seo_col._col_1._one_col
+                .block_title 
+                  span Основные 
+                  span.wide_only <br>
+                  span  ингридиенты
+
+                .product_seo_box
+                  h3 Морской шелк ®
                     
-                h3 Морской шелк ®
-                  
-                p Смесь морских растительных ингредиентов обеспечивает уникальное увлажнение и помогает восстановить поврежденные волосы.
+                  p Смесь морских растительных ингредиентов обеспечивает уникальное увлажнение и помогает восстановить поврежденные волосы.
 
-                h3 Экстракт икры
-                  
-                p Аминокислоты и жирные кислоты Omega 3 помогают разгладить волос и придать блеска.
+                  h3 Экстракт икры
+                    
+                  p Аминокислоты и жирные кислоты Omega 3 помогают разгладить волос и придать блеска.
+
+                  h3 
+                    span Комплекс , контролирующий возраст
+                    span.wide_hidden <br>
+                    span  волос ®
+                    
+                  p Контролирует естественное, химическое старение, а также старение под воздействием окружающей среды. Входящий в состав экстракт икры и витамина С помогают разглаживать волос и придавать волосам сияние.
+
+                .product_seo_box
+                  h3 Энзимотерапия
+                    
+                  p Эксклюзивный комплекс энзимов и минералов создан обеспечивает волосы жизненно необходимыми питательными веществами для поддержания здоровья волос.
+
+                  h3 Сохранение цвета ®
+                    
+                  p Поддерживающая технология блокирует потерю цвета.
                 
-                h3 Комплекс , контролирующий возраст волос ®
-                  
-                p Контролирует естественное, химическое старение, а также старение под воздействием окружающей среды. Входящий в состав экстракт икры и витамина С помогают разглаживать волос и придавать волосам сияние.
-
-                h3 Энзимотерапия
-                  
-                p Эксклюзивный комплекс энзимов и минералов создан обеспечивает волосы жизненно необходимыми питательными веществами для поддержания здоровья волос.
-
-                h3 Сохранение цвета ®
-                  
-                p Поддерживающая технология блокирует потерю цвета.
-                
-              .product_seo_col._col_2
+              .product_seo_col._col_2._one_col
                 .block_title Описание
-                  
-                p.lh_25 Smoothing Hydra-Gelée Nourishing Hair Perfector – легкий гель для увлажнения и разглаживания волос. Многофункциональный гель кондиционирует волосы, убирая несовершенства, обеспечивает волосам мгновенную гладкость без утяжеления и здоровый естественный блеск. Средство завершает уход за волосами и делает их идеально здоровыми с красивым натуральным блеском.
+                .product_seo_box
+                  p.lh_25 Smoothing Hydra-Gelée Nourishing Hair Perfector – легкий гель для увлажнения и разглаживания волос. Многофункциональный гель кондиционирует волосы, убирая несовершенства, обеспечивает волосам мгновенную гладкость без утяжеления и здоровый естественный блеск. Средство завершает уход за волосами и делает их идеально здоровыми с красивым натуральным блеском.
                   
             .block_title Связанные товары
               
-            ul.filter_list._related
-              li
+            .filter_list._related.relatedSlider
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -110,7 +121,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
 
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -127,7 +138,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
 
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product_sale.html')
                     .product_bg
@@ -147,7 +158,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
 
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product_new.html')
                     .product_bg

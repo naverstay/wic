@@ -43,37 +43,98 @@ body {
   line-height: normal;
 }
 
+.main_content {
+
+  &._inner {
+    @include respond-to-max($resp_step_3) {
+      padding-top: 40px;
+    }
+
+    @include respond-to-max($resp_step_2) {
+      padding-top: 28px;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      padding-top: 10px;
+    }
+  }
+}
+
 .wrapper {
   position: relative;
-  padding-top: 152px;
+  padding-top: 90px;
   min-height: 100%;
+  overflow: hidden;
+
+  @include respond-to-min($resp_step_1) {
+    padding-top: 112px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding-top: 152px;
+  }
 
   &._store_menu {
-    padding-top: 192px;
+
+    @include respond-to-min($resp_step_3) {
+      padding-top: 192px;
+    }
   }
 
   &._contacts {
-    padding-top: 185px;
+    padding-top: 100px;
+
+    @include respond-to-min($resp_step_1) {
+      padding-top: 145px;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      padding-top: 153px;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      padding-top: 185px;
+    }
   }
 
   &._profile {
     padding-top: 145px;
+
+    @include respond-to-max($resp_step_1) {
+      padding-top: 85px;
+    }
   }
 }
 
 .base {
-  padding-bottom: 160px;
+  padding-bottom: 27px;
+
+  @include respond-to-min($resp_step_1) {
+    padding-bottom: 160px;
+  }
 }
 
 .section_inner {
   width: 100%;
   max-width: $content-max-w;
-  padding: 0 10px;
   margin: 0 auto;
+  padding: 0 10px;
+
+  @include respond-to-min($resp_step_1) {
+    padding: 0 20px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding: 0 42px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding: 0 10px;
+  }
 }
 
 .hero_slider {
-  margin: 40px 0 120px;
+  margin: 0 0 25px;
   position: relative;
   overflow: hidden;
 
@@ -82,7 +143,6 @@ body {
   }
 
   .slick-track {
-    padding-top: 30px;
     @extend %clearfix;
   }
 
@@ -92,32 +152,158 @@ body {
     }
   }
 
-  .hero_box {
-    width: 66.2%;
-    float: left;
-    position: relative;
-    background: #000;
-    padding-right: 400px;
-    padding-bottom: 65px;
-  }
-
   .hero_img {
     img {
       display: block;
+      max-width: 100%;
     }
   }
 
   .hero_text {
-    position: absolute;
-    bottom: 60px;
-    right: 20px;
-    left: 410px;
+
+    @include respond-to-max($resp_step_1) {
+      //padding-top: 120px;
+      margin-left: 43%;
+      padding-top: 40%;
+      margin-bottom: 30px;
+    }
+
+    @include respond-to-min($resp_step_1) {
+      position: absolute;
+      bottom: 53px;
+      right: 5px;
+      //left: 183px;
+      left: 38.4%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      bottom: 50px;
+      right: 5px;
+      //left: 240px;
+      left: 41.4%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      right: 20px;
+      //left: 410px;
+      left: 52.5%;
+      bottom: 60px;
+    }
   }
 
   .hero_caption {
+    position: relative;
+    z-index: 1;
     font: 40px/.9 $FormularBlack;
     color: #fff;
     max-height: 3.6em;
+
+    @include respond-to-max($resp_step_1) {
+      font-size: 20px;
+      line-height: 1.2;
+      max-height: none;
+      min-height: 3.6em;
+    }
+  }
+
+  .hero_box {
+    position: relative;
+    padding-bottom: 84px;
+    //padding-right: 180px;
+
+    @include respond-to-max($resp_step_1) {
+      padding-bottom: 75px;
+
+      .hero_img {
+        position: relative;
+        float: left;
+        width: 40%;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: -800px;
+          left: 0;
+          bottom: -84px;
+          background: #000;
+        }
+
+        img {
+          position: relative;
+          z-index: 1;
+        }
+      }
+    }
+
+    @include respond-to-min($resp_step_1) {
+      width: 66%;
+      float: left;
+      //padding-right: 302px;
+      padding-bottom: 168px;
+      padding-right: 41.5%;
+      background: #000;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 61.7%;
+      //padding-right: 360px;
+      padding-right: 38.3%;
+      padding-bottom: 130px;
+      //padding-right: 33.9% !important;
+
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 66.2%;
+      //padding-right: 400px;
+      padding-right: 33.9%;
+      padding-bottom: 65px;
+      //padding-right: 33.9% !important;
+    }
+
+    @include respond-to-max($resp_step_3) {
+      &.about_mod {
+        width: 66%;
+        padding-right: 33.6%;
+        padding-bottom: 105px;
+
+        .hero_text {
+          bottom: 37px;
+          left: 52.2%;
+        }
+
+        .hero_info .hero_info_col:nth-child(2n) {
+          padding-left: 5px;
+        }
+      }
+    }
+
+    @include respond-to-max($resp_step_3) {
+      &.about_mod {
+        width: 63%;
+        padding-right: 38.6%;
+        padding-bottom: 320px;
+
+        .hero_text {
+          bottom: 30px;
+          left: 43.2%;
+        }
+
+        .hero_caption {
+          font-size: 36px;
+          line-height: 1.05;
+        }
+
+        .hero_info .hero_info_col {
+          margin-top: 46px;
+
+          &:nth-child(2n) {
+            padding-left: 5px;
+          }
+        }
+      }
+    }
   }
 
   .hero_info_w {
@@ -152,22 +338,103 @@ body {
   }
 
   .product_w {
-    position: absolute;
-    top: -30px;
-    right: -100px;
-    z-index: 1;
+
+    @include respond-to-min($resp_step_1) {
+      position: absolute;
+      top: -30px;
+      right: -100px;
+      z-index: 1;
+    }
 
     .product_info {
-      position: absolute;
-      left: 100%;
-      bottom: 0;
-      width: 100%;
-      margin-left: 20px;
+
+      @include respond-to-min($resp_step_1) {
+        position: absolute;
+        left: 100%;
+        bottom: 0;
+        width: 100%;
+        margin-left: 20px;
+      }
+
+      @include respond-to-max($resp_step_3) {
+        bottom: 3px;
+      }
+
+      @include respond-to-max($resp_step_2) {
+        margin-left: 30px;
+        bottom: -75px;
+      }
+
+      @include respond-to-max($resp_step_1) {
+        bottom: auto;
+        margin: 0 43% 0 0;
+        padding-top: 14%;
+      }
+    }
+
+    @include respond-to-max($resp_step_3) {
+      right: -65px;
+
+      .product_unit {
+        width: 200px;
+      }
+    }
+
+    @include respond-to-max($resp_step_2) {
+      right: -35px;
+
+      .product_unit {
+        width: 150px;
+      }
+    }
+
+    @include respond-to-max($resp_step_1) {
+      right: auto;
+      clear: both;
+
+      .product_unit {
+        width: auto;
+
+        &:before,
+        &:after {
+          content: " ";
+          display: table;
+        }
+        &:after {
+          clear: both;
+        }
+
+        .product_block {
+          //width: 120px;
+          //height: 160px;
+          width: 40%;
+          padding-bottom: 53.4%;
+          float: right;
+          height: auto;
+
+          .product_img img {
+            //-webkit-transform: scale(.4);
+            //-ms-transform: scale(.4);
+            //transform: scale(.4);
+          }
+        }
+      }
     }
 
     .product_block {
-      height: 380px;
+      width: 150px;
+      height: 220px;
       margin: 0;
+
+      @include respond-to-min($resp_step_2) {
+        height: 280px;
+        width: 200px;
+      }
+
+      @include respond-to-min($resp_step_3) {
+        height: 380px;
+        width: 280px;
+      }
     }
 
     .product_unit {
@@ -179,11 +446,46 @@ body {
       }
     }
   }
+
+  @include respond-to-min($resp_step_1) {
+    margin-top: 40px;
+
+    .slick-track {
+      padding-top: 30px;
+    }
+
+    &.mod_1 {
+      margin-bottom: 62px;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    margin-bottom: 75px;
+
+    &.mod_1 {
+      margin-bottom: 80px;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-bottom: 120px;
+
+    &.mod_1 {
+      margin-bottom: 120px;
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    &.mod_1 {
+      margin-top: 10px;
+    }
+  }
 }
 
 .slider_controls {
   position: absolute;
   bottom: 0;
+  z-index: 2;
 
   &._left {
     left: -4px;
@@ -191,6 +493,11 @@ body {
 
   &._right {
     right: -4px;
+
+    @include respond-to-max($resp_step_1) {
+      left: -3px;
+      right: auto;
+    }
   }
 
   .slick-arrow {
@@ -201,6 +508,7 @@ body {
     width: 64px;
     height: 64px;
     border: 3px solid #000;
+    background: #fff;
     margin: 0 4px;
     font-size: 38px;
     cursor: pointer;
@@ -229,6 +537,12 @@ body {
       }
     }
 
+    @include respond-to-max($resp_step_1) {
+      width: 50px;
+      height: 50px;
+      border-width: 2px;
+      font-size: 28px;
+    }
   }
 }
 
@@ -239,10 +553,28 @@ body {
 
   p + & {
     margin-top: 24px;
+
+    @include respond-to-max($resp_step_3) {
+      margin-right: -60px;
+    }
+
+    @include respond-to-max($resp_step_2) {
+      margin-right: -30px;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      margin-right: 0;
+      margin-top: 10px;
+      line-height: 1;
+    }
   }
 
   + p {
-    margin-top: 24px;
+    margin-top: 18px;
+
+    @include respond-to-min($resp_step_2) {
+      margin-top: 24px;
+    }
   }
 
   .filter_list & {
@@ -253,13 +585,18 @@ body {
 .product_price {
   font: 24px/28px $AvenirNextDemiBoldItalic;
   opacity: .6;
-  margin: 12px 0 18px;
+  margin: 12px -10px 18px 0;
 
   ._old_price {
+    white-space: nowrap;
     opacity: .2;
     font-size: 20px;
     padding-left: 3px;
     text-decoration: line-through;
+
+    @include respond-to-max($resp_step_2) {
+      display: block;
+    }
   }
 }
 
@@ -268,6 +605,21 @@ body {
 
   p {
     font-size: 16px;
+
+    @include respond-to-max($resp_step_2) {
+      margin-right: -30px;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      margin-right: 0;
+    }
+  }
+
+  &._hovered,
+  &:focus,
+  &:active,
+  &:hover {
+    @include transform_translate(0, -47px);
   }
 }
 
@@ -299,7 +651,7 @@ body {
 }
 
 .product_unit {
-  width: 280px;
+  //width: 178px;
   position: relative;
 
   &._buy_box {
@@ -310,6 +662,9 @@ body {
       @include transition_all(transform .3s);
     }
 
+    &._hovered,
+    &:focus,
+    &:active,
     &:hover {
       .product_info {
         @include transform_translate(0, -47px);
@@ -324,15 +679,48 @@ body {
     z-index: 15;
   }
 
+  @include respond-to-min($resp_step_3) {
+    //width: 220px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    //width: 280px;
+  }
 }
 
 .product_block {
   display: block;
   position: relative;
-  width: 280px;
-  height: 360px;
+  width: 178px;
+  height: 220px;
   margin-bottom: 8px;
   color: #000;
+  //pointer-events: none;
+
+  @include respond-to-min($resp_step_2) {
+    width: 220px;
+    height: 280px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    width: 280px;
+    height: 360px;
+  }
+
+  *:hover > &,
+  &:hover {
+    //pointer-events: all;
+    //
+    //&:before {
+    //  content: '';
+    //  position: absolute;
+    //  top: 0;
+    //  left: -100px;
+    //  right: -100px;
+    //  bottom: -500px;
+    //  z-index: 2;
+    //}
+  }
 }
 
 .product_tip {
@@ -363,9 +751,11 @@ body {
   left: 0;
   right: 0;
   background: #f5f5f5;
+  overflow: hidden;
 
   img {
     display: block;
+    min-height: 100%;
     max-width: 100%;
   }
 }
@@ -377,9 +767,25 @@ body {
   will-change: transform;
 
   img {
-    display: block;
-    position: relative;
     z-index: 1;
+    position: relative;
+
+    @include respond-to-max($resp_step_1) {
+      //max-height: 53%;
+      //max-width: 50%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      //-webkit-transform: scale(.75);
+      //-ms-transform: scale(.75);
+      //transform: scale(.75);
+    }
+
+    @include respond-to-min($resp_step_3) {
+      //-webkit-transform: scale(1);
+      //-ms-transform: scale(1);
+      //transform: scale(1);
+    }
   }
 
   &.spotted {
@@ -402,6 +808,30 @@ body {
       //background-image: radial-gradient(50% 96%, rgba(255, 255, 255, 0.50) 80%, rgba(255, 255, 255, 0.00) 96%);
     }
   }
+
+  @include respond-to-max($resp_step_2) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      max-height: 50%;
+      max-width: 50%;
+    }
+  }
+
 }
 
 .product_status {
@@ -426,6 +856,10 @@ body {
       text-align: center;
     }
   }
+
+  @include respond-to-max($resp_step_2) {
+    font-size: 14px;
+  }
 }
 
 .shadowed {
@@ -436,7 +870,15 @@ body {
 }
 
 .partners_section {
-  margin-bottom: 60px;
+  margin-bottom: 72px;
+
+  @include respond-to-min($resp_step_2) {
+    margin-bottom: 22px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-bottom: 60px;
+  }
 }
 
 .partners_block {
@@ -446,37 +888,80 @@ body {
 
 .partners_list {
   float: left;
-  padding: 16px 0 0 18px;
+  padding-top: 85px;
+  padding-left: 5px;
+  width: 95px;
 
   li {
-    margin-bottom: 77px;
+    margin-bottom: 49px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    width: auto;
+    padding-top: 20px;
+
+    li {
+      margin-bottom: 66px;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding: 16px 0 0 18px;
+
+    li {
+      margin-bottom: 77px;
+    }
   }
 }
 
 .partner_link {
   @include transition_all(opacity .3s);
   display: block;
+  margin: 0 auto;
   opacity: .3;
 
   img {
     display: block;
+    max-width: 100%;
   }
 
   &:hover {
     opacity: 1;
   }
+
+  @include respond-to-max($resp_step_3) {
+    max-width: 120px;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    max-width: 95px;
+  }
 }
 
 .partners_info {
-  margin-left: 398px;
-  padding-top: 98px;
+  padding-top: 36px;
+
+  @include respond-to-min($resp_step_1) {
+    margin-left: 125px;
+    padding-top: 96px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    margin-left: 162px;
+    padding-top: 96px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-left: 398px;
+    padding-top: 98px;
+  }
 }
 
 .caption_tip {
   position: relative;
   font: 14px $FormularBlack;
   padding-left: 90px;
-  margin-bottom: 25px;
+  margin-bottom: 35px;
 
   &:before {
     content: '';
@@ -496,25 +981,48 @@ body {
       background: #fff;
     }
   }
+
+  @include respond-to-min($resp_step_1) {
+    margin-bottom: 25px;
+  }
 }
 
 .article_holder {
   @extend %clearfix;
   //margin-left: -40px;
-  padding-top: 25px;
   display: inline-block;
   vertical-align: top;
-  margin-bottom: 31px;
-  -webkit-columns: 2;
-  -moz-columns: 2;
-  columns: 2;
-  -webkit-column-gap: 40px;
-  -moz-column-gap: 40px;
-  column-gap: 40px;
+  margin-bottom: 20px;
+  padding-top: 8px;
 
   p {
     font-size: 16px;
     line-height: 25px;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    margin-bottom: 23px;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding-top: 25px;
+    -webkit-column-gap: 22px;
+    -moz-column-gap: 22px;
+    column-gap: 22px;
+    margin-bottom: 29px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
+    column-gap: 40px;
+    margin-bottom: 31px;
   }
 }
 
@@ -525,32 +1033,89 @@ body {
 }
 
 .block_title {
-  font: 40px/1 $FormularBlack;
-  margin-bottom: 32px;
+  font: 28px/1.1 $FormularBlack;
+  margin-bottom: 35px;
+
+  @include respond-to-min($resp_step_1) {
+    font-size: 40px;
+    line-height: 1;
+    margin-bottom: 32px;
+  }
+
+  &._wish_mode {
+    @include respond-to-max($resp_step_2) {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      font-size: 28px;
+      margin: 15px 0 -10px;
+    }
+  }
 }
 
 .service_section {
-  margin-bottom: 133px;
+  margin-bottom: 75px;
+
+  @include respond-to-min($resp_step_1) {
+    margin-bottom: 60px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    margin-bottom: 92px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-bottom: 133px;
+  }
 }
 
 .service_block {
   background: $default_t_color;
   position: relative;
-  padding: 50px 560px 53px 40px;
+  padding: 29px 19px 45px;
   color: #fff;
   max-width: 980px;
-  margin-bottom: 73px;
+  margin: 0 -10px 30px;
+  overflow: hidden;
 
   .block_title {
-    margin-bottom: 40px;
+    margin-bottom: 24px;
+
+    @include respond-to-min($resp_step_2) {
+      margin-bottom: 40px;
+    }
   }
 
   p {
     font: 18px/26px $AvenirNextDemiBold;
 
     + p {
-      margin-top: 48px;
+      margin-top: 28px;
+
+      @include respond-to-min($resp_step_1) {
+        margin-top: 23px;
+      }
+
+      @include respond-to-min($resp_step_2) {
+        margin-top: 48px;
+      }
     }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    padding: 40px 395px 40px 40px;
+    margin: 0 0 43px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding: 53px 530px 53px 40px;
+    margin-bottom: 73px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding: 50px 530px 53px 40px;
   }
 }
 
@@ -559,36 +1124,70 @@ body {
   top: 0;
   bottom: 0;
   right: 0;
-  width: 500px;
+  width: 360px;
   overflow: hidden;
 
   img {
     @extend %hor_vert_centr;
     position: absolute;
     min-width: 100%;
+    min-height: 100%;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    right: -1px;
+    width: 360px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    width: 460px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    width: 500px;
   }
 }
 
 .service_more_info {
   float: right;
   width: 100%;
-  max-width: 49%;
-  padding-right: 55px;
+  max-width: 300px;
 
   p {
     font-size: 18px;
     line-height: 26px;
-    margin-bottom: 31px;
+    margin-bottom: 19px;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    p {
+      margin-bottom: 31px;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    max-width: 49%;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding-right: 55px;
   }
 }
 
 .popular_slider {
   position: relative;
   overflow: hidden;
-  margin-bottom: 120px;
+  margin-bottom: 145px;
 
   .slide {
     position: relative;
+  }
+
+  .slick-dots {
+    display: none !important;
   }
 
   .slick-track {
@@ -597,43 +1196,171 @@ body {
 
   &.slick-initialized {
     .slide {
-      padding-right: 1px;
+      //padding-right: 1px;
       float: left;
     }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    padding-bottom: 75px;
+    margin-bottom: 65px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    margin-bottom: 80px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-bottom: 120px;
   }
 }
 
 .popuplar_list {
   @extend %clearfix;
-  margin-left: -20px;
 
-  li {
-    width: 300px;
+  .slick-list {
+    margin-right: -20px;
+  }
+
+  .popuplar_l_item {
+    width: 198px;
     float: left;
-    padding-left: 20px;
+    padding-right: 20px;
 
     &._wide {
-      width: 599px;
+      //width: 355px;
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    padding-top: 6px;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    //margin-left: -5px;
+
+    .popuplar_l_item {
+      width: 183px;
+      float: left;
+      padding-right: 5px;
+
+      &._wide {
+        width: 366px;
+      }
+    }
+
+    .slick-list {
+      margin-right: -5px;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+
+    .popuplar_l_item {
+      width: 240px;
+      padding-right: 20px;
+
+      &._wide {
+        width: 479px;
+      }
+    }
+
+    .slick-list {
+      margin-right: -20px;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+
+    .popuplar_l_item {
+      width: 300px;
+
+      &._wide {
+        width: 599px;
+      }
     }
   }
 }
 
 .popular_box {
-  position: relative;
-  background: $default_t_color;
-  padding: 0 200px 87px 0;
-  color: #fff;
 
   .product_unit {
-    width: 380px;
+    //width: 300px;
 
     .product_block {
-      width: 100%;
-      height: 500px;
+      //width: 100%;
+      //height: 430px;
     }
 
     .product_info {
-      margin-left: 100px;
+      //margin-left: 80px;
+    }
+  }
+
+  @include respond-to-max($resp_step_2) {
+
+    .product_name + p {
+      margin-top: 24px;
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+
+    .product_name + p {
+      margin-top: 18px;
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    position: relative;
+    background: $default_t_color;
+    //padding: 0 50px 37px 0;
+    color: #fff;
+    padding: 0 50px 44px 0;
+
+    .product_unit {
+
+      .product_block {
+        width: 260px;
+        height: 360px;
+      }
+
+      .product_info {
+        margin-left: 60px;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding: 0 200px 37px 0;
+
+    .product_unit {
+      width: 300px;
+
+      .product_block {
+        width: 100%;
+        height: 430px;
+      }
+
+      .product_info {
+        margin-left: 80px;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding: 0 200px 87px 0;
+
+    .product_unit {
+      width: 380px;
+
+      .product_block {
+        height: 500px;
+      }
+
+      .product_info {
+        margin-left: 100px;
+      }
     }
   }
 }
@@ -651,11 +1378,19 @@ body {
 }
 
 .subscribe_block {
-  margin: 0 auto 120px;
+  margin: 0 auto 33px;
   max-width: 780px;
 
   .block_title {
     margin-bottom: 24px;
+
+    @include respond-to-max($resp_step_2) {
+      margin-bottom: 45px;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      margin-bottom: 35px;
+    }
   }
 
   p {
@@ -663,15 +1398,41 @@ body {
     line-height: 1.6;
     font-size: 16px;
     margin-bottom: 32px;
+
+    @include respond-to-max($resp_step_1) {
+      margin-bottom: 40px;
+    }
   }
 
-  &._mod-1 {
-    margin-bottom: 150px;
+  @include respond-to-min($resp_step_1) {
+    margin-bottom: 80px;
+
+    &._mod-1 {
+      margin-bottom: 60px;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    &._mod-1 {
+      margin-bottom: 77px;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-bottom: 120px;
+
+    &._mod-1 {
+      margin-bottom: 150px;
+    }
   }
 }
 
 .subscribe_row {
   background: #000;
+
+  @include respond-to-max($resp_step_1) {
+    margin: 0 -10px;
+  }
 }
 
 .share_section {
@@ -679,53 +1440,125 @@ body {
 }
 
 .share_block {
-  position: relative;
-  z-index: 1;
-  float: right;
-  width: 100%;
-  max-width: 40.5%;
-  padding-right: 7%;
 
   .block_title {
-    margin-bottom: 24px;
+    margin-bottom: 40px;
   }
 
   p {
     font-size: 16px;
     line-height: 1.5;
   }
+
+  @include respond-to-min($resp_step_1) {
+    position: relative;
+    z-index: 1;
+    float: right;
+    width: 100%;
+    max-width: 41.2%;
+
+    .block_title {
+      margin-bottom: 24px;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    max-width: 40.5%;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding-right: 7%;
+  }
 }
 
 .share_tags {
-  padding-top: 50px;
+  padding-top: 30px;
   text-transform: uppercase;
   font: 20px $AvenirNextDemiBold;
 
   li {
     margin-bottom: 2px;
   }
+
+  @include respond-to-min($resp_step_1) {
+    padding-top: 35px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding-top: 50px;
+  }
 }
 
 .share_list {
-  float: left;
-  width: 77%;
-  margin-bottom: 88px;
+  margin-right: -10px;
 
   li {
     float: left;
-    width: 33%;
-    padding-right: 20px;
-    margin-bottom: 16px;
+    width: 50%;
+    padding-right: 10px;
+    margin-bottom: 10px;
+  }
 
-    &._upper {
-      margin-top: -156px;
+  @include respond-to-max($resp_step_1) {
+    padding: 25px 5px;
+
+    &:before,
+    &:after {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    margin-top: -42px;
+    margin-right: 0;
+    float: left;
+    width: 82.5%;
+    margin-bottom: -10px;
+
+    li {
+      float: left;
+      width: 33%;
+      padding-right: 20px;
+      margin: 10px 0;
+
+      &._upper {
+        margin-top: -156px;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    width: 90.5%;
+    margin-top: 0;
+    margin-bottom: 32px;
+
+    li {
+      margin: 0 0 20px;
+
+      &._upper {
+        margin-top: -156px;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    width: 77%;
+    margin-bottom: 88px;
+
+    li {
+      margin-bottom: 16px;
     }
   }
 }
 
 .share_link {
   display: block;
-  width: 280px;
+  width: 360px;
+  max-width: 100%;
   height: 0;
   padding-bottom: 100%;
   position: relative;
@@ -738,9 +1571,29 @@ body {
   img {
     @extend %hor_vert_centr;
     position: absolute;
-    min-width: 100%;
+    width: 100%;
+  }
+
+  &.share_mod_1 {
+
+    @include respond-to-min($resp_step_1) {
+      margin: -80px 0 80px;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      margin: -23px 0 23px;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      margin: 0;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    width: 280px;
+
+    &.share_mod_1 {
+      margin: 0;
+    }
   }
 }
-
-
-

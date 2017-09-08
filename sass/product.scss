@@ -1,10 +1,21 @@
-.product_info {
+.product_info_block {
   @extend %clearfix;
+
+  @include respond-to-min($resp_step_1) {
+    margin-bottom: 60px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    margin-bottom: 80px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-bottom: 112px;
+  }
 }
 
 .product_photo {
-  float: left;
-  width: 480px;
+  margin: 0 -10px;
 
   .product_bg {
     //background-image: linear-gradient(-180deg, #f3f3f3 0%, #d8d8d8 100%);
@@ -20,27 +31,47 @@
   }
 
   .product_block {
+    width: 100%;
+    height: 330px;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    float: left;
+    width: 300px;
+    margin: 0;
+
+    .product_block {
+      width: 300px;
+      height: 416px;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    width: 380px;
+
+    .product_block {
+      width: 380px;
+      height: 494px;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
     width: 480px;
-    height: 620px;
-    margin-bottom: 120px;
+
+    .product_block {
+      width: 480px;
+      height: 620px;
+    }
   }
 }
 
 .product_description {
-  margin-left: 545px;
-  min-height: 620px;
   position: relative;
-  padding-bottom: 70px;
-  margin-bottom: 120px;
+  padding-bottom: 47px;
+  //margin-bottom: 120px;
 
   .block_title {
-    margin: 3px 0 24px;
-  }
-
-  .product_price {
-    font-size: 42px;
-    line-height: 57px;
-    margin-bottom: 48px;
+    margin: 20px 0 30px;
   }
 
   ._old_price {
@@ -48,22 +79,111 @@
   }
 
   .caption_tip {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    .block_title {
+      font-size: 36px;
+      line-height: 1.1;
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    .product_price {
+      font-size: 30px;
+      line-height: 1.35;
+      margin: 18px -10px 40px 10px;
+    }
+
+    .block_title {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    margin: 0 0 0 320px;
+    padding-bottom: 70px;
+
+    .block_title {
+      margin: 3px 0 24px;
+    }
+
+    .product_price {
+      font-size: 36px;
+      line-height: 1.35;
+      margin-bottom: 30px;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    margin-left: 420px;
+    min-height: 560px;
+
+    .product_price {
+      font-size: 42px;
+      line-height: 1.35;
+      margin-bottom: 41px;
+    }
+
+    .caption_tip {
+      margin-bottom: 40px;
+    }
+
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-left: 545px;
+    min-height: 620px;
+
+    .block_title {
+      margin: 3px 0 24px;
+    }
+
+    .product_price {
+      font-size: 42px;
+      line-height: 1.35;
+      margin-bottom: 48px;
+    }
   }
 }
 
 .product_description_footer {
-  position: absolute;
-  right: 0;
-  left: -24px;
-  bottom: 0;
+  @extend %clearfix;
+  position: relative;
 
   li {
-    float: left;
-    padding-left: 24px;
-    position: relative;
+    margin: 10px 0 15px;
   }
 
+  @include respond-to-min($resp_step_1) {
+    position: absolute;
+    left: -14px;
+    right: 0;
+    bottom: 0;
+
+    li {
+      float: left;
+      padding-left: 14px;
+      position: relative;
+      width: 50%;
+      margin-bottom: 0;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    left: -24px;
+
+    li {
+      padding-left: 24px;
+      width: 46%;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    position: absolute;
+  }
 }
 
 .product_quantity {
@@ -72,33 +192,83 @@
   //bottom: 0;
   //left: 0;
 
-  float: left;
-  width: 160px;
+
   height: 56px;
   border: 2px solid #000;
   position: relative;
   padding: 0 56px;
+
+  @include respond-to-min($resp_step_1) {
+    float: left;
+    width: 160px;
+  }
+
+  @include respond-to-max($resp_step_3) {
+    min-width: 100%;
+  }
 }
 
 .product_volume {
   display: inline-block;
   vertical-align: top;
   width: 100%;
-  margin-bottom: 35px;
+  margin-bottom: 12px;
+
+  @include respond-to-max($resp_step_1) {
+    .fl {
+      width: 300px;
+      max-width: 100%;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    margin-bottom: 17px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-bottom: 35px;
+  }
 }
 
 .product_options {
   overflow: hidden;
-  margin-left: -40px;
+  margin-left: -10px;
 
   li {
-    float: left;
-    width: 50%;
-    padding-left: 40px;
+    padding-left: 10px;
+    margin-bottom: 40px;
+
+    &:last-child {
+      margin-bottom: 32px;
+    }
   }
 
   p {
     font-size: 16px;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    li {
+      margin-bottom: 30px;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    li {
+      float: left;
+      width: 47.5%;
+      margin-bottom: 0;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-left: -40px;
+
+    li {
+      float: left;
+      width: 50%;
+      padding-left: 40px;
+    }
   }
 }
 
@@ -120,17 +290,52 @@
     width: 50%;
     margin-bottom: 12px;
   }
+
+  @include respond-to-min($resp_step_1) {
+
+  }
+
+  @include respond-to-max($resp_step_3) {
+    margin-right: -55px;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    margin-right: 0;
+    margin-bottom: -15px;
+
+    dt {
+      width: 36%;
+    }
+
+    dd {
+      width: 60%;
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    dt {
+      width: 40%;
+    }
+  }
 }
 
 .product_seo {
   @extend %clearfix;
-  margin-bottom: 80px;
+  margin-bottom: 25px;
+
+  @include respond-to-min($resp_step_3) {
+    margin-bottom: 80px;
+  }
 }
 
 .product_seo_col {
 
   .block_title {
-    margin-bottom: 55px;
+    margin-bottom: 40px;
+
+    @include respond-to-min($resp_step_1) {
+      margin-bottom: 55px;
+    }
   }
 
   h3 {
@@ -144,18 +349,74 @@
   }
 
   &._col_1 {
-    width: 41%;
-    float: left;
+
+    @include respond-to-min($resp_step_1) {
+      width: 41%;
+      float: left;
+      margin-right: -4%;
+    }
   }
 
   &._col_2 {
-    width: 49.2%;
-    float: right;
+
+    @include respond-to-min($resp_step_1) {
+      width: 55.5%;
+      float: right;
+      padding-right: 4%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 49.2%;
+      padding-right: 0;
+    }
   }
 
   &._col_3 {
-    width: 75%;
-    float: left;
+
+    @include respond-to-min($resp_step_1) {
+      width: 75%;
+      float: left;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    &._col_1 {
+      margin-right: 0;
+    }
+  }
+
+  @include respond-to-max($resp_step_3) {
+
+    &._one_col {
+      float: left;
+      width: auto;
+    }
+
+    &._col_1 {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.product_seo_box {
+  margin-bottom: 15px;
+
+  @include respond-to-min($resp_step_1) {
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+    padding-right: 40px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding-right: 50px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    display: block;
+    width: auto;
+    padding: 0;
+    margin: 0;
   }
 
 }

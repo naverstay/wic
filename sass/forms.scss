@@ -12,13 +12,16 @@
   &.f_row_v3 {
 
     .f_cell {
-      width: 50%;
-      float: left;
       margin-bottom: -2px;
 
-      + .f_cell {
-        .f_input {
-          border-left: none !important;
+      @include respond-to-min($resp_step_1) {
+        width: 50%;
+        float: left;
+
+        + .f_cell {
+          .f_input {
+            border-left: none !important;
+          }
         }
       }
     }
@@ -30,35 +33,66 @@
     margin-left: -14px;
 
     .f_cell {
-      width: 50%;
       float: left;
       padding-left: 14px;
+
+      @include respond-to-min($resp_step_1) {
+        width: 50%;
+      }
     }
 
     .input_w {
       float: right;
       width: 64px;
+
+      @include respond-to-max($resp_step_1) {
+        margin-left: 14px;
+      }
     }
   }
 
   &.f_row_v1 {
 
     .f_cell {
-      width: 35%;
-      float: left;
-      padding-left: 10px;
+      padding: 0 0 40px 30px;
 
       .input_w {
         padding-top: 25px;
         max-width: 200px;
+
+        @include respond-to-max($resp_step_1) {
+          padding-top: 20px;
+        }
       }
 
       &:first-child {
-        padding-left: 40px;
+        padding-bottom: 4px;
       }
 
       &:last-child {
-        width: 30%;
+        padding: 0;
+      }
+
+      @include respond-to-min($resp_step_1) {
+        width: 34%;
+        float: left;
+        padding: 0 0 0 10px;
+
+        &:first-child {
+          padding-left: 40px;
+        }
+
+        &:last-child {
+          width: 32%;
+        }
+      }
+
+      @include respond-to-min($resp_step_2) {
+        width: 35%;
+
+        &:last-child {
+          width: 30%;
+        }
       }
     }
   }
@@ -67,7 +101,10 @@
 .f_input {
   display: block;
   width: 100%;
-
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-appearance: none;
+  
   &.f_input_v1 {
     height: 40px;
     background: $default_t_color;
@@ -77,12 +114,18 @@
 
     &::-webkit-input-placeholder {
       color: #fff;
+      font-family: $FormularMedium;
     }
 
     &::-moz-placeholder {
       color: #fff;
+      font-family: $FormularMedium;
     }
 
+    @include respond-to-max($resp_step_1) {
+      //height: 36px;
+      //line-height: 22px;
+    }
   }
 
   &.f_input_v2 {
@@ -91,6 +134,14 @@
     background: #ededed;
     font: 14px/20px $AvenirNextDemiBold;
     color: #000;
+    
+    &::-webkit-input-placeholder {
+      font-family: $AvenirNextDemiBold;
+    }
+
+    &::-moz-placeholder {
+      font-family: $AvenirNextDemiBold;
+    }
   }
 
   &.f_input_v3 {
@@ -100,6 +151,14 @@
     background: none;
     font: 16px/30px $AvenirNextDemiBold;
     color: #000;
+
+    &::-webkit-input-placeholder {
+      font-family: $AvenirNextDemiBold;
+    }
+
+    &::-moz-placeholder {
+      font-family: $AvenirNextDemiBold;
+    }
   }
 
   &.f_input_v4 {
@@ -109,11 +168,27 @@
     background: none;
     font: 36px/48px $AvenirNextItalic;
     color: #000;
+
+    &::-webkit-input-placeholder {
+      font-family: $AvenirNextItalic;
+    }
+
+    &::-moz-placeholder {
+      font-family: $AvenirNextItalic;
+    }
   }
 }
 
 textarea.f_input_v3.f_input {
-  height: 345px;
+  height: 255px;
+
+  @include respond-to-min($resp_step_1) {
+    height: 328px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    height: 345px;
+  }
 }
 
 .select_box_v1 {
@@ -186,6 +261,14 @@ textarea.f_input_v3.f_input {
 
       b {
         display: none;
+      }
+
+      @include respond-to-max($resp_step_1) {
+        &:before {
+          margin-top: -12px;
+          font-size: 16px;
+          right: 16px;
+        }
       }
     }
   }

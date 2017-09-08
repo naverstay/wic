@@ -10,11 +10,14 @@ html(lang='ru')
 
         .main_content
           .section_inner
-            .block_title Наши контакты
+            .block_title._wish_mode Наши контакты
 
             ul.contact_info
               li
-                .caption_tip По вопросам сотрудничества
+                .caption_tip 
+                  span По вопросам 
+                  span.mob_only <br>
+                  span сотрудничества
               
                 dl.contact_list
                   dt телефон
@@ -26,7 +29,10 @@ html(lang='ru')
                     a.gl_link(href='mailto:info@mywellpoint.ru') info@mywellpoint.ru 
                   
               li
-                .caption_tip По вопросам оплаты и доставки
+                .caption_tip 
+                  span По вопросам оплаты 
+                  span.mob_only <br>
+                  span и доставки
               
                 dl.contact_list
                   dt телефон
@@ -37,7 +43,7 @@ html(lang='ru')
                   dd 
                     a.gl_link(href='mailto:info@mywellpoint.ru') info@mywellpoint.ru 
                   
-            .block_title Написать нам
+            .block_title._wish_mode Написать нам
               
             .contact_form
               form(action='#')

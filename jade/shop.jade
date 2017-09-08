@@ -39,11 +39,11 @@ html(lang='ru')
                         .f_cell
                           span от
                           .input_w
-                            input#price_min.f_input_v2.f_input.text_center(data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': true, 'groupSeparator': ' ', 'digits': 0, 'digitsOptional': false")
+                            input#price_min.f_input_v2.f_input.text_center(data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': true, 'groupSeparator': ' ', 'digits': 0, 'digitsOptional': false" type='number')
                         .f_cell
                           span до
                           .input_w
-                            input#price_max.f_input_v2.f_input.text_center(data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': true, 'groupSeparator': ' ', 'digits': 0, 'digitsOptional': false")
+                            input#price_max.f_input_v2.f_input.text_center(data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': true, 'groupSeparator': ' ', 'digits': 0, 'digitsOptional': false" type='number')
                 
                       .f_row
                         +check('Только со скидкой')
@@ -128,8 +128,8 @@ html(lang='ru')
                       option Сначала дешевле
                       option Сначала дороже
                   
-              ul.filter_list
-                li
+              .filter_list
+                .filter_l_item
                   .product_unit._buy_box
                     a.product_block(href='product.html')
                       .product_bg
@@ -146,7 +146,7 @@ html(lang='ru')
                         a.gl_link.show_more(href='#')
                           span Купить
                             
-                li
+                .filter_l_item
                   .product_unit._buy_box
                     a.product_block(href='product.html')
                       .product_bg
@@ -163,7 +163,7 @@ html(lang='ru')
                         a.gl_link.show_more(href='#')
                           span Купить
                             
-                li
+                .filter_l_item
                   .product_unit._buy_box
                     a.product_block(href='product.html')
                       .product_bg
@@ -181,7 +181,7 @@ html(lang='ru')
                         a.gl_link.show_more(href='#')
                           span Купить
                             
-                li
+                .filter_l_item
                   .product_unit._buy_box
                     a.product_block(href='product.html')
                       .product_bg
@@ -201,7 +201,7 @@ html(lang='ru')
                         a.gl_link.show_more(href='#')
                           span Купить
                             
-                li
+                .filter_l_item
                   .product_unit._buy_box
                     a.product_block(href='product.html')
                       .product_bg
@@ -219,7 +219,7 @@ html(lang='ru')
                         a.gl_link.show_more(href='#')
                           span Купить
                             
-                li
+                .filter_l_item
                   .product_unit._buy_box
                     a.product_block(href='product.html')
                       .product_bg
@@ -236,7 +236,7 @@ html(lang='ru')
                         a.gl_link.show_more(href='#')
                           span Купить
                             
-                li
+                .filter_l_item
                   .product_unit._buy_box
                     a.product_block(href='product.html')
                       .product_bg
@@ -254,7 +254,7 @@ html(lang='ru')
                         a.gl_link.show_more(href='#')
                           span Купить
                             
-                li
+                .filter_l_item
                   .product_unit._buy_box
                     a.product_block(href='product.html')
                       .product_bg
@@ -273,7 +273,7 @@ html(lang='ru')
                         a.gl_link.show_more(href='#')
                           span Купить
                             
-                li
+                .filter_l_item
                   .product_unit._buy_box
                     a.product_block(href='product.html')
                       .product_bg
@@ -291,7 +291,7 @@ html(lang='ru')
                         a.gl_link.show_more(href='#')
                           span Купить
                             
-                li
+                .filter_l_item
                   .product_unit._buy_box
                     a.product_block(href='product.html')
                       .product_bg
@@ -308,7 +308,7 @@ html(lang='ru')
                         a.gl_link.show_more(href='#')
                           span Купить
                             
-                li
+                .filter_l_item
                   .product_unit._buy_box
                     a.product_block(href='product.html')
                       .product_bg
@@ -326,7 +326,7 @@ html(lang='ru')
                         a.gl_link.show_more(href='#')
                           span Купить
                             
-                li
+                .filter_l_item
                   .product_unit._buy_box
                     a.product_block(href='product.html')
                       .product_bg

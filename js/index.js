@@ -50,11 +50,21 @@ $(function ($) {
     prevArrow: '.popularSlider .slide_prev',
     nextArrow: '.popularSlider .slide_next',
 
-    //slidesToShow: 3,
-    slidesToScroll: 1,
-    touchThreshold: 10
-  });
+    variableWidth: true,
+    slidesToShow: 1,
 
+    slidesToScroll: 1,
+    touchThreshold: 10,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
+        }
+      }
+    ]
+  });
 
 });
 

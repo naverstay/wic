@@ -1,11 +1,38 @@
-var body_var,
+var body_var, wnd,
   global_window_Height;
 
 $(function ($) {
 
   body_var = $('body');
+  wnd = $(window);
+
+  var container = body_var[0];
+
+  var tap = new Tap(container);
+
+  $('.product_info')
+    .on('tap', function (e) {
+      tapCallback(e);
+    })
+    .on('click', function (e) {
+      //tapCallback(e);
+    });
+
+  $('.base')
+    .on('tap', function (e) {
+     // console.log('base');
+     //$('.hovered').removeClass('_hovered');
+  
+    })
+    .on('click', function (e) {
+      //tapCallback(e);
+    });
 
   body_var
+    .delegate('.openMobMenu', 'click', function () {
+      body_var.toggleClass('menu_opened');
+      return false;
+    })
     .delegate('.valPlus', 'click', function () {
       var valCell = $(this).closest('.valCell'),
         inp = valCell.find('input'),
@@ -43,7 +70,9 @@ $(function ($) {
       form[0].reset();
 
       form.find('.toddler').each(function (ind) {
-        var el = $(this), max = parseInt(el.attr('data-max')), min = parseInt(el.attr('data-min')), max_inp = $(el.attr('data-control-max')), min_inp = $(el.attr('data-control-min')), start = this.noUiSlider.options.start;
+        var el = $(this), max = parseInt(el.attr('data-max')), min = parseInt(el.attr('data-min')),
+          max_inp = $(el.attr('data-control-max')), min_inp = $(el.attr('data-control-min')),
+          start = this.noUiSlider.options.start;
 
         this.noUiSlider.set(this.noUiSlider.options.start);
 
@@ -65,8 +94,23 @@ $(function ($) {
 
       return false;
     })
+    .delegate('.collapseLink', 'click', function () {
+      var firedEl = $(this), target = $('.collapsed[data-collapse=' + firedEl.attr('data-collapse') + ']');
+
+      if (target) {
+        firedEl.toggleClass('expanded');
+        target.toggle();
+      }
+
+      return false;
+    })
     .delegate('.msgCloseBtn', 'click', function () {
-      $(this).closest('.msgBlock').slideToggle();
+      $('.msgBlock').slideToggle();
+
+      return false;
+    })
+    .delegate('.openAsideMenu', 'click', function () {
+      $(this).closest('.aside').toggleClass('aside_open');
 
       return false;
     })
@@ -97,7 +141,75 @@ $(function ($) {
 
   initScrollBars();
 
+  //sameHeighter($('.sameHeight'));
+
 });
+
+function tapCallback(e) {
+  var el = $(e.target);
+
+  //console.log(el[0].tagName);
+  
+  if (!((el[0].tagName).toLowerCase() == 'a' || el.closest('a').length)) {
+    e.preventDefault();
+    
+    if (el.hasClass('product_unit')) {
+
+    } else if (el.closest('.product_unit').length) {
+      el = el.closest('.product_unit');
+    } else {
+      return;
+    }
+
+    //console.log(e, el);
+
+    $('._hovered').not(el).removeClass('_hovered');
+
+    if (el.hasClass('_hovered')) {
+      //console.log(el.find('.product_block').attr('href'));
+      document.location = el.find('.product_block').attr('href');
+    } else {
+      el.toggleClass('_hovered');
+    }
+  }
+}
+
+function fitHeight(arr) {
+  var maxH = 0;
+
+  for (var i = 0; i < arr.length; i++) {
+    maxH = Math.max(maxH, $(arr[i]).outerHeight());
+  }
+
+  $(arr).css('height', maxH);
+}
+
+function sameHeighter(el) {
+  if (el && el.length > 1) {
+    $(el).css('height', 'auto');
+
+    setTimeout(function () {
+      var arr = [el[0]];
+
+      for (var i = 1; i < el.length; i++) {
+        var obj = $(el[i]);
+
+        if (obj.offset().top == $(arr[0]).offset().top) {
+          arr.push(el[i]);
+        } else {
+          fitHeight(arr);
+
+          if (i < el.length) {
+            arr = [el[i]];
+          }
+        }
+      }
+
+      fitHeight(arr);
+
+    }, 0);
+  }
+}
 
 function initToddler(tdl) {
 
@@ -106,7 +218,8 @@ function initToddler(tdl) {
   }
 
   tdl.each(function (ind) {
-    var tdlr = this, el = $(tdlr), max = parseInt(el.attr('data-max')), min = parseInt(el.attr('data-min')), max_inp = $(el.attr('data-control-max')), min_inp = $(el.attr('data-control-min'));
+    var tdlr = this, el = $(tdlr), max = parseInt(el.attr('data-max')), min = parseInt(el.attr('data-min')),
+      max_inp = $(el.attr('data-control-max')), min_inp = $(el.attr('data-control-min'));
 
     noUiSlider.create(tdlr, {
       start: [0, max],
@@ -125,9 +238,9 @@ function initToddler(tdl) {
       var value = values[handle];
 
       if (handle) {
-        max_inp.val(value);
+        max_inp.val(value.replace(/\D/g, ''));
       } else {
-        min_inp.val(value);
+        min_inp.val(value.replace(/\D/g, ''));
       }
     });
 
@@ -243,3 +356,9 @@ function all_dialog_close_gl() {
     }
   });
 }
+
+$(window).resize(function () {
+
+  //sameHeighter($('.sameHeight'));
+
+});

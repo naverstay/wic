@@ -8,9 +8,9 @@ html(lang='ru')
       .base
         +header()
 
-        .main_content
+        .main_content._inner
           .section_inner
-            .product_info
+            .product_info_block
               .product_photo
                 a.product_block(href='product.html')
                   .product_bg
@@ -19,7 +19,10 @@ html(lang='ru')
                   .product_tip._new New
 
               .product_description
-                .block_title Oribe Silverati Shampoo
+                .block_title
+                  span Oribe Silverati 
+                  span.wide_hidden <br> 
+                  span  Shampoo
                 
                 .product_volume
                   .fl
@@ -75,8 +78,8 @@ html(lang='ru')
                   
             .block_title Связанные товары
               
-            ul.filter_list._related
-              li
+            .filter_list._related.relatedSlider
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -93,7 +96,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
 
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -110,7 +113,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
 
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -130,7 +133,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
 
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg

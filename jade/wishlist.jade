@@ -8,10 +8,10 @@ html(lang='ru')
       .base
         +header()
 
-        .main_content
+        .main_content._inner
                   
           .section_inner
-            .block_title Отложенное
+            .block_title._wish_mode Отложенное
               
             .filter_sort
               .fl: .mb
@@ -23,8 +23,8 @@ html(lang='ru')
                     option Добавленные недавно
                     option Добавленные давно
                 
-            ul.filter_list._fav
-              li
+            .filter_list._fav
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -42,7 +42,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
                           
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -60,13 +60,13 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
                           
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
                     .product_status._in_cart Товар добавлен в&nbsp;корзину
                     
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -87,7 +87,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
                           
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -106,7 +106,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
                           
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -124,7 +124,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
                           
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -143,7 +143,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
                           
-              li
+              .filter_l_item
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -163,7 +163,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
                           
-              li
+              .filter_l_item.mob_hidden
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -182,7 +182,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
                           
-              li
+              .filter_l_item.mob_hidden
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -200,7 +200,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
                           
-              li
+              .filter_l_item.mob_hidden
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg
@@ -219,7 +219,7 @@ html(lang='ru')
                       a.gl_link.show_more.addToCart(href='#')
                         span Добавить в корзину
                           
-              li
+              .filter_l_item.mob_hidden
                 .product_unit._buy_box
                   a.product_block(href='product.html')
                     .product_bg

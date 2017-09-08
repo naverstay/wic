@@ -8,10 +8,18 @@
 
   > .section_inner {
     position: relative;
-    padding-top: 37px;
-    min-height: 104px;
+    padding-top: 21px;
+    min-height: 70px;
     line-height: 24px;
-    text-align: center;
+
+    @include respond-to-min($resp_step_1) {
+      padding-top: 37px;
+      min-height: 104px;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      text-align: center;
+    }
 
     &:before {
       display: block;
@@ -22,6 +30,21 @@
       left: 10px;
       height: 4px;
       background: #000;
+
+      @include respond-to-min($resp_step_1) {
+        right: 20px;
+        left: 20px;
+      }
+
+      @include respond-to-min($resp_step_2) {
+        right: 42px;
+        left: 42px;
+      }
+
+      @include respond-to-min($resp_step_3) {
+        right: 10px;
+        left: 10px;
+      }
     }
   }
 }
@@ -41,6 +64,7 @@
     display: inline-block;
     vertical-align: middle;
     line-height: 1;
+    max-width: 100%;
   }
 
   #logo_layer {
@@ -52,9 +76,87 @@
       fill: #ee4b84;
     }
   }
+
+  @include respond-to-max($resp_step_1) {
+    .header & {
+      width: 45px;
+    }
+  }
 }
 
 // *********  menu
+
+.hamburger {
+  position: relative;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration: none;
+
+  &:after,
+  &:before {
+    @include transition_all(transform .3s, width .3s, left .3s);
+    content: '';
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    height: 2px;
+    width: 20px;
+    background: #000;
+  }
+
+  &:before {
+    top: 6px;
+  }
+
+  &:after {
+    top: 11px;
+  }
+
+  span {
+    &:before {
+      @include transition_all(transform .3s, width 0s, left .3s);
+      @extend .hamburger:before;
+      top: 16px;
+    }
+  }
+
+  .menu_opened & {
+
+    &:after,
+    &:before {
+      width: 18px;
+      left: 11px;
+      background: #000;
+    }
+
+    &:before {
+      @include transform_rotate(-45);
+      top: 11px;
+    }
+
+    &:after {
+      @include transform_rotate(45);
+    }
+
+    span {
+      &:before {
+        width: 0;
+      }
+    }
+
+    @include respond-to-max($resp_step_1) {
+
+    }
+  }
+
+  @include respond-to-max($resp_step_2) {
+
+  }
+}
 
 .user_menu {
   float: right;
@@ -65,32 +167,69 @@
 
     &._small {
       padding-left: 11px;
+
+      @include respond-to-min($resp_step_3) {
+        //padding-left: 11px;
+      }
+    }
+  }
+}
+
+.main_menu_holder {
+
+  @include respond-to-max($resp_step_3) {
+    .main_m_item {
+      //float: left;
+    }
+  }
+
+  .header & {
+
+    @include respond-to-min($resp_step_3) {
+      margin-left: 120px;
+      display: inline-block;
+      vertical-align: top;
+      white-space: nowrap;
     }
   }
 }
 
 .main_menu {
 
-  @include respond-to-min($resp_step_2) {
-
+  .footer & {
+    @include respond-to-min($resp_step_1) {
+      float: right;
+    }
   }
 
+  .main_m_item {
+    float: left;
+  }
+
+  @include respond-to-max($resp_step_3) {
+    .header .main_menu_holder & {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+    }
+
+    .menu_opened .header .main_menu_holder & {
+      display: block;
+    }
+  }
 }
 
-.main_menu {
+.main_m_item {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 9px;
 
-  .header & {
-    margin-left: 120px;
-    display: inline-block;
-    vertical-align: top;
+  @include respond-to-min($resp_step_1) {
+    padding-left: 19px;
   }
 
-  .footer & {
-    float: right;
-  }
-
-  li {
-    float: left;
+  @include respond-to-min($resp_step_3) {
     padding-left: 25px;
   }
 }
@@ -132,6 +271,10 @@
 
 .menu_l_icon {
   font-size: 20px;
+
+  @include respond-to-min($resp_step_3) {
+    //font-size: 20px;
+  }
 }
 
 .store_menu_holder {
@@ -150,6 +293,10 @@
     display: table-cell;
     vertical-align: middle;
     padding: 20px 5px;
+  }
+
+  @include respond-to-max($resp_step_3) {
+    display: none;
   }
 }
 

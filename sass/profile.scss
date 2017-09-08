@@ -1,33 +1,114 @@
 .grid_row {
   @extend %clearfix;
   margin-left: -20px;
-  margin-bottom: 55px;
+  margin-bottom: 5px;
+  position: relative;
+
+  @include respond-to-min($resp_step_1) {
+    margin-bottom: 45px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-bottom: 55px;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    padding-top: 82px;
+  }
 }
 
 .grid_col {
-  float: left;
   padding-left: 20px;
 
+  @include respond-to-min($resp_step_1) {
+    float: left;
+  }
+
   &._col_1 {
-    width: 2/12 * 100%;
+    width: 100%;
+
+    @include respond-to-max($resp_step_2) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-width: 400px;
+      padding-right: 80px;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 3/12 * 100%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 2/12 * 100%;
+    }
   }
 
   &._col_2 {
-    width: 3/12 * 100%;
+
+    @include respond-to-min($resp_step_1) {
+      width: 640px;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 8/12 * 100%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 3/12 * 100%;
+    }
   }
 
   &._col_3 {
-    width: 7/12 * 100%;
+
+    @include respond-to-min($resp_step_1) {
+      width: 640px;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 8/12 * 100%;
+      margin-left: 3/12 * 100%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 7/12 * 100%;
+      margin-left: 0;
+    }
   }
+
+}
+
+.aside {
+  position: relative;
 }
 
 .aside_menu {
 
-  li {
-    border-bottom: 1px solid #fff;
+  @include respond-to-max($resp_step_2) {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    z-index: 1;
 
-    &.drop_down {
-      border-bottom-width: 4px;
+    .aside_open & {
+      display: block;
+    }
+  }
+}
+
+.aside_m_item {
+  border-bottom: 1px solid #fff;
+
+  &.drop_down {
+    border-bottom-width: 4px;
+
+    @include respond-to-max($resp_step_2) {
+      .aside_m_link {
+        padding-top: 19px;
+        padding-bottom: 19px;
+      }
     }
   }
 }
@@ -42,18 +123,129 @@
 }
 
 .aside_m_icon {
+  @extend %icon_pseudo;
   position: absolute;
   top: 50%;
   height: 20px;
   right: 5px;
   font-weight: 800;
-  margin-top: -12px;
+  margin-top: -10px;
+  font-size: 16px;
   line-height: 20px;
+
+  &:before {
+    content: $i-chevron_right;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    right: 14px;
+    margin-top: -6px;
+
+    &:before {
+      content: $i-chevron_down;
+    }
+
+    .aside_open & {
+      &:before {
+        content: $i-chevron_up;
+      }
+    }
+  }
 }
 
 .profile_settings {
   border: 1px solid #d8d8d8;
-  margin-bottom: 24px;
+  margin-bottom: 15px;
+
+  &.footer_mod {
+    min-height: 100%;
+    padding-bottom: 75px;
+    position: relative;
+
+    .profile_settings_footer {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      padding-bottom: 0;
+
+      .profile_settings_footer {
+        position: relative;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    margin-bottom: 20px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-bottom: 24px;
+  }
+}
+
+.profile_settings_holder {
+
+  @include respond-to-max($resp_step_3) {
+    margin-left: -20px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    -webkit-box-pack: start;
+    -webkit-box-align: stretch;
+
+    &:before,
+    &:after {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+
+    .profile_settings_col {
+      float: left;
+      width: 50%;
+      padding-left: 20px;
+      padding-bottom: 40px;
+
+      .profile_settings + .profile_settings:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    display: block;
+
+    .profile_settings_col {
+      float: none;
+      width: 100%;
+      padding-bottom: 0;
+
+      .profile_settings + .profile_settings:last-child {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+.profile_settings_col {
+
+  @include respond-to-min($resp_step_3) {
+    height: auto !important;
+  }
 }
 
 .profile_settings_inner {
@@ -74,12 +266,89 @@
   }
 
   .profile_caption {
-    margin-bottom: 24px;
+
+    &.mod_1 {
+      margin-bottom: 24px;
+    }
+  }
+
+  @include respond-to-max($resp_step_3) {
+    p {
+      margin-top: 18px;
+      line-height: 1.4;
+      padding-right: 95px;
+    }
+  }
+}
+
+.collapse_block {
+  @include respond-to-max($resp_step_1) {
+    display: block !important;
+
+    &._no_bdr {
+      margin: 0 -1px -1px;
+      background: #fff;
+      padding: 0 1px;
+    }
+  }
+}
+
+.profile_collapse_btn {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  font-size: 12px;
+  height: 40px;
+  width: 40px;
+  line-height: 1;
+  margin-top: -20px;
+  z-index: 1;
+
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #000;
+  }
+
+  &:before {
+    width: 10px;
+    height: 2px;
+    margin: -1px 0 0 -5px;
+  }
+
+  &:after {
+    width: 2px;
+    height: 10px;
+    margin: -5px 0 0 -1px;
+  }
+
+  &.expanded {
+    &:after {
+      display: none;
+    }
   }
 }
 
 .profile_caption {
+  @extend %clearfix;
   font: 20px/25px $FormularBlack;
+
+  @include respond-to-max($resp_step_1) {
+    position: relative;
+    margin: -24px -16px -24px !important;
+    padding: 24px 16px;
+    background: #f9f8f8;
+
+    &.mod_1 {
+      border-bottom: 1px solid #d8d8d8;
+
+      //margin: -25px -17px -24px !important;
+      //padding: 25px 17px;
+    }
+  }
 }
 
 .profile_settings_list {
@@ -112,6 +381,18 @@
       margin-bottom: 2px;
     }
   }
+
+  @include respond-to-max($resp_step_3) {
+    padding-right: 95px;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    padding: 0;
+
+    &.mod_1 {
+      padding-top: 40px;
+    }
+  }
 }
 
 .profile_settings_link {
@@ -121,6 +402,22 @@
   span {
     display: inline-block;
     vertical-align: middle;
+
+    @include respond-to-max($resp_step_3) {
+      &:first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    display: block;
+    overflow: hidden;
+
+    .settings_icon {
+      float: right;
+      padding-left: 10px;
+    }
   }
 }
 
@@ -128,10 +425,55 @@
   padding-left: 70px;
   font-size: 38px;
   line-height: 20px;
+
+  @include respond-to-max($resp_step_2) {
+    padding-left: 125px;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    padding-left: 50px;
+  }
 }
 
 .profile_ballance {
   font: 28px/38px $AvenirNextMedium;
+}
+
+.profile_msg_holder {
+  position: relative;
+
+  @include respond-to-max($resp_step_3) {
+    position: absolute;
+    right: 0;
+    left: 20px;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+.msg_block_btn {
+  position: absolute;
+  top: 0;
+  left: 300px;
+  width: 60px;
+  height: 60px;
+  font-size: 15px;
+  line-height: 60px;
+  text-align: center;
+  margin-left: 20px;
+  background: #ee4b84;
+  color: #fff;
+  cursor: pointer;
+
+  @include respond-to-max($resp_step_1) {
+    left: auto;
+    right: 0;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    right: 0;
+    left: auto;
+  }
 }
 
 .profile_msg_block {
@@ -149,6 +491,14 @@
     line-height: 22px;
     margin-bottom: 15px;
     max-width: 550px;
+  }
+
+  @include respond-to-max($resp_step_3) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: none;
   }
 }
 
@@ -186,7 +536,7 @@
   height: 20px;
   color: #fff;
   cursor: pointer;
-  
+
   &:before {
     content: $i-close;
     font-size: 20px;
@@ -216,10 +566,36 @@
   }
 }
 
+.preloader_holder {
+  text-align: center;
+  position: relative;
+  min-height: 45px;
+
+  @include respond-to-max($resp_step_3) {
+    padding-top: 23px;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    text-align: right;
+  }
+}
+
+.preloader_link {
+  font: 16px/20px $FormularBold;
+  color: #000;
+
+  @include respond-to-min($resp_step_3) {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 20px;
+  }
+}
+
 .preloader {
   display: inline-block;
   vertical-align: top;
-  margin: -15px 0 -40px;
+  margin: -15px 0 -30px;
 
   img {
     display: block;
@@ -227,47 +603,154 @@
 }
 
 .profile_orders {
-  width: 100%;
-  border-collapse: collapse;
+  margin: 0 -18px;
 
-  th {
-    font: 14px $FormularMedium;
-    padding: 0 10px 16px 0;
-    border-bottom: 1px solid #d8d8d8;
-    text-align: left;
+  .tr {
+    @include respond-to-max($resp_step_1) {
+      padding-bottom: 15px;
+      border-bottom: 1px solid #d8d8d8;
+      margin-bottom: 20px;
+
+      &:before,
+      &:after {
+        content: " ";
+        display: table;
+      }
+      &:after {
+        clear: both;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
-  td {
+  .th {
     font: 14px $FormularMedium;
-    padding: 15px 10px 9px 0;
-    vertical-align: top;
-    border-bottom: 1px solid #d8d8d8;
-    line-height: 1.4;
+  }
+
+  .td {
+    font: 14px/1.4 $FormularMedium;
+    padding: 0 0 6px 0;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    display: table;
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+
+    .tr {
+      display: table-row;
+    }
+
+    .th {
+      display: table-cell;
+      font: 14px $FormularMedium;
+      padding: 0 10px 16px 0;
+      border-bottom: 1px solid #d8d8d8;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .td {
+      display: table-cell;
+      font: 14px $FormularMedium;
+      padding: 15px 10px 9px 0;
+      vertical-align: top;
+      border-bottom: 1px solid #d8d8d8;
+      line-height: 1.4;
+    }
   }
 
   .col_1 {
-    width: 77px;
+    width: 70px;
+
+    @include respond-to-max($resp_step_1) {
+      float: left;
+    }
+
+    @include respond-to-min($resp_step_1) {
+      width: 72px;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 77px;
+    }
   }
 
   .col_2 {
-    width: 18%;
+
+    @include respond-to-max($resp_step_1) {
+      margin-left: 80px;
+    }
+
+    @include respond-to-min($resp_step_1) {
+      width: 17%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 18%;
+    }
   }
 
   .col_3 {
-    width: 28.5%;
+
+    @include respond-to-max($resp_step_1) {
+      margin-left: 80px;
+      min-height: 58px;
+    }
+
+    @include respond-to-min($resp_step_1) {
+      width: 34.5%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 28.5%;
+    }
   }
 
   .col_4 {
     white-space: nowrap;
-    width: 14%;
+
+    @include respond-to-max($resp_step_1) {
+      float: left;
+      clear: both;
+      padding-right: 20px;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 14%;
+    }
+
+    @include respond-to-max($resp_step_3) {
+      text-align: left;
+    }
   }
 
   .col_5 {
     white-space: nowrap;
-    width: 14%;
+
+    @include respond-to-max($resp_step_1) {
+      float: left;
+      padding-right: 10px;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 14%;
+    }
+
+    @include respond-to-max($resp_step_3) {
+      text-align: left;
+    }
   }
 
   .col_6 {
+    @include respond-to-max($resp_step_1) {
+      float: right;
+      padding-right: 22px;
+    }
   }
 
   .prod_cell {
@@ -286,6 +769,16 @@
         max-width: 26px;
         max-height: 50px;
       }
+    }
+  }
+
+  .text_right {
+
+  }
+
+  @include respond-to-max($resp_step_3) {
+    .th {
+      padding-bottom: 24px;
     }
   }
 }

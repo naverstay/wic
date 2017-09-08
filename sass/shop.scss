@@ -1,6 +1,6 @@
 .partners_slider {
-  padding: 45px 100px 30px;
   position: relative;
+  padding: 0 40px 15px;
 
   .slide {
     position: relative;
@@ -13,14 +13,26 @@
   }
 
   .slick-track {
-    padding-top: 30px;
     @extend %clearfix;
+    padding-top: 10px;
+
+    @include respond-to-min($resp_step_1) {
+      padding-top: 30px;
+    }
   }
 
   &.slick-initialized {
     .slide {
       float: left;
     }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding: 32px 80px 20px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding: 45px 100px 30px;
   }
 
 }
@@ -65,37 +77,111 @@
     &:hover {
       opacity: 1;
     }
+
+    @include respond-to-max($resp_step_2) {
+      width: 38px;
+      margin-top: -22px;
+      font-size: 28px;
+    }
   }
 }
 
 .filter_section {
-  padding: 40px 0;
+  padding: 5px 0;
+
+  @include respond-to-min($resp_step_3) {
+    padding: 40px 0;
+  }
 }
 
 .filter_block {
   background: #fafafa;
-  margin-bottom: 64px;
+
+  @include respond-to-min($resp_step_1) {
+    margin-bottom: 12px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-bottom: 64px;
+  }
 }
 
 .filter_collapse {
-  padding: 40px 30px;
+  padding: 40px 27px;
+
+  @include respond-to-min($resp_step_1) {
+    padding: 40px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding: 40px 30px;
+  }
 }
 
 .filter_expand {
   @extend %clearfix;
-  margin-left: -100px;
-  padding: 10px 50px 20px 30px;
+  margin-left: -25px;
+  padding: 0 8px 20px 10px;
 
   .filter_col {
-    float: left;
-    width: 25%;
-    padding-left: 100px;
-    margin-bottom: 48px;
+    padding-left: 25px;
+    margin-bottom: 39px;
 
     &._last {
-      margin-bottom: 18px;
+      margin-bottom: 8px;
+      margin-top: -30px;
     }
   }
+
+  @include respond-to-min($resp_step_1) {
+    margin-left: -25px;
+    padding: 10px 15px 20px 30px;
+
+    .filter_col {
+      float: left;
+      width: 32%;
+      padding-left: 25px;
+      margin-bottom: 30px;
+
+      &._last {
+        margin-bottom: 16px;
+        margin-top: -35px;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    margin-left: -25px;
+    padding: 10px 15px 20px 30px;
+
+    .filter_col {
+      float: left;
+      width: 25%;
+      padding-left: 25px;
+      margin-bottom: 48px;
+
+      &._last {
+        margin-bottom: 16px;
+        margin-top: -35px;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-left: -100px;
+    padding: 10px 50px 20px 30px;
+
+    .filter_col {
+      padding-left: 100px;
+      margin-bottom: 48px;
+
+      &._last {
+        margin-top: 0;
+        margin-bottom: 18px;
+      }
+    }
+  }
+
 }
 
 .filter_link {
@@ -160,33 +246,152 @@
 
 .filter_sort {
   @extend %clearfix;
-  padding: 16px 0 24px;
+  padding: 40px 0 50px;
   line-height: 48px;
 
   .caption_tip {
     margin-bottom: 0;
   }
+
+  @include respond-to-min($resp_step_1) {
+    padding: 16px 0 30px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding-bottom: 24px;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    .fr {
+      float: none;
+    }
+
+    .fl {
+      float: none;
+      margin-bottom: 25px;
+    }
+  }
 }
 
 .filter_list {
-  @extend %clearfix;
   margin-left: -20px;
   clear: both;
+  font-size: 0;
 
-  li {
-    float: left;
+  .filter_l_item {
+    display: inline-block;
+    vertical-align: top;
     padding-left: 20px;
-    width: 25%;
-    margin-bottom: 40px;
+    width: 50%;
+    margin-bottom: 25px;
+    font-size: 14px;
   }
 
   &._related {
-    margin-bottom: 70px;
+    margin-bottom: 20px;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    .filter_l_item {
+      margin-bottom: 30px;
+    }
+
+    .product_name {
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .product_price {
+      font-size: 20px;
+      margin: 10px -10px 12px 0;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    margin-bottom: -28px;
+
+    .product_block {
+      width: 100%;
+      height: 200px;
+    }
+
+    .product_bg img {
+      min-width: 100%;
+    }
+
+    .filter_l_item {
+      margin-bottom: 57px;
+
+      &.slick-slide {
+        width: 220px;
+        margin-bottom: 5px;
+
+        .product_block {
+          height: 250px;
+        }
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    .filter_l_item {
+      width: 25%;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    &._related {
+      margin-bottom: 45px;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    &._related {
+      margin-bottom: 70px;
+    }
+
+    .filter_l_item {
+      margin-bottom: 40px;
+    }
+  }
+
+  @include respond-to-max($resp_step_3) {
+    &._fav {
+      margin-bottom: -40px;
+
+      .filter_l_item {
+        margin-bottom: 58px;
+      }
+    }
+  }
+
+  @include respond-to-max($resp_step_2) {
+    &._fav {
+      margin-bottom: -15px;
+
+      .filter_l_item {
+        margin-bottom: 38px;
+      }
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    &._fav {
+      margin-bottom: -52px;
+
+      .filter_l_item {
+        margin-bottom: 52px;
+      }
+    }
   }
 }
 
 .option_list {
-
   li {
     margin-bottom: 5px;
   }
@@ -195,32 +400,85 @@
 .pagination_list {
   text-align: center;
   font-size: 0;
-  padding: 48px 0 78px;
+  padding: 0 0 33px;
 
   li {
     display: inline-block;
     vertical-align: top;
-    padding: 0 12px;
+    padding: 0 5px;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    padding: 57px 0 54px;
+
+    li {
+      padding: 0 12px;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding: 33px 0 73px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding: 48px 0 78px;
   }
 }
 
 .show_more_block {
   text-align: center;
-  padding: 36px 0 116px;
+  padding: 36px 0 32px;
+
+  @include respond-to-min($resp_step_1) {
+    padding-bottom: 56px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding-bottom: 76px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding-bottom: 116px;
+  }
+}
+
+.service_info {
+  .block_title {
+
+    @include respond-to-max($resp_step_1) {
+      line-height: 1.4;
+    }
+  }
 }
 
 .service_col {
-  padding-top: 10px;
+  padding-top: 42px;
   font-size: 16px;
   line-height: 25px;
-  margin-bottom: 117px;
-  max-width: 66%;
-  -webkit-columns: 2;
-  -moz-columns: 2;
-  columns: 2;
-  -webkit-column-gap: 40px;
-  -moz-column-gap: 40px;
-  column-gap: 40px;
+  margin-bottom: 55px;
+
+  @include respond-to-min($resp_step_1) {
+    max-width: 87%;
+    padding-top: 20px;
+    margin-bottom: 62px;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+    -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
+    column-gap: 40px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    max-width: 83%;
+    margin-bottom: 80px;
+    padding-top: 10px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    max-width: 66%;
+    margin-bottom: 117px;
+  }
 
 }
 
@@ -228,37 +486,129 @@
   @extend %clearfix;
   background: #f5f5f5;
   text-align: center;
-  padding: 81px 0 71px;
-  margin-bottom: 122px;
+  padding: 44px 0 30px;
+  margin: 0 -10px 52px;
 
   li {
     float: left;
-    width: 25%;
+
+    @include respond-to-max($resp_step_1) {
+      width: 50%;
+
+      &._wide {
+        width: 58%;
+        margin-top: 45px;
+
+        + li {
+          width: 42%;
+          margin-top: 45px;
+        }
+      }
+    }
   }
 
   .counter {
     color: #b43864;
     font: 60px $AvenirNextDemiBoldItalic;
     margin-bottom: 3px;
+
+    @include respond-to-max($resp_step_1) {
+      font-size: 48px;
+      margin-bottom: 5px;
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    padding: 80px 10px 70px;
+    margin: 0 -20px 65px;
+
+    li {
+      float: left;
+      width: 23%;
+
+      &._wide {
+        width: 31%;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding: 79px 25px 71px;
+    margin: 0 -42px 80px;
+
+    li {
+      float: left;
+      width: 25% !important;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding: 81px 0 71px;
+    margin: 0 0 122px;
   }
 }
 
 .difference_block {
   @extend %clearfix;
-  margin-left: -120px;
-  margin-bottom: 90px;
+  margin-bottom: 70px;
 
   li {
-    float: left;
     padding-top: 8px;
-    width: 46.2%;
-    padding-left: 120px;
-    margin-bottom: 30px;
+
+    //width: 45.2%;
+    margin-bottom: 33px;
+
+    @include respond-to-max($resp_step_1) {
+      padding-top: 45px;
+      margin-bottom: -5px;
+
+      .caption_tip {
+        margin-bottom: 24px;
+      }
+    }
   }
 
   p {
     font-size: 16px;
     line-height: 25px;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    padding-top: 16px;
+    margin-left: -30px;
+    margin-right: -5%;
+    margin-bottom: 25px;
+
+    li {
+      padding-left: 30px;
+      width: 49.2%;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    margin-left: -60px;
+    margin-bottom: 70px;
+    margin-right: 0;
+    padding-top: 0;
+
+    li {
+      width: 48%;
+      margin-bottom: 33px;
+      padding-left: 60px;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-left: -120px;
+    margin-bottom: 90px;
+
+    li {
+      width: 46.2%;
+      margin-bottom: 30px;
+      padding-left: 120px;
+    }
   }
 }
 
@@ -275,13 +625,41 @@
 
 .contact_info {
   @extend %clearfix;
-  padding: 15px 0 50px;
+  padding: 45px 0 20px;
 
   li {
-    float: left;
-    width: 42.3%;
-    margin-bottom: 30px;
+    margin-bottom: 34px;
   }
+
+  @include respond-to-max($resp_step_1) {
+
+    .caption_tip {
+      margin-bottom: 16px;
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    padding: 30px 0 12px;
+
+    li {
+      float: left;
+      width: 50%;
+      margin-bottom: 30px;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding: 35px 0 47px;
+
+    li {
+      width: 42.3%;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding: 15px 0 50px;
+  }
+
 }
 
 .contact_list {
@@ -296,13 +674,222 @@
     font-size: 18px;
     margin-bottom: 20px;
   }
+
+  @include respond-to-max($resp_step_1) {
+    padding-left: 10px;
+  }
 }
 
 .contact_form {
   background: #f5f5f5;
-  padding: 80px 100px 85px;
-  margin: 47px 0 80px;
+  padding: 30px 20px;
+  margin: 45px 0 35px;
+
+  @include respond-to-min($resp_step_1) {
+    padding: 40px 55px;
+    margin: 50px 0 60px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding: 60px 80px;
+    margin: 47px 0 80px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding: 80px 100px 85px;
+  }
 }
 
+.about_hero {
 
+  @include respond-to-max($resp_step_2) {
+    .hero_slider & {
+      .hero_caption {
+        font-size: 36px;
+        line-height: 1.05;
+      }
+    }
+  }
 
+  @include respond-to-max($resp_step_1) {
+    margin-bottom: 22px;
+
+    &:before,
+    &:after {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+    
+    .hero_slider & {
+      .hero_caption {
+        font-size: 28px;
+        line-height: 1.35;
+        margin-left: 50%;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 35px;
+
+    .about_hero_cell {
+      display: table-cell;
+      vertical-align: bottom;
+
+      &._cell_1 {
+        vertical-align: top;
+        width: 24%;
+      }
+
+      &._cell_2 {
+        width: 39.5%;
+        padding-top: 34px;
+        padding-left: 20px;
+      }
+
+      &._cell_3 {
+        width: 36.5%;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    margin-bottom: 43px;
+
+    .about_hero_cell {
+
+      &._cell_1 {
+        width: 32%;
+      }
+
+      &._cell_2 {
+        width: 33%;
+        padding-top: 50px;
+        padding-left: 20px;
+      }
+
+      &._cell_3 {
+        width: 34%;
+      }
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-bottom: 65px;
+
+    .about_hero_cell {
+
+      &._cell_1 {
+        width: 33%;
+      }
+
+      &._cell_2 {
+        width: 33%;
+        padding-left: 20px;
+      }
+
+      &._cell_3 {
+        width: 34%;
+      }
+    }
+  }
+}
+
+.about_hero_cell {
+
+  &._cell_1 {
+
+    @include respond-to-max($resp_step_1) {
+      float: left;
+      width: 46.5%;
+    }
+  }
+
+  &._cell_2 {
+    padding-top: 22px;
+  }
+
+  &._cell_3 {
+    .about_info_col {
+      color: #000;
+
+      @include respond-to-min($resp_step_1) {
+        padding: 0 0 0 20px;
+      }
+    }
+  }
+}
+
+.about_info_col {
+  margin: 15px 0 -8px;
+  padding-right: 5px;
+  font-size: 16px;
+  line-height: 25px;
+  color: #fff;
+  position: relative;
+
+  @include respond-to-min($resp_step_1) {
+    padding-right: 30px;
+    margin-top: 47px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    margin-top: 44px;
+    padding-right: 5px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding-right: 35px;
+    margin-top: 40px;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    padding: 20px 10px 20px 20px;
+  }
+}
+
+.about_img {
+  position: relative;
+  z-index: 2;
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+.about_text {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -500px;
+    left: -600px;
+    bottom: -5px;
+    background: #000;
+
+    @include respond-to-min($resp_step_1) {
+      right: 3px;
+      bottom: -60px;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      right: 0;
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    .about_info_col {
+      clear: both;
+      margin-top: 0;
+    }
+  }
+}

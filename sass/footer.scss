@@ -1,15 +1,23 @@
 .footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  min-height: 158px;
+
+  @include respond-to-min($resp_step_1) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    min-height: 158px;
+  }
 
   .section_inner {
     position: relative;
     padding-top: 40px;
     min-height: 104px;
     line-height: 24px;
+
+    @include respond-to-max($resp_step_1) {
+      padding-top: 30px;
+      padding-bottom: 40px;
+    }
 
     &:before {
       display: block;
@@ -20,14 +28,55 @@
       left: 10px;
       height: 4px;
       background: #000;
+
+      @include respond-to-min($resp_step_1) {
+        right: 20px;
+        left: 20px;
+      }
+
+      @include respond-to-min($resp_step_2) {
+        right: 42px;
+        left: 42px;
+      }
+
+      @include respond-to-min($resp_step_3) {
+        right: 10px;
+        left: 10px;
+      }
     }
   }
 
   .main_menu {
     margin-bottom: 36px;
 
+    @include respond-to-max($resp_step_1) {
+      margin: 24px 0 30px -21px;
+      clear: both;
+      display: inline-block;
+      vertical-align: top;
+      min-width: 100%;
+
+      &:before,
+      &:after {
+        content: " ";
+        display: table;
+      }
+      &:after {
+        clear: both;
+      }
+    }
+
     li {
-      padding-left: 27px;
+      padding-left: 21px;
+
+      @include respond-to-max($resp_step_1) {
+        width: 47%;
+        margin-bottom: 3px;
+      }
+
+      @include respond-to-min($resp_step_2) {
+        padding-left: 27px;
+      }
     }
   }
 }
@@ -71,8 +120,7 @@
     display: inline-block;
     vertical-align: top;
     position: relative;
-    font: 16px $FormularBold;
-    letter-spacing: -.02em;
+    font: 12px $FormularBold;
 
     &:before {
       @include transition_all(width .3s);
@@ -99,6 +147,18 @@
         border-bottom-color: #fff;
       }
     }
+
+    @include respond-to-min($resp_step_1) {
+      font-size: 14px;
+    }
+    
+    @include respond-to-min($resp_step_2) {
+      font-size: 16px;
+    }
+    
+    @include respond-to-min($resp_step_3) {
+      letter-spacing: -.02em;
+    }
   }
 }
 
@@ -112,4 +172,72 @@
 
 .clr_red {
   color: #ed4b84;
+}
+
+.mob_only {
+
+  @include respond-to-min($resp_step_1) {
+    display: none !important;
+  }
+}
+
+.mob_hidden {
+
+  @include respond-to-max($resp_step_1) {
+    display: none !important;
+  }
+}
+
+.tab_vis {
+
+  @include respond-to-max($resp_step_1) {
+    display: none !important;
+  }
+}
+
+.tab_hidden {
+
+  @include respond-to-min($resp_step_1) {
+    display: none !important;
+  }
+}
+
+.dt_vis {
+
+  @include respond-to-max($resp_step_2) {
+    display: none !important;
+  }
+}
+
+.dt_hidden {
+
+  @include respond-to-min($resp_step_2) {
+    display: none !important;
+  }
+}
+
+.wide_only {
+
+  @include respond-to-max($resp_step_3) {
+    display: none !important;
+  }
+}
+
+.wide_hidden {
+
+  @include respond-to-min($resp_step_3) {
+    display: none !important;
+  }
+}
+
+.collapsed {
+
+  @include respond-to-max($resp_step_1) {
+    display: none;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    display: block !important;
+  }
+
 }

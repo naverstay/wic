@@ -26,12 +26,12 @@ mixin footer()
           +logo_svg()
           
       ul.main_menu
-        li: a.menu_link(href='shop.html'): span Магазин
-        li: a.menu_link(href='#'): span Тренды
-        li: a.menu_link(href='#'): span Профессионалам
-        li: a.menu_link(href='#'): span Доставка и оплата
-        li: a.menu_link(href='about.html'): span Мы WIC
-        li: a.menu_link(href='contact.html'): span Контакты
+        li.main_m_item: a.menu_link(href='shop.html'): span Магазин
+        li.main_m_item: a.menu_link(href='#'): span Тренды
+        li.main_m_item: a.menu_link(href='#'): span Профессионалам
+        li.main_m_item: a.menu_link(href='#'): span Доставка и оплата
+        li.main_m_item: a.menu_link(href='about.html'): span Мы WIC
+        li.main_m_item: a.menu_link(href='contact.html'): span Контакты
       
       .copyrights © 2017 «WIC.one»
         
@@ -56,13 +56,18 @@ mixin header(shop)
         li._small: a.menu_link(href='profile.html'): span
           span.menu_l_icon.i-account
 
-      ul.main_menu
-        li: a.menu_link(href='#'): span Тренды
-        li: a.menu_link(href='#'): span Профессионалам
-        li: a.menu_link(href='#'): span Доставка и оплата
-        li: a.menu_link(href='about.html'): span Мы WIC
-        li: a.menu_link(href='contact.html'): span Контакты
-        li: a.menu_link(href='#'): span
+      .main_menu_holder
+        ul.main_menu
+          li.main_m_item: a.menu_link(href='#'): span Тренды
+          li.main_m_item: a.menu_link(href='#'): span Профессионалам
+          li.main_m_item: a.menu_link(href='#'): span Доставка и оплата
+          li.main_m_item: a.menu_link(href='about.html'): span Мы WIC
+          li.main_m_item: a.menu_link(href='contact.html'): span Контакты
+        .main_m_item.wide_hidden
+          a.menu_link.openMobMenu(href='#')
+            span.hamburger
+              span
+        .main_m_item.tab_vis: a.menu_link(href='#'): span
           span.i-search.menu_l_icon
           
     - if (shop)
@@ -83,6 +88,7 @@ mixin check(txt, chck)
 mixin scripts(page)
   script(src='js/jquery1.10.js')
   script(src='js/select2.js')
+  script(src='js/tap.js')
   script(src='js/jquery.inputmask.bundle.js')
   script(src='js/script.js')
   

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'wic_icons';
-  src:  url('fonts/wic_icons.eot?mo5a1i');
-  src:  url('fonts/wic_icons.eot?mo5a1i#iefix') format('embedded-opentype'),
-    url('fonts/wic_icons.ttf?mo5a1i') format('truetype'),
-    url('fonts/wic_icons.woff?mo5a1i') format('woff'),
-    url('fonts/wic_icons.svg?mo5a1i#wic_icons') format('svg');
+  src:  url('fonts/wic_icons.eot?47zm6k');
+  src:  url('fonts/wic_icons.eot?47zm6k#iefix') format('embedded-opentype'),
+    url('fonts/wic_icons.ttf?47zm6k') format('truetype'),
+    url('fonts/wic_icons.woff?47zm6k') format('woff'),
+    url('fonts/wic_icons.svg?47zm6k#wic_icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-exclamation:before {
+  content: "\e90b";
+}
 .i-account:before {
   content: "\e908";
 }
