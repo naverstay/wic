@@ -1,0 +1,270 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('WIC trends')
+
+  body
+    .wrapper._trends
+      .base
+        +header()
+
+        .main_content
+          .filter_section
+            form.section_inner(action='#')
+              .filter_block
+                .filter_collapse
+                  a.filter_link.toggleFilter(href='#filter')
+                    span.filter_icon 
+                    span Фильтр
+                    span.filter_counter 2
+                #filter(style='display:none;')
+                  .filter_expand
+                    .filter_col
+                      label.f_label.f_label_v1(for='price_min') Цена, руб.
+                      .input_w.toddler_v1
+                        #price_range.toddler(data-control-min='#price_min' data-control-max='#price_max' data-min=0 data-max=20000)
+                      .f_row.f_row_v2
+                        .f_cell
+                          span от
+                          .input_w
+                            input#price_min.f_input_v2.f_input.text_center(data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': true, 'groupSeparator': ' ', 'digits': 0, 'digitsOptional': false" type='number')
+                        .f_cell
+                          span до
+                          .input_w
+                            input#price_max.f_input_v2.f_input.text_center(data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': true, 'groupSeparator': ' ', 'digits': 0, 'digitsOptional': false" type='number')
+                
+                      .f_row
+                        +check('Только со скидкой')
+                          
+                    .filter_col.cb
+                      .f_label.f_label_v1() Бренды
+                          
+                      .filter_scroller.mCSB
+                        ul.option_list
+                          +loop_while(3)
+                            li
+                              +check('Alterna')
+                            li
+                              +check('Sebastian')
+                            li
+                              +check('CND')
+                            li
+                              +check('Caviar')
+                            li
+                              +check('INM')
+                            
+                    .filter_col
+                      .f_label.f_label_v1() Тип продукта 
+                          
+                      .filter_scroller.mCSB
+                        ul.option_list
+                          +loop_while(1)
+                            li
+                              +check('Шампунь')
+                            li
+                              +check('Кондицонер')
+                            li
+                              +check('Маска')
+                            li
+                              +check('Масло')
+                            li
+                              +check('Масло')
+                            
+                    .filter_col
+                      .f_label.f_label_v1() Назначение
+                          
+                      .filter_scroller.mCSB
+                        ul.option_list
+                          +loop_while(1)
+                            li
+                              +check('Объём')
+                            li
+                              +check('Восстановление')
+                            li
+                              +check('Увлажнение')
+                            li
+                              +check('Блеск и сияние')
+                            li
+                              +check('Блеск и сияние')
+                            
+                    .filter_col
+                      .f_label.f_label_v1() Тип волос
+                          
+                      .filter_scroller.mCSB
+                        ul.option_list
+                          +loop_while(1)
+                            li
+                              +check('Нормальные')
+                            li
+                              +check('Светлые')
+                            li
+                              +check('Окрашенные')
+                            li
+                              +check('Тонкие')
+                            li
+                              +check('Тонкие')
+                              
+                    .filter_col.cb._last
+                      a.f_reset.fReset(href='#')
+                        span.i-close
+                        span Сбросить фильтр
+
+              //-.filter_sort
+                .fr
+                  .input_w.select_box_v1
+                    select.select2
+                      option Сначала дешевле
+                      option Сначала дороже
+                
+              .popuplar_list._trend_mode.boardGrid
+                .slide._wide.popuplar_l_item.gridItem
+                  .popular_box
+                    .product_unit
+                      a.product_block(href='product.html')
+                        .product_bg
+                          img(src='i/sebastian_conditioner_bg.jpg')
+                        .product_img
+                          img(src='i/trend_1.png')
+
+                      .product_info
+                        .caption_tip Причёски
+                        .product_name Callum Standen-May @ The Egg salons
+                        p Причёски Callum Standen-May<br>@ The Egg salons<br>Макияж Maddie Austin<br>Фото Richard Miles
+
+                .slide.popuplar_l_item.gridItem
+                  .product_unit
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_signature_bg.jpg')
+                      .product_img
+                        img(src='i/trend_2.png')
+  
+                    .product_info
+                      .caption_tip Причёски
+                      .product_name Louise Williamson<br>@ Stevie English Hair Salon
+                      p Причёски Louise Williamson @ Stevie English Hair Salon<br>Фото Mal Q. Damkar 
+    
+                .slide.popuplar_l_item.gridItem
+                  .product_unit
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_silverati_bg.jpg')
+                      .product_img
+                        img(src='i/trend_3.png')
+  
+                    .product_info
+                      .caption_tip Причёски
+                      .product_name The Marshmallow
+                      p Причёски Екатерина Смирнова, Оксана Шумилова @ Академия «Моне»<br>Макияж Ксения Дёмина, Алена Шейдер
+                      
+                .slide.popuplar_l_item.gridItem
+                  .product_unit
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_silverati_bg.jpg')
+                      .product_img
+                        img(src='i/trend_3.png')
+  
+                    .product_info
+                      .caption_tip Причёски
+                      .product_name Women Of The 7Th Art, Весна-Лето 2017
+                      p Причёски команда стилистов Dessange<br>Фото Nicolas Valois
+
+                .slide.popuplar_l_item.gridItem
+                  .product_unit
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_signature_bg.jpg')
+                      .product_img
+                        img(src='i/trend_4.png')
+
+                    .product_info
+                      .caption_tip Причёски
+                      .product_name FRENCH FLAIR
+                      p Причёски Alain Pereque @ Saco<br>Макияж Paco Puerta<br>Стиль Rima Chahin<br>Фото John Rawson
+                      
+                .slide.popuplar_l_item.gridItem
+                  .product_unit
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_silverati_bg.jpg')
+                      .product_img
+                        img(src='i/trend_3.png')
+  
+                    .product_info
+                      .caption_tip Причёски
+                      .product_name BLURRED,<br>сезон 2017
+                      p Причёски арт-команда Raffel Pages<br>Макияж Graftobian Spain<br>Стиль Angel Cabezuelo<br>Фото David Arnal
+
+                .slide.popuplar_l_item.gridItem
+                  .product_unit
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_signature_bg.jpg')
+                      .product_img
+                        img(src='i/trend_2.png')
+
+                    .product_info
+                      .caption_tip Причёски
+                      .product_name Color Melting
+                      p Причёски Мила Белова, Максим Крылов, Виталий Пименов, Вероника Сафина, Виктория Камшилина @ Matrix Russian Design Team<br>Макияж Ксения Никитина и Ирина Антипова<br>Фото Тата Сироткина<br>Продукты Matrix
+                      
+                .slide.popuplar_l_item.gridItem
+                  .product_unit
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_signature_bg.jpg')
+                      .product_img
+                        img(src='i/trend_4.png')
+
+                    .product_info
+                      .caption_tip Причёски
+                      .product_name Headliner
+                      p Арт-директор Андрей Пулин<br>@ ESTEL Professional<br>Причёски Андрей Пулин, Андрей Соболев<br>Макияж Дарья Стаховская<br>Модели Олег Сивков, Дмитрий Кучинский<br>Художник-постановщик Ольга Дикун<br>Фото Георгий Семёнов<br>Продукты ESTEL Professional
+                
+                .slide.popuplar_l_item.gridItem
+                  .product_unit
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_silverati_bg.jpg')
+                      .product_img
+                        img(src='i/trend_3.png')
+  
+                    .product_info
+                      .caption_tip Причёски
+                      .product_name 1990
+                      p Коллекция финалиста Australian Hair Fashion Awards 2017 в номинации «Новичок года»<br>Причёски Emma Gottwald<br>@ Royals Hair<br>Макияж Chereine Waddell<br>Стиль Angela Liang<br>Фото Daniel Knott
+                      
+                .slide.popuplar_l_item.gridItem
+                  .product_unit
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_silverati_bg.jpg')
+                      .product_img
+                        img(src='i/trend_4.png')
+  
+                    .product_info
+                      .caption_tip Причёски
+                      .product_name VANITY FAIR
+                      p Арт-директор Andrew Barton<br>Причёски арт-команда The Racoon<br>Макияж Carol Brown<br>Стиль Radcliffe & Sciama<br>Фото Tony Le Britton
+
+                .slide.popuplar_l_item.gridItem
+                  .product_unit
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_signature_bg.jpg')
+                      .product_img
+                        img(src='i/trend_2.png')
+
+                    .product_info
+                      .caption_tip Причёски
+                      .product_name Весна-Лето 2017
+                      p Причёски и макияж арт-команда Cotril<br>Фото Chiara Giannoni
+                      
+              .show_more_block
+                a.btn_v3.show_more_btn.btn_gray(href='#')
+                  span Показать ещё
+
+      +footer()
+
+    +scripts(3)

@@ -127,16 +127,8 @@ function initRelatedSlider(relatedSlider) {
   }
 }
 
-function tooltipFormatter(w) {
-  return formatPrice((w).toFixed());
-}
-
-function formatPrice(s) {
-  return ('' + s).replace(/(?!^)(?=(\d{3})+(?=\.|$))/gm, ' ')
-}
-
 $(window).resize(function () {
-  
+
   initRelatedSlider();
 
 });

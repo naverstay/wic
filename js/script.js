@@ -3,31 +3,15 @@ var body_var, wnd,
 
 $(function ($) {
 
-  body_var = $('body');
-  wnd = $(window);
+  body_var = $('body');wnd = $(window);
 
   var container = body_var[0];
-
-  var tap = new Tap(container);
-
+  
   $('.product_info')
     .on('tap', function (e) {
       tapCallback(e);
-    })
-    .on('click', function (e) {
-      //tapCallback(e);
     });
-
-  $('.base')
-    .on('tap', function (e) {
-     // console.log('base');
-     //$('.hovered').removeClass('_hovered');
   
-    })
-    .on('click', function (e) {
-      //tapCallback(e);
-    });
-
   body_var
     .delegate('.openMobMenu', 'click', function () {
       body_var.toggleClass('menu_opened');
@@ -209,6 +193,14 @@ function sameHeighter(el) {
 
     }, 0);
   }
+}
+
+function tooltipFormatter(w) {
+  return formatPrice((w).toFixed());
+}
+
+function formatPrice(s) {
+  return ('' + s).replace(/(?!^)(?=(\d{3})+(?=\.|$))/gm, ' ')
 }
 
 function initToddler(tdl) {
