@@ -116,6 +116,29 @@
   color: $default_t_color;
   text-decoration: none;
 
+  &._underline {
+    position: relative;
+    color: #000;
+
+    &:before {
+      @include transition_all(background .3s);
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 1px;
+      opacity: .4;
+      background: #000;
+    }
+
+    &:hover {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+
   &.show_more {
     display: inline-block;
     vertical-align: top;
@@ -151,11 +174,11 @@
     @include respond-to-min($resp_step_1) {
       font-size: 14px;
     }
-    
+
     @include respond-to-min($resp_step_2) {
       font-size: 16px;
     }
-    
+
     @include respond-to-min($resp_step_3) {
       letter-spacing: -.02em;
     }

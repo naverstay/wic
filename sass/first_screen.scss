@@ -83,8 +83,70 @@ body {
     }
   }
 
+  &._trend {
+    .mCSB_scrollTools_vertical {
+      a {
+        @extend %icon_pseudo;
+      }
+    }
+  }
+
   @include respond-to-min($resp_step_1) {
     padding-top: 112px;
+
+    &._trend {
+      height: 100%;
+      min-height: 600px;
+
+      .section_inner {
+        position: relative;
+      }
+
+      .trend_scroller,
+      .section_inner,
+      .base {
+        height: 100%;
+      }
+
+      .main_content {
+        overflow: hidden;
+        height: 100%;
+      }
+
+      .mCSB_scrollTools_vertical {
+        a {
+          left: -4px;
+          width: 24px;
+          height: 24px;
+          font-size: 24px;
+          line-height: 24px;
+          text-align: center;
+          color: #000;
+        }
+
+        .mCSB_buttonDown {
+          &:before {
+            content: $i-arrow_down;
+          }
+        }
+
+        .mCSB_buttonUp {
+          bottom: 40px;
+
+          &:before {
+            content: $i-arrow_up;
+          }
+        }
+      }
+
+      .mCSB_scrollTools {
+        right: 4px;
+
+        a + .mCSB_draggerContainer {
+          margin: 120px 0;
+        }
+      }
+    }
 
     &._trends {
       padding-top: 148px;
@@ -96,6 +158,7 @@ body {
   }
 
   @include respond-to-min($resp_step_2) {
+
     &._trends {
 
       .show_more_block {
@@ -106,6 +169,15 @@ body {
 
   @include respond-to-min($resp_step_3) {
     padding-top: 152px;
+
+    &._trend {
+      .mCSB_scrollTools {
+
+        a + .mCSB_draggerContainer {
+          margin: 155px 0;
+        }
+      }
+    }
 
     &._trends {
       padding-top: 112px;

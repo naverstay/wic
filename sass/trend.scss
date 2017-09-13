@@ -1,0 +1,182 @@
+.trend_scroller_holder {
+  height: 100%;
+  
+  @include respond-to-max($resp_step_3) {
+    padding-top: 25px;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    padding-top: 15px;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    padding-top: 0;
+  }
+}
+
+.trend_unit {
+  @extend %clearfix;
+  padding-top: 5px;
+  padding-bottom: 45px;
+
+  @include respond-to-min($resp_step_1) {
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding-top: 0;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding-top: 0;
+  }
+}
+
+.trend_text {
+  font: 16px $AvenirNextMedium;
+
+  h1 {
+    font: 38px/.95 $FormularBlack;
+    margin-bottom: 43px;
+  }
+
+  p {
+    margin-top: 15px;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .caption_tip {
+    margin-bottom: 15px;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    float: left;
+    width: 248px;
+    padding-right: 16px;
+
+    h1 {
+      margin-bottom: 58px;
+    }
+
+    p {
+      margin-bottom: 55px;
+    }
+  }
+
+  @include respond-to-min($resp_step_2) {
+    float: left;
+    width: 320px;
+    padding-right: 40px;
+
+    h1 {
+      font-size: 48px;
+      line-height: .85;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    float: left;
+    width: 400px;
+    padding-right: 120px;
+  }
+}
+
+.trend_image_wrapper {
+  position: relative;
+
+  @include respond-to-max($resp_step_1) {
+    padding-top: 15px;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    margin-left: 248px;
+    margin-right: 62px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    margin-left: 320px;
+    margin-right: 80px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    margin-left: 400px;
+  }
+
+  p {
+    font: 16px $AvenirNextMedium;
+    margin-bottom: 10px;
+  }
+}
+
+.next_trend_caption {
+  font: 18px $FormularBlack;
+
+  @include respond-to-min($resp_step_1) {
+    font-size: 20px;
+  }
+}
+
+.trend_links {
+  line-height: 1.4;
+
+  li {
+    margin: 19px 0;
+  }
+}
+
+.trend_image_list {
+
+  li {
+    margin-bottom: 24px;
+
+    @include respond-to-min($resp_step_1) {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.trend_image {
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+.scroller_counter {
+  @extend %translate3d;
+  @include transform_rotate(-90);
+  transform-origin: 100% 100%;
+  position: absolute;
+  color: #d8d8d8;
+  height: 24px;
+  font: 18px/24px $FormularBlack;
+  top: -20px;
+  right: 10px;
+  z-index: 2;
+
+  @include respond-to-max($resp_step_3) {
+    right: 42px;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    right: 20px;
+    top: -5px;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    display: none;
+  }
+
+}
+
+.scroll_step {
+  @include transition_all(color .3s);
+  color: #000;
+
+  &._end {
+    color: #b43864;
+  }
+}

@@ -3,15 +3,16 @@ var body_var, wnd,
 
 $(function ($) {
 
-  body_var = $('body');wnd = $(window);
+  body_var = $('body');
+  wnd = $(window);
 
   var container = body_var[0];
-  
+
   $('.product_info')
     .on('tap', function (e) {
       tapCallback(e);
     });
-  
+
   body_var
     .delegate('.openMobMenu', 'click', function () {
       body_var.toggleClass('menu_opened');
@@ -133,10 +134,10 @@ function tapCallback(e) {
   var el = $(e.target);
 
   //console.log(el[0].tagName);
-  
+
   if (!((el[0].tagName).toLowerCase() == 'a' || el.closest('a').length)) {
     e.preventDefault();
-    
+
     if (el.hasClass('product_unit')) {
 
     } else if (el.closest('.product_unit').length) {
@@ -334,6 +335,7 @@ function initScrollBars() {
       scrollEasing: "linear"
     });
   }
+  
 }
 
 function all_dialog_close() {

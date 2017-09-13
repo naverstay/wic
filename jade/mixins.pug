@@ -114,6 +114,10 @@ mixin scripts(page)
     script(src="js/isotop/packery-mode.pkgd.js")
     script(src='js/trends.js')
     
+  - if (page == 4)
+    script(src='js/jquery.mCustomScrollbar.min.js')
+    script(src='js/trend.js')
+    
     
 
 mixin logo_svg()
