@@ -247,6 +247,10 @@
   ._faq & {
     margin-bottom: 20px;
   }
+  
+  &._no_bdr {
+    border: none;
+  }
 
   &.footer_mod {
     min-height: 100%;

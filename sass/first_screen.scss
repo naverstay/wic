@@ -212,6 +212,22 @@ body {
     }
   }
 
+  &._delivery {
+    padding-top: 100px;
+
+    @include respond-to-min($resp_step_1) {
+      padding-top: 155px;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      padding-top: 153px;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      padding-top: 185px;
+    }
+  }
+
   &._profile {
     padding-top: 145px;
 

@@ -106,6 +106,16 @@
     font: 16px/20px $FormularBold;
   }
 
+  &.delivery_search_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 48px;
+    text-align: center;
+    font-size: 24px;
+  }
+
   &.contact_btn {
     display: inline-block;
     vertical-align: top;

@@ -104,7 +104,7 @@
   border-radius: 0;
   box-shadow: none;
   -webkit-appearance: none;
-  
+
   &.f_input_v1 {
     height: 40px;
     background: $default_t_color;
@@ -134,7 +134,7 @@
     background: #ededed;
     font: 14px/20px $AvenirNextDemiBold;
     color: #000;
-    
+
     &::-webkit-input-placeholder {
       font-family: $AvenirNextDemiBold;
     }
@@ -198,6 +198,30 @@
       padding: 15px;
     }
   }
+
+  &.f_input_v5 {
+    height: 48px;
+    background: #fff;
+    padding: 14px 16px;
+    font: 16px/20px $AvenirNextMedium;
+    border: 2px solid #000;
+    color: #000;
+
+    &::-webkit-input-placeholder {
+      color: #000000;
+      font-family: $AvenirNextMedium;
+    }
+
+    &::-moz-placeholder {
+      color: #000000;
+      font-family: $AvenirNextMedium;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      //height: 36px;
+      //line-height: 22px;
+    }
+  }
 }
 
 textarea.f_input_v3.f_input {
@@ -218,7 +242,7 @@ textarea.f_input_v5.f_input {
   @include respond-to-min($resp_step_1) {
     height: 220px;
   }
-  
+
   @include respond-to-min($resp_step_3) {
     height: 300px;
   }

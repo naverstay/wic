@@ -1,0 +1,120 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('WIC delivery')
+
+  body
+    .wrapper._delivery
+      .base
+        +header()
+
+        .main_content
+          .section_inner
+            .block_title._wish_mode Доставка и оплата
+
+            ul.delivery_variants
+              li
+                .delivery_variant
+                  .caption_tip Оплата
+                  .delivery_info
+                    p Мы принимаем оплату практически всеми доступными способами: банковскими картами, яндекс деньгами и другими платежными системами, а также вы можете оплатить вш заказ наличными курьеру или в пункте самовывоза.
+                  .delivery_price
+                    .payment_img._visa
+                      img(src='i/visa.png')
+                    .payment_img._mc
+                      img(src='i/mc.png')
+                      
+              li
+                .delivery_variant
+                  .caption_tip Доставка курьером
+                  .delivery_info
+                    .delivery_caption Ожидаемая дата доставки<br>четверг, 11 мая 2017
+                    p Примечание: указанные выше даты действительны только в случае размещения заказа до окончания соответствующего временного интервала и будут подтверждены при оформлении заказа.
+                  .delivery_price
+                    .delivery_price_box
+                      .delivery_cell
+                        .delivery_val 200 руб.
+                      .delivery_cell
+                        .delivery_tip Бесплатно
+                        p при заказе на сумму<br>от 6 000 руб.
+                            
+              li
+                .delivery_variant
+                  .caption_tip Экспресс-доставка
+                  .delivery_info
+                    .delivery_caption Ожидаемая дата доставки<br>вторник, 25 апреля 2017
+                    p Примечание: указанные выше даты действительны только в случае размещения заказа до окончания соответствующего временного интервала и будут подтверждены при оформлении заказа.
+                  .delivery_price
+                    .delivery_price_box
+                      .delivery_cell
+                        .delivery_val 1 500 руб.
+                      .delivery_cell
+                        .delivery_tip Бесплатно
+                        p при заказе на сумму<br>от 18 000 руб.
+                      
+              li
+                .delivery_variant
+                  .caption_tip Самовывоз
+                  .delivery_info
+                    .delivery_caption Забрать можно в пятницу,<br>21 апреля 2017
+                    p Примечание: указанные выше даты действительны только в случае размещения заказа до окончания соответствующего временного интервала и будут подтверждены при оформлении заказа.
+                  .delivery_price
+                    .delivery_price_box
+                      .delivery_cell._free
+                        .delivery_val Бесплатно
+                          
+              li
+                .profile_settings.collapseHolder._no_bdr
+                  .profile_settings_inner._gray._has_icon
+                    .profile_caption
+                      .fl Пункты самовывоза
+                      span.collapseBtn.faq_collapse._opened
+    
+                  .self_delivery_w: .collapseBlock.collapse_block
+                    .self_delivery
+                      .self_delivery_map
+                        #wic_map.map_block
+                      
+                      .self_delivery_search.deliverySearchBlock
+                        .self_delivery_form
+                          form(action='#')
+                            .f_cell.delivery_search
+                              input.f_input.f_input_v5(placeholder='Укажите город')
+                              button.delivery_search_btn.btn_black.btn_v3
+                                span.i-search
+                                
+                        .self_delivery_offices.mCSB
+                          ul.self_delivery_list
+                            +loop_while(3)
+                              li
+                                .self_delivery_office
+                                  .office_caption Пункт самовывоза WIC
+                                  p Москва, ул. Добролюбова, д. 2Б
+                                  p Тел.: +7 (812) 123 45 67<br>info@mywellpoint.ru<br>http://mywellpoint.ru
+                                  
+                              li
+                                .self_delivery_office
+                                  .office_caption Пункт самовывоза
+                                  p Москва, ул. Добролюбова, д. 2Б
+                                  p Тел.: +7 (812) 123 45 67<br>info@mywellpoint.ru<br>http://mywellpoint.ru
+                                  
+                              li
+                                .self_delivery_office
+                                  .office_caption Пункт самовывоза
+                                  p Москва, ул. Добролюбова, д. 2Б
+                                  p Тел.: +7 (812) 123 45 67<br>info@mywellpoint.ru<br>http://mywellpoint.ru
+                              
+                        .self_delivery_collapse.officeCollapseBtn
+                          
+              li
+                .delivery_variant
+                  .caption_tip Возвраты
+                  .delivery_info._wide
+                    p._c_gray Примечание: указанные выше даты действительны только в случае размещения заказа до окончания соответствующего временного интервала и будут подтверждены при оформлении заказа.
+
+
+
+
+      +footer()
+
+    +scripts(5)

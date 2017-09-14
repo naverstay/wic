@@ -118,6 +118,11 @@ mixin scripts(page)
     script(src='js/jquery.mCustomScrollbar.min.js')
     script(src='js/trend.js')
     
+  - if (page == 5)
+    script(src='js/jquery.mCustomScrollbar.min.js')
+    script(src='js/delivery.js')
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCl7THpWflv0u70jhfuU4T6KbuNy0fuxME&callback=loadMap')
+    
 mixin aside(active)
   .aside
     .aside_menu
