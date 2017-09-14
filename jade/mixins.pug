@@ -123,7 +123,7 @@ mixin scripts(page)
     script(src='js/delivery.js')
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCl7THpWflv0u70jhfuU4T6KbuNy0fuxME&callback=loadMap')
     
-mixin aside(active)
+mixin aside(active, sub)
   .aside
     .aside_menu
       .aside_m_item(class= (active === 1 ? 'drop_down' : ''))
@@ -131,11 +131,23 @@ mixin aside(active)
           span Профиль
           - if (active === 1)
             span.aside_m_icon
-      .aside_m_item(class= (active === 2 ? 'drop_down' : ''))
+      .aside_m_item(class= (active === 2 ? 'drop_down _opened' : ''))
         a.aside_m_link(href='orders.html' class= (active === 2 ? 'openAsideMenu' : ''))
           span Закупки
           - if (active === 2)
             span.aside_m_icon
+        - if (active === 2)
+          ul.aside_submenu
+            li(class= (sub === 1 ? 'sub_active' : ''))
+              a.submenu_link(href='#' class= (sub === 1 ? '_active openAsideSub' : ''))
+                span Сделать заказ
+            li(class= (sub === 2 ? 'sub_active' : ''))
+              a.submenu_link(href='#' class= (sub === 2 ? '_active openAsideSub' : ''))
+                span История заказов
+            li(class= (sub === 3 ? 'sub_active' : ''))
+              a.submenu_link(href='#' class= (sub === 3 ? '_active openAsideSub' : ''))
+                span Склад
+
       .aside_m_item(class= (active === 3 ? 'drop_down' : ''))
         a.aside_m_link(href='ref.html' class= (active === 3 ? 'openAsideMenu' : ''))
           span Рефералы

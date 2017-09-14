@@ -8,6 +8,7 @@
     top: 0;
     bottom: 0;
     width: 56px;
+    cursor: pointer;
 
     &:after,
     &:before {
@@ -74,6 +75,28 @@
       font-size: 30px;
       padding-left: 10px;
       margin: -5px -2px -5px 0;
+    }
+  }
+
+  &.order_btn {
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    cursor: pointer;
+    padding: 18px 24px;
+    font: 16px/20px $FormularBlack;
+    letter-spacing: .08em;
+    text-align: center;
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 50%;
     }
   }
 }
@@ -143,6 +166,46 @@
       height: 30px;
       font-size: 16px;
       padding: 3px;
+    }
+  }
+}
+
+.btn_v4 {
+
+  &.counter_btn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    cursor: pointer;
+
+    &:after,
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: #000;
+    }
+
+    &:before {
+      width: 10px;
+      height: 2px;
+      margin: -1px 0 0 -5px;
+    }
+
+    &._minus {
+      left: 0;
+    }
+
+    &._plus {
+      right: 0;
+
+      &:after {
+        height: 10px;
+        width: 2px;
+        margin: -5px 0 0 -1px;
+      }
     }
   }
 }

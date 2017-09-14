@@ -15,45 +15,54 @@ html(lang='ru')
               span /
               span.scroll_total.scrollTotal 08
 
-            .mCSBh.trend_scroller
-              .trend_unit
-                .trend_text
-                  h1 Callum Standen-May @ The Egg salons
-              
-                  .caption_tip Кто
-                    
-                  p Причёски Callum Standen-May @ The Egg salons<br>Макияж Maddie Austin<br>Фото Richard Miles
+            
+            .trend_unit
+              .trend_text
+                h1 Callum Standen-May @ The Egg salons
+            
+                .caption_tip Кто
                   
-                  .caption_tip Продукты
-                    
-                  ul.trend_links
-                    li
-                      a.gl_link._underline(href='#')
-                        span Oribe Dry Texturizing Spray
-                        
-                    li
-                      a.gl_link._underline(href='#')
-                        span Sebastian Cellophanes CLEAR
-                        
-                    li
-                      a.gl_link._underline(href='#')
-                        span Philip B Oud Royal Forever Shine Conditioner
-  
-                .trend_image_wrapper
-                  ul.trend_image_list
-                    +loop_while(4)
-                      li.stepItem
-                        .trend_image
-                          img(src='i/trend_1_b.jpg')
-                          
-                      li.stepItem
-                        .trend_image
-                          img(src='i/trend_1_b.jpg')
-                        
-                  p Следующее
-                  .next_trend_caption
+                p Причёски Callum Standen-May @ The Egg salons<br>Макияж Maddie Austin<br>Фото Richard Miles
+                
+                .caption_tip Продукты
+                  
+                ul.trend_links
+                  li
                     a.gl_link._underline(href='#')
-                      span Louise Williamson @ Stevie English Hair Salon
+                      span Oribe Dry Texturizing Spray
+                      
+                  li
+                    a.gl_link._underline(href='#')
+                      span Sebastian Cellophanes CLEAR
+                      
+                  li
+                    a.gl_link._underline(href='#')
+                      span Philip B Oud Royal Forever Shine Conditioner
+  
+              .trend_image_wrapper
+                .trend_scroller_w
+                  .mCSBh.trend_scroller
+                    .trend_image_list
+                      +loop_while(4)
+                        .trend_image_item.stepItem
+                          .trend_image
+                            img(src='i/trend_1_b.jpg')
+                            
+                        .trend_image_item.stepItem
+                          .trend_image
+                            img(src='i/trend_1_b.jpg')
+                      
+                  .trend_image_controls
+                    .trend_prev.trendPrev
+                    .trend_next.trendNext
+
+                    //-.trend_image_progress
+                      .trend_progress_pin
+                            
+                p Следующее
+                .next_trend_caption
+                  a.gl_link._underline(href='#')
+                    span Louise Williamson @ Stevie English Hair Salon
 
       +footer()
 

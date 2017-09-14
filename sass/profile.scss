@@ -134,6 +134,46 @@
       float: left;
     }
   }
+
+  &._col_7 {
+
+    @include respond-to-min($resp_step_1) {
+      width: 100%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 75%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 80%;
+    }
+  }
+
+  &._col_8 {
+    width: 100%;
+
+    @include respond-to-max($resp_step_2) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      max-width: 320px;
+
+      &._info_spacer {
+        max-width: 400px;
+        padding-right: 80px;
+      }
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 25%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 20%;
+    }
+  }
 }
 
 .aside {
@@ -153,6 +193,71 @@
     z-index: 1;
     background: #fff;
 
+    .aside_submenu {
+
+      li {
+        display: none;
+        border-bottom: 1px solid #fff;
+
+        &.sub_active {
+          display: block;
+        }
+      }
+
+      .submenu_link {
+        -webkit-transition: background 0.3s, color 0.3s;
+        -ms-transition: background 0.3s, color 0.3s;
+        transition: background 0.3s, color 0.3s;
+        display: block;
+        position: relative;
+        padding: 16px 30px 16px 26px;
+        background: #000;
+        color: #fff;
+        font: 16px/1.4 $AvenirNextRegular;
+
+        &:hover {
+          background: #ed4b84;
+        }
+
+        &._active {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          padding-left: 16px;
+          display: block;
+
+          &:after {
+            content: '1';
+            display: none;
+          }
+
+          &:before {
+            font-family: $icomoon-font-name !important;
+            speak: none;
+            font-style: normal;
+
+            font-variant: normal;
+            text-transform: none;
+
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
+            content: $i-chevron_down;
+            position: absolute;
+            top: 50%;
+            height: 20px;
+            right: 15px;
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 20px;
+            margin-top: -10px;
+          }
+        }
+      }
+    }
+
     .aside_m_item {
       display: none;
       //margin-top: 4px;
@@ -169,11 +274,38 @@
       .aside_m_link {
         line-height: 1.1;
       }
+
+      &._opened {
+        position: static;
+        border-bottom-width: 1px;
+
+        .aside_m_link {
+          line-height: 1.3;
+          display: none;
+
+          &:hover {
+            background: #000;
+          }
+        }
+      }
     }
 
     .aside_open & {
+      .aside_submenu li,
       .aside_m_item {
         display: block;
+      }
+
+      .drop_down._opened .aside_m_link {
+        display: block;
+      }
+
+      .submenu_link {
+        &._active {
+          &:before {
+            display: none;
+          }
+        }
       }
     }
   }
@@ -206,7 +338,30 @@
   &:hover {
     background: #ed4b84;
   }
+}
 
+.aside_submenu {
+
+  @include respond-to-min($resp_step_2) {
+    background: #f9f8f8;
+    padding: 16px 20px;
+
+    li {
+      + li {
+        margin-top: 9px;
+      }
+    }
+  }
+}
+
+.submenu_link {
+  color: $default_t_color;
+  font: 16px/22px $AvenirNextRegular;
+
+  &._active {
+    cursor: default;
+    font-family: $AvenirNextDemiBold;
+  }
 }
 
 .aside_m_icon {
@@ -238,6 +393,14 @@
       }
     }
   }
+
+  ._opened & {
+    right: 15px !important;
+
+    &:before {
+      content: $i-chevron_down !important;
+    }
+  }
 }
 
 .profile_settings {
@@ -246,8 +409,13 @@
 
   ._faq & {
     margin-bottom: 20px;
+    border-color: transparent;
+
+    &._opened {
+      border-color: #d8d8d8;
+    }
   }
-  
+
   &._no_bdr {
     border: none;
   }
@@ -552,7 +720,7 @@
     display: block;
     overflow: hidden;
 
-    .settings_icon {
+    span + .settings_icon {
       float: right;
       padding-left: 10px;
     }
@@ -560,16 +728,49 @@
 }
 
 .settings_icon {
-  padding-left: 70px;
   font-size: 38px;
   line-height: 20px;
 
-  @include respond-to-max($resp_step_2) {
-    padding-left: 125px;
+  span + & {
+    padding-left: 70px;
+
+    @include respond-to-max($resp_step_2) {
+      padding-left: 125px;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      padding-left: 50px;
+    }
   }
 
-  @include respond-to-max($resp_step_1) {
-    padding-left: 50px;
+  &:first-child {
+    padding-right: 16px;
+
+    .order_controls_left & {
+      @include respond-to-max($resp_step_3) {
+        display: block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        margin-bottom: 5px;
+      }
+
+      @include respond-to-max($resp_step_2) {
+        display: unset;
+        width: auto;
+        height: auto;
+        margin-bottom: 0;
+        line-height: unset;
+      }
+
+      @include respond-to-max($resp_step_1) {
+        display: block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        margin-bottom: 5px;
+      }
+    }
   }
 }
 
@@ -741,6 +942,136 @@
   }
 }
 
+.order_holder {
+
+  @include respond-to-min($resp_step_1) {
+    padding-top: 20px;
+  }
+}
+
+.order_controls {
+  @extend %clearfix;
+  padding: 20px 0 68px;
+
+  @include respond-to-min($resp_step_1) {
+    padding: 32px 0 23px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding: 35px 0 53px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding: 40px 0 43px;
+  }
+}
+
+.order_controls_left {
+
+  @include respond-to-min($resp_step_1) {
+    float: left;
+    width: 50%;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    width: 30%;
+    margin-top: -15px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    width: 40%;
+    margin-top: 0;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    padding-top: 25px;
+    max-width: 180px;
+  }
+}
+
+.order_controls_right {
+
+  @include respond-to-min($resp_step_1) {
+    float: right;
+    width: 33%;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    width: 65.7%;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    float: right;
+    width: 51%;
+  }
+}
+
+.order_summary {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #d8d8d8;
+
+  @include respond-to-min($resp_step_2) {
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      border-left: 1px solid;
+      border-color: inherit;
+      left: 50%;
+    }
+  }
+}
+
+.order_summary_list {
+  position: relative;
+
+  dt {
+    opacity: .6;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  dd {
+    font-size: 18px;
+    margin-bottom: 21px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &._total {
+      font-size: 28px;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.order_summary_col {
+  padding: 24px 16px 26px;
+
+  + .order_summary_col {
+    padding-bottom: 85px;
+    border-top: 1px solid;
+    border-color: inherit;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding: 24px 16px;
+    float: left;
+    width: 50%;
+
+    + .order_summary_col {
+      border-top: none;
+      padding-bottom: 70px;
+    }
+  }
+}
+
 .profile_orders {
   margin: 0 -18px;
 
@@ -789,8 +1120,11 @@
       font: 14px $FormularMedium;
       padding: 0 10px 16px 0;
       border-bottom: 1px solid #d8d8d8;
-      text-align: left;
       vertical-align: top;
+
+      .profile_settings_inner & {
+        text-align: left;
+      }
     }
 
     .td {
@@ -800,6 +1134,81 @@
       vertical-align: top;
       border-bottom: 1px solid #d8d8d8;
       line-height: 1.4;
+    }
+  }
+
+  .order_holder & {
+
+    .td {
+      font-family: $AvenirNextMedium;
+
+      @include respond-to-min($resp_step_3) {
+        padding-top: 20px;
+        padding-bottom: 13px;
+      }
+
+      @include respond-to-max($resp_step_3) {
+        float: left;
+        display: block;
+      }
+    }
+
+    .th {
+      @include respond-to-max($resp_step_3) {
+        float: left;
+        display: block;
+      }
+    }
+
+    @include respond-to-max($resp_step_3) {
+      display: block;
+
+      .tr {
+        position: relative;
+        display: block;
+        border-bottom: 1px solid #d8d8d8;
+
+        &:before,
+        &:after {
+          content: " ";
+          display: table;
+        }
+        &:after {
+          clear: both;
+        }
+
+        + .tr {
+          padding-bottom: 1px;
+          margin-bottom: 7px;
+        }
+      }
+
+      .th,
+      .td {
+        border: none;
+      }
+    }
+
+    @include respond-to-max($resp_step_1) {
+      margin: 0;
+
+      .tr {
+
+        &._head {
+          border: none;
+          margin-bottom: 0;
+        }
+
+        + .tr {
+          padding-bottom: 44px;
+          margin-bottom: 18px;
+        }
+      }
+
+      .td {
+        padding-bottom: 14px;
+      }
+
     }
   }
 
@@ -892,6 +1301,192 @@
     }
   }
 
+  .col_7 {
+    @include respond-to-max($resp_step_1) {
+      float: right;
+      padding-right: 22px;
+    }
+  }
+
+  .col_22 {
+
+    @include respond-to-max($resp_step_1) {
+      &.td {
+        margin-left: 80px;
+        float: none;
+      }
+    }
+
+    @include respond-to-min($resp_step_1) {
+      width: 31%;
+      padding-left: 8px;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 32.5%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 20.5%;
+    }
+  }
+
+  .col_23 {
+
+    @include respond-to-max($resp_step_1) {
+      &.td {
+        clear: left;
+        width: 25%;
+      }
+    }
+
+    @include respond-to-min($resp_step_1) {
+      width: 15%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 15.5%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 17.5%;
+      text-align: right;
+    }
+  }
+
+  .col_24 {
+    white-space: nowrap;
+
+    @include respond-to-min($resp_step_1) {
+      width: 15.5%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 18%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 16%;
+      text-align: right;
+    }
+
+    @include respond-to-max($resp_step_3) {
+      text-align: left;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      float: left;
+      width: 35%;
+    }
+  }
+
+  .col_25 {
+
+    @include respond-to-min($resp_step_1) {
+      width: 15%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 16%;
+      text-align: right;
+    }
+
+    @include respond-to-max($resp_step_3) {
+      text-align: right;
+
+      &.td {
+        padding-right: 5px;
+      }
+    }
+
+    @include respond-to-max($resp_step_1) {
+      position: absolute;
+      left: 18px;
+      bottom: 7px;
+      max-width: 105px;
+    }
+  }
+
+  .col_26 {
+
+    &.td {
+      @include respond-to-max($resp_step_3) {
+        float: right !important;
+        margin-right: 9% !important;
+        padding-top: 5px;
+        max-width: 50%;
+        text-align: right;
+      }
+
+      @include respond-to-max($resp_step_2) {
+        margin-right: 12.5% !important;
+      }
+
+      @include respond-to-max($resp_step_1) {
+        margin-right: 0 !important;
+        float: right !important;
+        max-width: 40%;
+        padding-right: 0;
+        padding-top: 0;
+      }
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 14%;
+      text-align: right;
+
+      &.td {
+        //float: none !important;
+        //margin-right: 0 !important;
+        //padding-top: 15px;
+      }
+    }
+
+    @include respond-to-max($resp_step_1) {
+      float: right;
+      padding-right: 22px;
+    }
+  }
+
+  .col_27 {
+    @include respond-to-min($resp_step_3) {
+      text-align: right;
+      position: static;
+      top: auto;
+      right: auto;
+      width: auto;
+      padding-right: 14px;
+    }
+
+    &.td {
+      @include respond-to-max($resp_step_3) {
+        position: absolute;
+        top: -2px;
+        right: 0;
+        width: 5.5%;
+      }
+
+      @include respond-to-max($resp_step_2) {
+        width: 9%;
+      }
+
+      @include respond-to-max($resp_step_1) {
+        top: auto;
+        bottom: 7px;
+        width: auto;
+        right: 18px;
+      }
+    }
+
+    &.th {
+      @include respond-to-max($resp_step_1) {
+        float: right !important;
+        padding-right: 15px;
+        padding-bottom: 0;
+      }
+    }
+  }
+
   .prod_cell {
     .product_bg,
     .product_block {
@@ -924,5 +1519,25 @@
 
 .cart_icon {
   font-size: 20px;
+}
+
+.sort_btn {
+  @extend %icon_pseudo;
+  padding-left: 5px;
+  color: #000;
+
+  &:before {
+    content: $i-arrow_down;
+  }
+
+  &._double:after {
+    @include respond-to-max($resp_step_1) {
+      content: $i-arrow_up;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding-left: 10px;
+  }
 }
 

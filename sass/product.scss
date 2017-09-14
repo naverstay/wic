@@ -192,7 +192,6 @@
   //bottom: 0;
   //left: 0;
 
-
   height: 56px;
   border: 2px solid #000;
   position: relative;
@@ -205,6 +204,23 @@
 
   @include respond-to-max($resp_step_3) {
     min-width: 100%;
+  }
+}
+
+.details_product_quantity {
+  //position: absolute;
+  //top: 0;
+  //bottom: 0;
+  //left: 0;
+
+  height: 20px;
+  position: relative;
+  padding: 0 20px;
+
+  @include respond-to-min($resp_step_1) {
+    float: right;
+    width: 116px;
+    max-width: 100%;
   }
 }
 

@@ -117,25 +117,16 @@
   text-decoration: none;
 
   &._underline {
-    position: relative;
-    color: #000;
+    @include transition_all(color .3s);
+    color: rgba(0, 0, 0, .4);
+    text-decoration: underline;
 
-    &:before {
-      @include transition_all(background .3s);
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      height: 1px;
-      opacity: .4;
-      background: #000;
+    span {
+      color: $default_t_color;
     }
 
-    &:hover {
-      &:before {
-        opacity: 1;
-      }
+    &:hover  {
+      color: #000;
     }
   }
 

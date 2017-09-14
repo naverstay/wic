@@ -95,8 +95,8 @@ body {
     padding-top: 112px;
 
     &._trend {
-      height: 100%;
-      min-height: 600px;
+      //height: 100%;
+      //min-height: 600px;
 
       .section_inner {
         position: relative;
@@ -105,16 +105,17 @@ body {
       .trend_scroller,
       .section_inner,
       .base {
-        height: 100%;
+        //height: 100%;
       }
 
       .main_content {
-        overflow: hidden;
-        height: 100%;
+        //overflow: hidden;
+        //height: 100%;
       }
 
       .mCSB_scrollTools_vertical {
         a {
+          display: none !important;
           left: -4px;
           width: 24px;
           height: 24px;
@@ -142,9 +143,23 @@ body {
       .mCSB_scrollTools {
         right: 4px;
 
+        .mCSB_dragger .mCSB_dragger_bar {
+          width: 1px;
+        }
+
+        .mCSB_draggerRail:before {
+          margin-left: -1px;
+          width: 1px;
+          background: #d8d8d8;
+        }
+
         a + .mCSB_draggerContainer {
           margin: 120px 0;
         }
+      }
+
+      .trend_image_progress {
+        margin: 120px 0;
       }
     }
 
@@ -176,6 +191,10 @@ body {
         a + .mCSB_draggerContainer {
           margin: 155px 0;
         }
+      }
+
+      .trend_image_progress {
+        margin: 155px 0;
       }
     }
 
@@ -1490,6 +1509,13 @@ body {
             color: #fff;
             padding-right: 30px;
 
+            p,
+            .product_name {
+              .gl_link {
+                color: #fff;
+              }
+            }
+
             .product_info {
               padding: 0 0 48px 20px;
             }
@@ -1646,6 +1672,13 @@ body {
     //padding: 0 50px 37px 0;
     color: #fff;
     padding: 0 50px 44px 0;
+
+    p,
+    .product_name {
+      .gl_link {
+        color: #fff;
+      }
+    }
 
     .caption_tip {
       &:before {

@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'wic_icons';
-  src:  url('#{$icomoon-font-path}/wic_icons.eot?7bzw7x');
-  src:  url('#{$icomoon-font-path}/wic_icons.eot?7bzw7x#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/wic_icons.ttf?7bzw7x') format('truetype'),
-    url('#{$icomoon-font-path}/wic_icons.woff?7bzw7x') format('woff'),
-    url('#{$icomoon-font-path}/wic_icons.svg?7bzw7x#wic_icons') format('svg');
+  src:  url('#{$icomoon-font-path}/wic_icons.eot?f0ceaj');
+  src:  url('#{$icomoon-font-path}/wic_icons.eot?f0ceaj#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/wic_icons.ttf?f0ceaj') format('truetype'),
+    url('#{$icomoon-font-path}/wic_icons.woff?f0ceaj') format('woff'),
+    url('#{$icomoon-font-path}/wic_icons.svg?f0ceaj#wic_icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -26,6 +26,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-remove {
+  &:before {
+    content: $i-remove;
+  }
+}
 .i-arrow_up {
   &:before {
     content: $i-arrow_up;

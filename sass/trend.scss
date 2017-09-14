@@ -92,12 +92,12 @@
 
   @include respond-to-min($resp_step_1) {
     margin-left: 248px;
-    margin-right: 62px;
+    //margin-right: 62px;
   }
 
   @include respond-to-min($resp_step_2) {
     margin-left: 320px;
-    margin-right: 80px;
+    //margin-right: 80px;
   }
 
   @include respond-to-min($resp_step_3) {
@@ -108,6 +108,66 @@
     font: 16px $AvenirNextMedium;
     margin-bottom: 10px;
   }
+}
+
+.trend_image_controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+
+  @include respond-to-max($resp_step_1) {
+    display: none;
+  }
+
+  .trend_image_progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .trend_progress_pin {
+
+  }
+
+  .trend_prev {
+    bottom: 40px;
+
+    &:before {
+      content: $i-arrow_up;
+    }
+  }
+
+  .trend_next {
+    bottom: 0;
+
+    &:before {
+      content: $i-arrow_down;
+    }
+  }
+
+  .trend_prev,
+  .trend_next {
+    @extend %icon_pseudo;
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    margin: 0 auto;
+    cursor: pointer;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: #000;
+  }
+
 }
 
 .next_trend_caption {
@@ -126,13 +186,40 @@
   }
 }
 
-.trend_image_list {
+.trend_scroller_w {
+  @include respond-to-min($resp_step_1) {
+    height: 70vh;
+    overflow: hidden;
+    min-height: 500px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+}
 
-  li {
+.trend_scroller {
+  @include respond-to-min($resp_step_1) {
+    height: 100%;
+  }
+}
+
+.trend_image_list {
+  @include respond-to-min($resp_step_1) {
+    padding-right: 62px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding-right: 80px;
+  }
+
+  .trend_image_item {
     margin-bottom: 24px;
 
     @include respond-to-min($resp_step_1) {
       margin-bottom: 40px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -212,7 +299,7 @@
     margin-top: -1px;
   }
 
-  &._opened {
+  ._opened & {
     &:after {
       display: none;
     }
@@ -291,13 +378,31 @@
 
 .order_status {
   opacity: .6;
-  font-size: 16px;
+  font: 16px $AvenirNextMedium;
   padding-left: 10px;
-  letter-spacing: -.03em;
 
   @include respond-to-max($resp_step_1) {
     font-size: 12px;
     padding-left: 8px;
+  }
+}
+
+.order_caption {
+  font: 20px/25px $FormularBlack;
+  margin-bottom: 20px;
+}
+
+.order_price {
+  color: rgba(0, 0, 0, .4);
+  font: 18px/25px $AvenirNextMediumItalic;
+
+  @include respond-to-max($resp_step_1) {
+    font-size: 16px;
+    line-height: 21px;
+  }
+  
+  @include respond-to-min($resp_step_3) {
+    color: #b43864;
   }
 }
 
@@ -481,6 +586,7 @@
 
   + .delivery_cell {
     border-left: 1px solid #d8d8d8;
+    background: #f5f5f5;
   }
 
   &._free {
@@ -670,8 +776,7 @@
 
   @include respond-to-min($resp_step_2) {
     height: 506px;
-    padding-top: 88px;
-    padding-bottom: 24px;
+    padding: 88px 0 24px;
 
     &:before {
       bottom: 0;
