@@ -85,6 +85,15 @@ mixin check(txt, chck)
     input.inp_hidden(type='checkbox' checked=(chck ? 'checked' : null))
     span.check_text= txt
       
+mixin mob_sort()
+  span.sort_btn._double.openMobSort
+  .sort_menu
+    ul.sort_list
+      li: a.gl_link(href='#') По цене
+      li: a.gl_link(href='#') По возрастанию
+      li: a.gl_link(href='#') По убыванию
+
+
 mixin scripts(page)
   script(src='js/jquery1.10.js')
   script(src='js/select2.js')
@@ -139,13 +148,13 @@ mixin aside(active, sub)
         - if (active === 2)
           ul.aside_submenu
             li(class= (sub === 1 ? 'sub_active' : ''))
-              a.submenu_link(href='#' class= (sub === 1 ? '_active openAsideSub' : ''))
+              a.submenu_link(href='new_order.html' class= (sub === 1 ? '_active openAsideSub' : ''))
                 span Сделать заказ
             li(class= (sub === 2 ? 'sub_active' : ''))
-              a.submenu_link(href='#' class= (sub === 2 ? '_active openAsideSub' : ''))
+              a.submenu_link(href='history.html' class= (sub === 2 ? '_active openAsideSub' : ''))
                 span История заказов
             li(class= (sub === 3 ? 'sub_active' : ''))
-              a.submenu_link(href='#' class= (sub === 3 ? '_active openAsideSub' : ''))
+              a.submenu_link(href='stock.html' class= (sub === 3 ? '_active openAsideSub' : ''))
                 span Склад
 
       .aside_m_item(class= (active === 3 ? 'drop_down' : ''))

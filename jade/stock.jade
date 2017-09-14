@@ -1,0 +1,315 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('WIC stock')
+
+  body
+    .wrapper._profile
+      .base
+        +header()
+
+        .main_content
+          .section_inner
+            .grid_row
+              .grid_col._col_8._info_spacer
+                +aside(2, 3)
+                        
+              .grid_col._col_9
+                .stock_info
+                  .order_summary
+                    .order_summary_col
+                      dl.order_summary_list
+                        dt Сумма остатков на складе:
+                        dd._total 282 457 руб.
+
+                    .order_summary_col
+                      dl.order_summary_list
+                        dt Колличество продуктов на складе:
+                        dd._total 560 шт.
+
+              .grid_col._col_10
+                .profile_msg_holder
+                  span.msg_block_btn.wide_hidden.msgCloseBtn
+                    span.i-exclamation
+                  .profile_msg_block._warning.msgBlock._mod_1
+                    span.msg_close.msgCloseBtn
+
+                    .msg_title ! Заканчивается на складе
+                    p
+                      a.msg_link(href='#') Alterna Caviar Anti-Aging Smoothing Hydra-Gelee Nourishing Hair Perfector, 1 000мл
+                    p
+                      a.msg_link(href='#') Sebastian Resintek Hypershine With Intense Memory Hold, 75мл
+
+                    ul.msg_controls
+                      li
+                        a.btn_v3.btn_black.msg_btn(href='#')
+                          span Показать
+                
+              .grid_col._col_7: .stock_search_holder
+                .stock_search_form
+                  form(action='#')
+                    .f_cell.stock_search
+                      input.f_input.f_input_v6(placeholder='Поиск по складу')
+                      button.stock_search_btn.btn_black.btn_v3
+                        span.i-search
+                
+                .filter_block._stock
+                  .filter_collapse
+                    a.filter_link.toggleFilter(href='#filter')
+                      span.filter_icon
+                      span Сортировать
+                      //-span.filter_counter 2
+                  #filter(style='display:none;')
+                    .filter_expand
+                      .filter_col
+                        label.f_label.f_label_v1(for='price_min') Цена, руб.
+                        .input_w.toddler_v1
+                          #price_range.toddler(data-control-min='#price_min' data-control-max='#price_max' data-min=0 data-max=20000)
+                        .f_row.f_row_v2
+                          .f_cell
+                            span от
+                            .input_w
+                              input#price_min.f_input_v2.f_input.text_center(data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': true, 'groupSeparator': ' ', 'digits': 0, 'digitsOptional': false" type='number')
+                          .f_cell
+                            span до
+                            .input_w
+                              input#price_max.f_input_v2.f_input.text_center(data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': true, 'groupSeparator': ' ', 'digits': 0, 'digitsOptional': false" type='number')
+
+                        .f_row
+                          +check('Только со скидкой')
+
+                      .filter_col.cb
+                        .f_label.f_label_v1() Бренды
+
+                        .filter_scroller.mCSB
+                          ul.option_list
+                            +loop_while(3)
+                              li
+                                +check('Alterna')
+                              li
+                                +check('Sebastian')
+                              li
+                                +check('CND')
+                              li
+                                +check('Caviar')
+                              li
+                                +check('INM')
+
+                      .filter_col
+                        .f_label.f_label_v1() Тип продукта 
+
+                        .filter_scroller.mCSB
+                          ul.option_list
+                            +loop_while(1)
+                              li
+                                +check('Шампунь')
+                              li
+                                +check('Кондицонер')
+                              li
+                                +check('Маска')
+                              li
+                                +check('Масло')
+                              li
+                                +check('Масло')
+
+                      .filter_col
+                        .f_label.f_label_v1() Назначение
+
+                        .filter_scroller.mCSB
+                          ul.option_list
+                            +loop_while(1)
+                              li
+                                +check('Объём')
+                              li
+                                +check('Восстановление')
+                              li
+                                +check('Увлажнение')
+                              li
+                                +check('Блеск и сияние')
+                              li
+                                +check('Блеск и сияние')
+
+                      .filter_col
+                        .f_label.f_label_v1() Тип волос
+
+                        .filter_scroller.mCSB
+                          ul.option_list
+                            +loop_while(1)
+                              li
+                                +check('Нормальные')
+                              li
+                                +check('Светлые')
+                              li
+                                +check('Окрашенные')
+                              li
+                                +check('Тонкие')
+                              li
+                                +check('Тонкие')
+
+                      .filter_col.cb._last
+                        a.f_reset.fReset(href='#')
+                          span.i-close
+                          span Сбросить фильтр
+
+                .order_holder
+                  .profile_orders
+                    .tr._head
+                      .th.mob_hidden.col_1 &nbsp;
+                      .th.mob_hidden.col_22 
+                        span Наименование
+                        span.sort_btn
+                      .th.mob_hidden.col_23
+                        span Объём
+                        span.wide_only
+                          span , мл
+                        span.sort_btn._up
+
+                      .th.mob_hidden.col_24
+                        span Цена
+                        span.wide_only
+                          span , руб.
+                        span.sort_btn
+                      .th.mob_hidden.col_25
+                        span Количество
+                        span.wide_only
+                          span , шт.
+                        
+                      .th.mob_hidden.col_26.wide_only
+                        span Склад
+                      .th.col_27 
+                        span.mob_hidden &nbsp;
+                        span.mob_only
+                          +mob_sort()
+
+                    .tr
+                      .stock_index 1
+                      .td.prod_cell.col_1
+                        a.product_block(href='product.html')
+                          .product_bg
+                            img(src='i/oribe_gray_bg.jpg')
+                          .product_img
+                            img.shadowed(src='i/product_2.png')
+                            
+                      .td.col_22 Alterna Caviar Anti-Aging Smoothing Hydra-Gelee Nourishing Hair Perfector
+                      .td.col_23
+                        span 1 000
+                        span.wide_hidden  мл
+                      .td.col_24
+                        span 24 390
+                        span.wide_hidden  руб.
+                      .td.col_25
+                        .details_product_quantity
+                          .valCell.input_w
+                            input.f_input.f_input_v7.text_center(value='1' data-min='1' data-max='99' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'repeat': 2, 'digitsOptional': false" )
+                            span.btn_v4.counter_btn._minus.valMinus
+                            span.btn_v4.counter_btn._plus.valPlus
+                      .td.col_26
+                        span.dt_hidden Склад: 
+                        span 4
+                        span.wide_hidden  шт
+
+                      .td.col_27
+                        span.cart_icon.i-cart
+                        span.cart_icon.i-remove
+                      
+                    .tr
+                      .stock_index 2
+                      .td.prod_cell.col_1
+                        a.product_block(href='product.html')
+                          .product_bg
+                            img(src='i/oribe_gray_bg.jpg')
+                          .product_img
+                            img.shadowed(src='i/product_6.png')
+
+                      .td.col_22 Sebastian Dark Oil
+                      .td.col_23
+                        span 250
+                        span.wide_hidden  мл
+                      .td.col_24
+                        span 850
+                        span.wide_hidden  руб.
+                      .td.col_25
+                        .details_product_quantity
+                          .valCell.input_w
+                            input.f_input.f_input_v7.text_center(value='1' data-min='1' data-max='99' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'repeat': 2, 'digitsOptional': false" )
+                            span.btn_v4.counter_btn._minus.valMinus
+                            span.btn_v4.counter_btn._plus.valPlus
+                      .td.col_26
+                        span.dt_hidden Склад: 
+                        span 4
+                          span.wide_hidden  шт
+
+                      .td.col_27
+                        span.cart_icon.i-cart
+                        span.cart_icon.i-remove
+
+                    .tr
+                      .stock_index 3
+                      .td.prod_cell.col_1
+                        a.product_block(href='product.html')
+                          .product_bg
+                            img(src='i/oribe_gray_bg.jpg')
+                          .product_img
+                            img.shadowed(src='i/product_5.png')
+
+                      .td.col_22 Sebastian Dark Oil
+                      .td.col_23
+                        span 250
+                        span.wide_hidden  мл
+                      .td.col_24
+                        span 850
+                        span.wide_hidden  руб.
+                      .td.col_25
+                        .details_product_quantity
+                          .valCell.input_w
+                            input.f_input.f_input_v7.text_center(value='1' data-min='1' data-max='99' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'repeat': 2, 'digitsOptional': false" )
+                            span.btn_v4.counter_btn._minus.valMinus
+                            span.btn_v4.counter_btn._plus.valPlus
+                      .td.col_26
+                        span.dt_hidden Склад: 
+                        span 4
+                          span.wide_hidden  шт
+
+                      .td.col_27
+                        span.cart_icon.i-cart
+                        span.cart_icon.i-remove
+
+                    .tr
+                      .stock_index 4
+                      .td.prod_cell.col_1
+                        a.product_block(href='product.html')
+                          .product_bg
+                            img(src='i/oribe_gray_bg.jpg')
+                          .product_img
+                            img.shadowed(src='i/product_2.png')
+
+                      .td.col_22 Alterna Caviar Anti-Aging Smoothing Hydra-Gelee Nourishing Hair Perfector
+                      .td.col_23
+                        span 1 000
+                        span.wide_hidden  мл
+                      .td.col_24
+                        span 24 390
+                        span.wide_hidden  руб.
+                      .td.col_25
+                        .details_product_quantity
+                          .valCell.input_w
+                            input.f_input.f_input_v7.text_center(value='1' data-min='1' data-max='99' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'repeat': 2, 'digitsOptional': false" )
+                            span.btn_v4.counter_btn._minus.valMinus
+                            span.btn_v4.counter_btn._plus.valPlus
+                      .td.col_26
+                        span.dt_hidden Склад: 
+                        span 4
+                          span.wide_hidden  шт
+
+                      .td.col_27
+                        span.cart_icon.i-cart
+                        span.cart_icon.i-remove
+                
+                .preloader_holder.text_center
+                  .preloader
+                    img(src='i/preloader.svg' width=90)
+                    
+
+      +footer()
+
+    +scripts(2)

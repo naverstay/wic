@@ -14,6 +14,10 @@ $(function ($) {
     });
 
   body_var
+    .delegate('.openMobSort', 'click', function () {
+      $(this).parent().toggleClass('sort_open');
+      return false;
+    })
     .delegate('.openMobMenu', 'click', function () {
       body_var.toggleClass('menu_opened');
       return false;
@@ -111,7 +115,7 @@ $(function ($) {
       var cn = parseInt(window.getComputedStyle(
         this, ':after'
       ).getPropertyValue('content').replace(/\D/g, ''));
-      
+
       if (cn) {
         $(this).closest('.aside').toggleClass('aside_open');
       }

@@ -459,7 +459,7 @@
     padding-bottom: 15px;
   }
 
-  li {
+  > li {
 
     @include respond-to-max($resp_step_1) {
       margin-bottom: 60px;

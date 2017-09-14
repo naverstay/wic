@@ -97,12 +97,22 @@
 .filter_block {
   background: #fafafa;
 
+  @include respond-to-max($resp_step_1) {
+    &._stock {
+      margin-bottom: 5px;
+    }
+  }
+
   @include respond-to-min($resp_step_1) {
     margin-bottom: 12px;
   }
 
   @include respond-to-min($resp_step_3) {
     margin-bottom: 64px;
+
+    &._stock {
+      margin-bottom: 5px;
+    }
   }
 }
 
@@ -115,6 +125,12 @@
 
   @include respond-to-min($resp_step_2) {
     padding: 40px 30px;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    .stock_search_holder & {
+      padding: 35px 27px;
+    }
   }
 }
 
@@ -146,6 +162,7 @@
       &._last {
         margin-bottom: 16px;
         margin-top: -35px;
+        width: auto;
       }
     }
   }
@@ -163,6 +180,7 @@
       &._last {
         margin-bottom: 16px;
         margin-top: -35px;
+        width: auto;
       }
     }
   }
@@ -178,10 +196,24 @@
       &._last {
         margin-top: 0;
         margin-bottom: 18px;
+        width: auto;
+      }
+    }
+
+    .grid_col & {
+      margin-left: -30px;
+      padding-right: 20px;
+      padding-bottom: 30px;
+
+      .filter_col {
+        padding-left: 30px;
+
+        &._last {
+          margin-top: -35px;
+        }
       }
     }
   }
-
 }
 
 .filter_link {
@@ -387,6 +419,53 @@
       .filter_l_item {
         margin-bottom: 52px;
       }
+    }
+  }
+}
+
+.stock_search_holder {
+  padding-bottom: 15px;
+
+  @include respond-to-min($resp_step_1) {
+    padding-bottom: 60px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding-bottom: 55px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding-bottom: 30px;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    .profile_orders .tr {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.stock_search_form {
+  padding: 20px 0 5px;
+
+  @include respond-to-max($resp_step_1) {
+    padding-bottom: 0;
+  }
+}
+
+.stock_search {
+  position: relative;
+
+  .f_input.f_input_v6 {
+    padding-left: 64px;
+    font: 16px/20px $FormularBold;
+
+    &::-webkit-input-placeholder {
+      font-family: $FormularBold;
+    }
+
+    &::-moz-placeholder {
+      font-family: $FormularBold;
     }
   }
 }
@@ -722,7 +801,7 @@
     &:after {
       clear: both;
     }
-    
+
     .hero_slider & {
       .hero_caption {
         font-size: 28px;
@@ -891,5 +970,15 @@
       clear: both;
       margin-top: 0;
     }
+  }
+}
+
+.stock_index {
+  text-align: center;
+  padding: 2px 0;
+  width: 64px;
+
+  @include respond-to-min($resp_step_1) {
+    display: none;
   }
 }
