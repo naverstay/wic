@@ -177,6 +177,27 @@
       font-family: $AvenirNextItalic;
     }
   }
+
+  &.f_input_v5 {
+    height: 76px;
+    padding: 23px;
+    border: 1px solid #000;
+    background: none;
+    font: 16px/22px $AvenirNextMedium;
+    color: #000;
+
+    &::-webkit-input-placeholder {
+      font-family: $AvenirNextMedium;
+    }
+
+    &::-moz-placeholder {
+      font-family: $AvenirNextMedium;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      padding: 15px;
+    }
+  }
 }
 
 textarea.f_input_v3.f_input {
@@ -188,6 +209,18 @@ textarea.f_input_v3.f_input {
 
   @include respond-to-min($resp_step_2) {
     height: 345px;
+  }
+}
+
+textarea.f_input_v5.f_input {
+  height: 180px;
+
+  @include respond-to-min($resp_step_1) {
+    height: 220px;
+  }
+  
+  @include respond-to-min($resp_step_3) {
+    height: 300px;
   }
 }
 

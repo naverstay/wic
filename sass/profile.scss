@@ -32,7 +32,10 @@
       top: 0;
       left: 0;
       max-width: 400px;
-      padding-right: 80px;
+      
+      &._info_spacer {
+        padding-right: 80px;
+      }
     }
 
     @include respond-to-min($resp_step_2) {
@@ -76,6 +79,42 @@
     }
   }
 
+  &._col_4 {
+
+    @include respond-to-min($resp_step_1) {
+      padding-top: 10px;
+      width: 100%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 9/12 * 100%;
+      float: right;
+      padding-top: 0;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 6/12 * 100%;
+      float: left;
+    }
+  }
+
+  &._col_5 {
+
+    @include respond-to-min($resp_step_1) {
+      width: 100%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 9/12 * 100%;
+      float: right;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 4/12 * 100%;
+      float: left;
+    }
+  }
+
 }
 
 .aside {
@@ -83,17 +122,40 @@
 }
 
 .aside_menu {
+  position: relative;
 
   @include respond-to-max($resp_step_2) {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    display: none;
+    //position: absolute;
+    //top: 100%;
+    //right: 0;
+    //left: 0;
+    padding-top: 60px;
+    min-height: 60px;
     z-index: 1;
+    background: #fff;
+
+    .aside_m_item {
+      display: none;
+      //margin-top: 4px;
+    }
+
+    .drop_down {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      display: block;
+      margin-top: 0;
+
+      .aside_m_link {
+        line-height: 1.1;
+      }
+    }
 
     .aside_open & {
-      display: block;
+      .aside_m_item {
+        display: block;
+      }
     }
   }
 }
@@ -114,12 +176,18 @@
 }
 
 .aside_m_link {
+  @include transition_all(background .3s, color .3s);
   display: block;
   position: relative;
   padding: 16px 30px 16px 16px;
   background: #000;
   color: #fff;
   font: 16px/1.4 $AvenirNextRegular;
+
+  &:hover {
+    background: #ed4b84;
+  }
+
 }
 
 .aside_m_icon {
@@ -157,6 +225,10 @@
   border: 1px solid #d8d8d8;
   margin-bottom: 15px;
 
+  ._faq & {
+    margin-bottom: 20px;
+  }
+  
   &.footer_mod {
     min-height: 100%;
     padding-bottom: 75px;
@@ -180,10 +252,18 @@
 
   @include respond-to-min($resp_step_1) {
     margin-bottom: 20px;
+
+    ._faq & {
+      margin-bottom: 14px;
+    }
   }
 
   @include respond-to-min($resp_step_3) {
     margin-bottom: 24px;
+
+    ._faq & {
+      margin-bottom: 13px;
+    }
   }
 }
 
@@ -251,6 +331,29 @@
 .profile_settings_inner {
   padding: 24px 16px 23px;
 
+  ._faq & {
+    padding-left: 20px;
+
+    @include respond-to-max($resp_step_1) {
+      padding: 17px 7px 14px;
+      overflow: hidden;
+
+      .profile_caption {
+        font-size: 16px;
+        line-height: 18px;
+      }
+    }
+  }
+
+  &._has_icon {
+    position: relative;
+    padding-right: 60px;
+
+    @include respond-to-max($resp_step_1) {
+      padding-right: 40px;
+    }
+  }
+
   &._gray {
     background: #f9f9f9;
   }
@@ -283,8 +386,10 @@
 
 .collapse_block {
   @include respond-to-max($resp_step_1) {
-    display: block !important;
-
+    ._prevent_collapse & {
+      display: block !important;
+    }
+    
     &._no_bdr {
       margin: 0 -1px -1px;
       background: #fff;
@@ -348,6 +453,10 @@
       //margin: -25px -17px -24px !important;
       //padding: 25px 17px;
     }
+  }
+
+  ._faq & {
+    font-family: $FormularBold;
   }
 }
 
@@ -468,6 +577,7 @@
   @include respond-to-max($resp_step_1) {
     left: auto;
     right: 0;
+    height: 55px;
   }
 
   @include respond-to-min($resp_step_2) {

@@ -11,29 +11,8 @@ html(lang='ru')
         .main_content
           .section_inner
             .grid_row
-              .grid_col._col_1
-                .aside
-                  .aside_m_item.drop_down
-                    a.aside_m_link.openAsideMenu(href='#')
-                      span Профиль
-                      span.aside_m_icon
-
-                  .aside_menu
-                    .aside_m_item 
-                      a.aside_m_link(href='#')
-                        span Закупки
-                        
-                    .aside_m_item 
-                      a.aside_m_link(href='#')
-                        span Рефералы
-                        
-                    .aside_m_item 
-                      a.aside_m_link(href='#')
-                        span Отслеживание заказов
-                        
-                    .aside_m_item 
-                      a.aside_m_link(href='#')
-                        span FAQ
+              .grid_col._col_1._info_spacer
+                +aside(1)
                         
               .grid_col._col_2: .profile_settings_holder
                 .profile_settings_col.sameHeight
@@ -104,7 +83,7 @@ html(lang='ru')
                         span.wide_only Заказать 
                         span обратный звонок
 
-              .grid_col._col_3
+              .grid_col._col_3._prevent_collapse
                 .profile_msg_holder
                   span.msg_block_btn.wide_hidden.msgCloseBtn
                     span.i-exclamation
