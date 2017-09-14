@@ -31,9 +31,10 @@
       position: absolute;
       top: 0;
       left: 0;
-      max-width: 400px;
-      
+      max-width: 320px;
+
       &._info_spacer {
+        max-width: 400px;
         padding-right: 80px;
       }
     }
@@ -115,6 +116,24 @@
     }
   }
 
+  &._col_6 {
+
+    @include respond-to-min($resp_step_1) {
+      width: 100%;
+      padding-top: 10px;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 9/12 * 100%;
+      padding-top: 0;
+      float: right;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 8/12 * 100%;
+      float: left;
+    }
+  }
 }
 
 .aside {
@@ -228,7 +247,7 @@
   ._faq & {
     margin-bottom: 20px;
   }
-  
+
   &.footer_mod {
     min-height: 100%;
     padding-bottom: 75px;
@@ -335,7 +354,7 @@
     padding-left: 20px;
 
     @include respond-to-max($resp_step_1) {
-      padding: 17px 7px 14px;
+      padding: 16px 7px 15px;
       overflow: hidden;
 
       .profile_caption {
@@ -389,7 +408,7 @@
     ._prevent_collapse & {
       display: block !important;
     }
-    
+
     &._no_bdr {
       margin: 0 -1px -1px;
       background: #fff;
@@ -457,6 +476,12 @@
 
   ._faq & {
     font-family: $FormularBold;
+  }
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
   }
 }
 
