@@ -116,6 +116,10 @@
   color: $default_t_color;
   text-decoration: none;
 
+  &.cart_edit_link {
+    font: 14px $AvenirNextRegular;
+  }
+
   &.ref_edit {
     @include transition_all(opacity .3s);
     position: relative;
@@ -180,7 +184,7 @@
     color: rgba(0, 0, 0, .6);
     letter-spacing: -.03em;
     text-decoration: underline;
-    
+
     &:hover {
       color: #000;
     }
@@ -328,4 +332,8 @@
 
 ._c_gray {
   color: #4a4a4a;
+}
+
+.collapseBtn {
+  cursor: pointer;
 }

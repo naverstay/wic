@@ -148,7 +148,7 @@ body {
         }
 
         .mCSB_draggerRail:before {
-          margin-left: -1px;
+          margin-left: 0;
           width: 1px;
           background: #d8d8d8;
         }
@@ -248,18 +248,13 @@ body {
   }
 
   &._cart {
-    padding-top: 100px;
-
+    
     @include respond-to-min($resp_step_1) {
-      padding-top: 155px;
-    }
-
-    @include respond-to-min($resp_step_2) {
-      padding-top: 153px;
+      padding-top: 144px;
     }
 
     @include respond-to-min($resp_step_3) {
-
+      padding-top: 153px;
     }
   }
 
@@ -1218,6 +1213,13 @@ body {
     @include respond-to-max($resp_step_1) {
       font-size: 28px;
       margin: 15px 0 -10px;
+    }
+  }
+
+  &._cart_mode {
+    @include respond-to-max($resp_step_3) {
+      font-size: 36px;
+      margin-bottom: 30px;
     }
   }
 }

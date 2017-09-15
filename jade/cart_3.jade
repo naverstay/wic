@@ -1,0 +1,41 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('WIC cart 3')
+
+  body
+    .wrapper._cart
+      .base
+        +header()
+
+        .main_content
+          .section_inner.clearfix
+            .block_title._cart_mode Корзина
+
+            .cart_col._thanks
+              .cart_topic
+                span Заказ успешно оформлен
+                
+              .cart_thanks 
+                span За ходом выполнения заказа вы можете следить в&nbsp;личном кабинете. Если у вас возникнут вопросы можете связаться со  
+                a.gl_link._underline(href='#')
+                  span Cлужбой поддержки.
+              
+              .cart_brief
+                ul.cart_brief_list
+                  li 
+                    .brief_caption Заказ № 54375
+                  li 
+                    .brief_caption Всего 12 товаров
+                      
+                    dl.brief_list
+                      dt На сумму
+                      dd 12 860 руб.
+                      
+                a.btn_black.btn_v1.filter_btn(href='orders.html')
+                  span Перейти в мои заказы
+                  
+            
+              
+      +footer()
+

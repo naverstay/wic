@@ -10,16 +10,117 @@ html(lang='ru')
 
         .main_content
           .section_inner.clearfix
-            .block_title._wish_mode Корзина
+            .block_title._cart_mode Корзина
 
             .cart_col._main
+              .cart_tip Товары будут зарезервированы на 60 минут
               
-              
+              ul.cart_list
+                li
+                  .cart_unit
+                    .cart_remove.cartRemove
+                      span.i-close
+                    .cart_photo
+                      a.product_block(href='product.html')
+                        .product_bg
+                        .product_img.spotted
+                          img.shadowed(src='i/orbi_big.png')
+                          
+                    .cart_description
+                      .cart_name Lebel Proedit Bounce Fit Shampoo
+                        
+                      .cart_price 1 650 руб.
+                        
+                      .cart_u_footer
+                        ul.cart_u_controls
+                          li._counter
+                            //-a.btn_black.btn_v1.product_btn.wide_only(href='#')
+                              span Количество
+                            .product_quantity
+                              .valCell.input_w
+                                input.f_input.f_input_v4.text_center(value='1' data-min='1' data-max='99' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'repeat': 2, 'digitsOptional': false" )
+                                span.btn_v1.counter_btn._minus.valMinus
+                                span.btn_v1.counter_btn._plus.valPlus
+
+                          li
+                            a.btn_black_bd.btn_v1.product_btn._disabled(href='#')
+                              span Отложить
+                            
+                li
+                  .cart_unit
+                    .cart_remove.cartRemove
+                      span.i-close
+                    .cart_photo
+                      a.product_block(href='product.html')
+                        .product_bg
+                        .product_img.spotted
+                          img.shadowed(src='i/orbi_big.png')
+                          
+                    .cart_description
+                      .cart_name Lebel Proedit Bounce Fit Shampoo
+                        
+                      .cart_price 1 650 руб.
+                        
+                      .cart_u_footer
+                        ul.cart_u_controls
+                          li._counter
+                            a.btn_black.btn_v1.product_btn(href='#')
+                              span Количество
+                            //-.product_quantity
+                              .valCell.input_w
+                                input.f_input.f_input_v4.text_center(value='1' data-min='1' data-max='99' data-step='1' data-inputmask="'alias': 'numeric', 'rightAlign': false, 'allowMinus': false, 'allowPlus': false, 'autoGroup': false, 'groupSeparator': '', 'autoUnmask': true, 'digits': 0, 'placeholder': '0', 'repeat': 2, 'digitsOptional': false" )
+                                span.btn_v1.counter_btn._minus.valMinus
+                                span.btn_v1.counter_btn._plus.valPlus
+
+                          li
+                            a.btn_black_bd.btn_v1.product_btn(href='#')
+                              span Отложить
+              .cart_footer
+                .fr 
+                  p Всего
+                  .cart_total_price 12 860 руб.
+                
             .cart_col._info
-            
-              
-              
+              .cart_caption Итого
+              .cart_total_form
+                .cart_caption Есть промокод?
+                form(action='#')
+                  .f_cell.cart_promo
+                    input.f_input.f_input_v10
+                    button.btn_black.btn_v1.promo_btn 
+                      span Применить
+                
+                .cart_label._mod_1 Доставка
+                form(action='#')
+                  .select_box_v4
+                    select.select2(data-placeholder='Стандартная доставка (бесплатно)') 
+                      option(disabled selected)
+                      option 1
+                      option 2
+                
+                  dl.cart_summary
+                    dt
+                      .cart_label Доставка
+                    dd 
+                      span 800 руб.
+                    dt
+                      .cart_label Всего
+                    dd 
+                      span 12 860 руб.
+
+                  .f_cell
+                    a.btn_black.btn_v1.filter_btn(href='cart_2.html')
+                      span Оформить заказ
+                      
+                .cart_info Мы принимаем
+                
+                ul.cart_payments
+                  li.payment_img._visa
+                    img(src='i/visa.png')
+                  li.payment_img._mc
+                    img(src='i/mc.png')
+                      
               
       +footer()
 
-    +scripts(5)
+    +scripts(7)

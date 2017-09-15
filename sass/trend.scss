@@ -396,7 +396,7 @@
   color: rgba(0, 0, 0, .6);
   font: 14px/19px $AvenirNextRegular;
   margin-top: -5px;
-  
+
   p {
     margin-bottom: 20px;
   }
@@ -846,6 +846,12 @@
 
   li {
     margin-bottom: 24px;
+
+    &:last-child {
+      .self_delivery_office {
+        border-bottom: 0;
+      }
+    }
   }
 
   @include respond-to-max($resp_step_1) {

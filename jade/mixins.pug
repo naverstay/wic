@@ -100,17 +100,17 @@ mixin scripts(page)
   script(src='js/jquery.inputmask.bundle.js')
   script(src='js/script.js')
   
-  - if (page == 1)
+  - if (page === 1)
     script(src='js/slick.js')
     script(src='js/index.js')
     
-  - if (page == 2)
+  - if (page === 2)
     script(src='js/nouislider.js')
     script(src='js/jquery.mCustomScrollbar.min.js')
     script(src='js/slick.js')
     script(src='js/shop.js')
         
-  - if (page == 3)
+  - if (page === 3)
     script(src='js/nouislider.js')
     script(src='js/jquery.mCustomScrollbar.min.js')
     script(src="js/isotop/isotope.pkgd.js")
@@ -122,18 +122,21 @@ mixin scripts(page)
     script(src="js/isotop/packery-mode.pkgd.js")
     script(src='js/trends.js')
     
-  - if (page == 4)
+  - if (page === 4)
     script(src='js/jquery.mCustomScrollbar.min.js')
     script(src='js/trend.js')
     
-  - if (page == 5)
+  - if (page === 5)
     script(src='js/jquery.mCustomScrollbar.min.js')
     script(src='js/delivery.js')
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCl7THpWflv0u70jhfuU4T6KbuNy0fuxME&callback=loadMap')
     
-  - if (page == 6)
+  - if (page === 6)
     script(src='js/jquery.mCustomScrollbar.min.js')
     script(src='js/referrals.js')
+    
+  - if (page === 7)
+    script(src='js/cart.js')
     
 mixin aside(active, sub)
   .aside

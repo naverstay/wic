@@ -18,6 +18,11 @@ $(function ($) {
       $(this).parent().toggleClass('sort_open');
       return false;
     })
+    .delegate('.sortBtn', 'click', function () {
+      var link = $(this);
+      link.toggleClass('_up');
+      return false;
+    })
     .delegate('.openMobMenu', 'click', function () {
       body_var.toggleClass('menu_opened');
       return false;

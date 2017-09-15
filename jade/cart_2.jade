@@ -1,0 +1,123 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('WIC cart 2')
+
+  body
+    .wrapper._cart
+      .base
+        +header()
+
+        .main_content
+          .section_inner.clearfix
+            .block_title._cart_mode Корзина
+
+            .cart_col._checkout: form(action='#')
+              .cart_topic.mob_hidden
+                span Покупатель и адрес доставки
+                
+              .cart_upright._wide
+                .cart_label._mod_1 Доставка
+                .select_box_v1
+                  select.select2(data-placeholder='Стандартная доставка (бесплатно)')
+                    option(disabled selected)
+                    option 1
+                    option 2
+              
+              .cart_upright.cb._first
+                .f_cell
+                  input.f_input_v11.f_input(placeholder='ФИО')
+                  
+                .f_cell
+                  input.f_input_v11.f_input(placeholder='Индекс')
+                  
+                .f_cell
+                  input.f_input_v11.f_input(placeholder='Город')
+                  
+                .f_cell
+                  input.f_input_v11.f_input(placeholder='Адрес')
+                  
+              .cart_upright._second
+                .f_cell
+                  input.f_input_v11.f_input(placeholder='E-mail')
+
+                .f_cell
+                  input.f_input_v11.f_input(placeholder='Телефон')
+
+                .f_cell
+                  textarea.f_input_v11.f_input(placeholder='Комментарий (опционально)')
+
+              .cart_upright._wide
+                .cart_label._mod_1._mod_2 Оплата
+                .select_box_v1
+                  select.select2(data-placeholder='Наличными курьеру')
+                    option(disabled selected)
+                    option 1
+                    option 2
+                    
+              .cart_upright.cb._last._wide
+                button.btn_black.btn_v1.filter_btn
+                  span Оформить заказ
+                  
+            .cart_col._products.mob_hidden
+              .cart_topic Товары в корзине
+              .cart_total_form
+                .cart_label._mod_1
+                  span Всего 12 товаров
+                  span.fr 
+                    a.cart_edit_link.gl_link(href='#')
+                      span Изменить
+                
+                ul.cart_checkout_list
+                  li
+                    .cart_checkout_item
+                      .profile_orders
+                        .tr
+                          .td.prod_cell.col_1
+                            a.product_block(href='product.html')
+                              .product_bg
+                                img(src='i/oribe_gray_bg.jpg')
+                              .product_img
+                                img.shadowed(src='i/product_1.png')
+  
+                          .td.col_32 
+                            p Anti-Aging Smoothing<br>Hydra-Gelee Nourishing<br>Hair Perfector
+                            p 
+                              .cart_checkout_price 24 390 руб.
+                            p 2шт
+                            
+                  li
+                    .cart_checkout_item
+                      .profile_orders
+                        .tr
+                          .td.prod_cell.col_1
+                            a.product_block(href='product.html')
+                              .product_bg
+                                img(src='i/oribe_gray_bg.jpg')
+                              .product_img
+                                img.shadowed(src='i/product_1.png')
+  
+                          .td.col_32 
+                            p Anti-Aging Smoothing<br>Hydra-Gelee Nourishing<br>Hair Perfector
+                            p 
+                              .cart_checkout_price 24 390 руб.
+                            p 2шт
+                            
+                .select_box_v4
+                  select.select2(data-placeholder='Посмотреть все')
+                    option(disabled selected)
+                    option 1
+                    option 2
+                    
+                dl.cart_summary._checkout
+                  dt
+                    .cart_label Итого к оплате
+                  dd
+                    .cart_checkout_price 12 860 руб.
+                    
+                            
+                            
+              
+      +footer()
+
+    +scripts(7)

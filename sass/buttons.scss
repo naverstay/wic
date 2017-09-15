@@ -7,8 +7,27 @@
     display: block;
     width: 100%;
     padding: 17px 15px;
+    text-align: center;
     font: 18px/22px $FormularBlack;
-    
+  }
+
+  &.promo_btn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    font: 18px/22px $FormularBlack;
+    width: 50%;
+
+    @include respond-to-min($resp_step_1) {
+      width: 47%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 40%;
+    }
+
   }
 
   &.counter_btn {
@@ -272,6 +291,12 @@
   &:hover {
     color: #fff;
     background: $default_t_color;
+  }
+
+  &._disabled {
+    border-color: transparent !important;
+    background: none !important;
+    pointer-events: none;
   }
 }
 

@@ -128,9 +128,9 @@
 
     .col_4,
     .col_5 {
-      opacity: .4;
+      color: rgba(0, 0, 0, .4);
     }
-    
+
     @include respond-to-max($resp_step_1) {
       background: #f5f5f5;
       padding-bottom: 40px;
