@@ -101,6 +101,10 @@
     &._stock {
       margin-bottom: 5px;
     }
+
+    &._order {
+      margin: 0 -10px 15px;
+    }
   }
 
   @include respond-to-min($resp_step_1) {
@@ -110,6 +114,7 @@
   @include respond-to-min($resp_step_3) {
     margin-bottom: 64px;
 
+    &._order,
     &._stock {
       margin-bottom: 5px;
     }
@@ -130,6 +135,10 @@
   @include respond-to-max($resp_step_1) {
     .stock_search_holder & {
       padding: 35px 27px;
+    }
+
+    .stock_search_holder .filter_block._order & {
+      padding: 25px 37px;
     }
   }
 }
@@ -445,11 +454,41 @@
   }
 }
 
+.order_history_block {
+
+  @include respond-to-min($resp_step_1) {
+    margin-top: 20px;
+    background: #fafafa;
+    padding: 24px;
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    margin: 40px -10px 0;
+  }
+}
+
+.order_history_filter {
+  margin-left: -30px;
+
+  li {
+    float: left;
+    padding-left: 30px;
+  }
+}
+
 .stock_search_form {
   padding: 20px 0 5px;
 
   @include respond-to-max($resp_step_1) {
     padding-bottom: 0;
+
+    &._order {
+      padding-top: 7px;
+      margin: 0 -10px 10px;
+    }
   }
 }
 

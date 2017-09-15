@@ -392,6 +392,20 @@
   margin-bottom: 20px;
 }
 
+.order_text {
+  color: rgba(0, 0, 0, .6);
+  font: 14px/19px $AvenirNextRegular;
+  margin-top: -5px;
+  
+  p {
+    margin-bottom: 20px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    letter-spacing: -.012em;
+  }
+}
+
 .order_price {
   color: rgba(0, 0, 0, .4);
   font: 18px/25px $AvenirNextMediumItalic;
@@ -400,7 +414,7 @@
     font-size: 16px;
     line-height: 21px;
   }
-  
+
   @include respond-to-min($resp_step_3) {
     color: #b43864;
   }

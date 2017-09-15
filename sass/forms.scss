@@ -356,6 +356,108 @@ textarea.f_input_v6.f_input {
   }
 }
 
+.select_box_v2 {
+  text-align: left;
+
+  .select2-container--default {
+    .select2-results > .select2-results__options {
+      max-height: 260px;
+      //border: solid #000;
+      //border-width: 0 2px 2px;
+    }
+
+    .select2-dropdown {
+      border-radius: 0 !important;
+    }
+
+    .select2-results__option {
+      font-size: 16px;
+      line-height: 20px;
+      padding: 11px 20px;
+    }
+
+    .select2-container {
+
+    }
+
+    .select2-selection__rendered {
+      min-width: 240px;
+      padding-right: 40px;
+      padding-left: 22px;
+      font: 20px/65px $FormularBold;
+      color: #b43864;
+    }
+
+    .select2-selection__placeholder {
+      color: $placeholder_color;
+    }
+
+    .select2-selection--single {
+      @include transition_all(border .3s);
+      background: #fafafa;
+      border-radius: 0;
+      color: #b43864;
+      border: 2px solid transparent;
+      height: 73px;
+      box-shadow: none;
+
+      &:hover {
+        border-color: #b43864;
+
+        .select2-selection__arrow:before {
+
+        }
+      }
+    }
+
+    .select2-selection__arrow {
+      @extend %icon_pseudo;
+      height: 73px;
+
+      &:before {
+        @include transition_all(color .3s);
+        position: absolute;
+        font-size: 12px;
+        height: 12px;
+        top: 50%;
+        margin-top: -5px;
+        right: 20px;
+        font-weight: 700;
+        content: $i-chevron_down;
+      }
+
+      b {
+        display: none;
+      }
+
+      @include respond-to-max($resp_step_1) {
+        &:before {
+          margin-top: -12px;
+          font-size: 16px;
+          right: 16px;
+        }
+      }
+    }
+  }
+
+  &.dropdown_small {
+    .select2-container--default {
+      .select2-results > .select2-results__options {
+        max-height: 120px;
+      }
+    }
+  }
+
+  .select2-container--open {
+    .select2-selection__arrow {
+
+      &:before {
+        content: $i-chevron_up;
+      }
+    }
+  }
+}
+
 .f_label {
 
   &.f_label_v1 {
@@ -403,6 +505,25 @@ textarea.f_input_v6.f_input {
       &:before {
         background: #000;
       }
+    }
+  }
+
+  &.f_check_v2 {
+    cursor: pointer;
+
+    .check_text {
+      color: #b43864;
+      font: 20px/25px $FormularRegular;
+    }
+
+    &:hover {
+      .check_text {
+
+      }
+    }
+
+    .inp_hidden:checked ~ .check_text {
+      font-family: $FormularBold;
     }
   }
 }
