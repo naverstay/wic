@@ -116,6 +116,76 @@
   color: $default_t_color;
   text-decoration: none;
 
+  &.ref_edit {
+    @include transition_all(opacity .3s);
+    position: relative;
+    display: inline-block;
+
+    span {
+      @include transition_all(opacity .3s);
+      opacity: .6;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      right: 0;
+      left: 0;
+      height: 1px;
+      background: #000;
+      opacity: .6;
+    }
+
+    ._on {
+      display: none;
+    }
+
+    &._opened {
+      ._on {
+        display: block;
+      }
+
+      ._off {
+        display: none;
+      }
+    }
+
+    &:hover {
+      span {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.ref_link {
+    font: 14px/19px $AvenirNextMedium;
+
+    span {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .link_icon {
+      font-size: 18px;
+    }
+
+    .link_text {
+      padding-left: 15px;
+    }
+  }
+
+  &.purchase_link {
+    @include transition_all(color .3s);
+    color: rgba(0, 0, 0, .6);
+    letter-spacing: -.03em;
+    text-decoration: underline;
+    
+    &:hover {
+      color: #000;
+    }
+  }
+
   &._underline {
     @include transition_all(color .3s);
     color: rgba(0, 0, 0, .4);
@@ -125,7 +195,7 @@
       color: $default_t_color;
     }
 
-    &:hover  {
+    &:hover {
       color: #000;
     }
   }

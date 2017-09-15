@@ -489,6 +489,22 @@
       padding-top: 7px;
       margin: 0 -10px 10px;
     }
+
+    &._referrals {
+      padding: 20px 0 10px;
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    &._referrals {
+      padding: 20px 0 10px;
+    }
+  }
+
+  @include respond-to-min($resp_step_3) {
+    &._referrals {
+      padding: 10px 0;
+    }
   }
 }
 

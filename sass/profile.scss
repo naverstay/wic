@@ -143,6 +143,7 @@
 
     @include respond-to-min($resp_step_2) {
       width: 75%;
+      float: right;
     }
 
     @include respond-to-min($resp_step_3) {
@@ -240,6 +241,22 @@
       //margin-left: 0;
     }
   }
+
+  &._col_13 {
+
+    @include respond-to-min($resp_step_1) {
+      width: 43%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 33%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 80%;
+      float: right;
+    }
+  }
 }
 
 .aside {
@@ -261,7 +278,7 @@
 
     .aside_submenu {
       padding-top: 1px;
-      
+
       li {
         display: none;
         border-bottom: 1px solid #fff;
@@ -269,7 +286,7 @@
         &:last-child {
           //border-bottom: 0;
         }
-        
+
         &.sub_active {
           display: block;
           position: absolute;
@@ -386,7 +403,7 @@
   border-bottom: 1px solid #fff;
 
   &.drop_down {
-    border-bottom-width: 4px;
+    //border-bottom-width: 4px;
 
     @include respond-to-max($resp_step_2) {
       .aside_m_link {
@@ -1143,9 +1160,22 @@
     border-color: inherit;
     padding-bottom: 25px;
 
+    ._ref & {
+      padding-bottom: 3px;
+
+      &:last-child {
+        padding-bottom: 23px;
+      }
+    }
+
     @include respond-to-min($resp_step_3) {
       padding-bottom: 60px;
     }
+  }
+
+  ._ref & {
+    padding-bottom: 3px;
+    border: none;
   }
 
   ._purchase & {
@@ -1653,6 +1683,7 @@
   @extend %icon_pseudo;
   padding-left: 5px;
   color: #000;
+  cursor: pointer;
 
   &:before {
     content: $i-arrow_down;

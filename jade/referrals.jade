@@ -1,0 +1,268 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+  +dev_head('WIC referrals')
+
+  body
+    .wrapper._profile
+      .base
+        +header()
+
+        .main_content
+          .section_inner
+            .grid_row
+              .grid_col._col_8._info_spacer
+                +aside(3)
+                        
+              .grid_col._col_9
+                .stock_info
+                  .order_summary._ref
+                    .order_summary_col
+                      dl.order_summary_list
+                        dt Вы добавили:
+                        dd 45 рефералов
+
+                    .order_summary_col
+                      dl.order_summary_list
+                        dt Вы заработали:
+                        dd._total 6 000 баллов
+                    
+                    .order_summary_col
+                      dl.order_summary_list
+                        dt За последний месяц:
+                        dd 590 баллов
+
+              .grid_col._col_10
+                .profile_msg_holder
+                  span.msg_block_btn.wide_hidden.msgCloseBtn
+                    span.i-exclamation
+                  .profile_msg_block._warning.msgBlock._mod_1
+                    span.msg_close.msgCloseBtn
+
+                    .msg_title ! 
+                    p
+                      a.msg_link(href='#') 2 реферала не совершили ни одной покупки
+                    p
+                      a.msg_link(href='#') 1 реферал не ещё зарегестрировался
+                
+              .grid_col._col_13
+                .ref_search_form
+                  form(action='#')
+                    .f_cell._cell_4
+                      input.f_input.f_input_v8(placeholder='Телефон')
+                
+                    .f_cell._cell_4
+                      input.f_input.f_input_v8(placeholder='Имя')
+                
+                    .f_cell._cell_4
+                      .select_box_v3
+                        select.select2(data-placeholder='Скидка')
+                          option(disabled selected)
+                          option(value='5') 5%
+                          option(value='10') 10%
+                          option(value='15') 15%
+                          option(value='20') 20%
+                          option(value='25') 25%
+                
+                    .f_cell._cell_4._last
+                      button.btn_black.btn_v1.filter_btn
+                        span Добавить
+                        
+              .grid_col._col_7: .ref_search_holder
+                .order_caption Рефералы
+                  
+                table.profile_referrals._has_index
+                  tr._head.mob_hidden
+                    th.col_1.wide_only #
+                    th.col_2 
+                      span Имя
+                    th.col_3
+                      span Телефон
+                    th.col_4
+                      span Покупки
+                    th.col_5
+                      span Баллы
+                    th.col_6
+                      span Скидка
+                    th.col_7 
+                      span.mob_hidden &nbsp;
+
+                  -var kk=0;
+                  while kk < 5
+                    -kk++;
+                    tr(data-editable= kk)
+                      td.prod_cell.col_1.wide_only &nbsp;
+                      td.col_2 
+                        .referral_info
+                          .referral_index: span= kk
+                          p Аврора Афанасьевич
+                          p.purchase_link_holder
+                            a.gl_link.ref_edit.refEditLink_(href='#' data-purchase= kk)
+                              span._on Скрыть
+                              span._off Покупки
+                      td.col_3 +7 999 999 99 99
+                      td.col_4 110 390 руб.
+                      td.col_5 2 020
+                      td.col_6 25%
+  
+                      td.col_7
+                        a.gl_link.ref_link.refEditLink(href='#' data-edit= kk)
+                          span.i-referral.link_icon
+                          span.link_text.wide_only Редактировать
+                          
+                    tr.edit_row(data-edit= kk)
+                      td.prod_cell.col_1.wide_only &nbsp;
+                      td.col_2
+                        .f_cell._cell_4
+                          .referral_index.wide_hidden: span= kk
+                          input.f_input.f_input_v9(placeholder='Имя' value='Асворкс Фентакель')
+                      td.col_3
+                        .f_cell._cell_4
+                          input.f_input.f_input_v9(placeholder='Телефон' value="+7 999 999 99 99")
+                      td.col_4 110 390 руб.
+                      td.col_5 2 020
+                      td.col_6
+                        .f_cell._cell_4
+                          .select_box_v3
+                            select.select2()
+                              option(value='5') 5%
+                              option(value='10') 10%
+                              option(value='15') 15%
+                              option(value='20' selected) 20%
+                              option(value='25') 25%
+
+                      td.col_7
+                        a.gl_link.ref_link.refEditLink(href='#' data-edit= kk)
+                          span.link_icon.i-save
+                          span.link_text.wide_only Сохранить
+
+
+
+                    //-tr.purchases(data-purchase= kk)
+                      td.col_30(colspan="7")
+                        .purchase_scroller.mCSB
+                          .purchase_row
+                            .t_cell.col_21 
+                              b Дата
+                            .t_cell.col_22
+                              b Наименование
+                            .t_cell.col_23
+                              b Стоимсоть
+                            .t_cell.col_24
+                              b Баллы
+                          .purchase_row
+                            .t_cell.col_21 
+                              b 12 апреля 2017
+                            .t_cell.col_22
+                              a.gl_link.purchase_link(href='#'): span Alterna Caviar Anti-Aging Smoothing Hydra-Gelee Nourishing Hair Perfector
+                            .t_cell.col_23
+                              span 8 900 руб.
+                            .t_cell.col_24
+                              span 440
+                      
+                .stock_search_form._referrals
+                  form(action='#')
+                    .f_cell.stock_search
+                      input.f_input.f_input_v6(placeholder='Поиск реферала')
+                      button.stock_search_btn.btn_black.btn_v3
+                        span.i-search
+                        
+                table.profile_referrals._filtered
+                  -var kk=0;
+                  while kk < 5
+                    -kk++;
+                    tr.info_row(data-editable= kk)
+                      td.prod_cell.col_1.wide_only &nbsp;
+                      td.col_2
+                        p Асворкс Фентакель
+                        p.purchase_link_holder
+                          a.gl_link.ref_edit.refInfoLink(href='#' data-purchase= kk)
+                            span._on Скрыть
+                            span._off Покупки
+                      td.col_3 +7 999 999 99 99
+                      td.col_4 110 390 руб.
+                      td.col_5 2 020
+                      td.col_6 25%
+
+                      td.col_7
+                        a.gl_link.ref_link.refEditLink(href='#' data-edit= kk)
+                          span.i-referral.link_icon
+                          span.link_text.wide_only Редактировать
+                          
+                    tr.edit_row(data-edit= kk)
+                      td.prod_cell.col_1.wide_only &nbsp;
+                      td.col_2
+                        .f_cell._cell_4
+                          input.f_input.f_input_v9(placeholder='Имя' value='Асворкс Фентакель')
+                      td.col_3
+                        .f_cell._cell_4
+                          input.f_input.f_input_v9(placeholder='Телефон' value="+7 999 999 99 99")
+                      td.col_4 110 390 руб.
+                      td.col_5 2 020
+                      td.col_6
+                        .f_cell._cell_4
+                          .select_box_v3
+                            select.select2()
+                              option(value='5') 5%
+                              option(value='10') 10%
+                              option(value='15') 15%
+                              option(value='20' selected) 20%
+                              option(value='25') 25%
+
+                      td.col_7
+                        a.gl_link.ref_link.refEditLink(href='#' data-edit= kk)
+                          span.link_icon.i-save
+                          span.link_text.wide_only Сохранить
+                          
+                    tr.purchases(data-purchase= kk)
+                      td.col_30(colspan="7")
+                        .purchase_scroller.mCSB
+                          .purchase_row
+                            .t_cell.col_21
+                              b Дата
+                            .t_cell.col_22
+                              b Наименование
+                            .t_cell.col_23
+                              b Стоимсоть
+                            .t_cell.col_24
+                              b Баллы
+                              
+                          +loop_while(3)
+                            .purchase_row
+                              .t_cell.col_21
+                                b 12 апреля 2017
+                              .t_cell.col_22
+                                a.gl_link.purchase_link(href='#'): span Alterna Caviar Anti-Aging Smoothing Hydra-Gelee Nourishing Hair Perfector
+                              .t_cell.col_23
+                                span 8 900 руб.
+                              .t_cell.col_24
+                                span 440
+                      
+                            .purchase_row
+                              .t_cell.col_21
+                                b 12 апреля 2017
+                              .t_cell.col_22
+                                a.gl_link.purchase_link(href='#'): span Sebastian Dark Oil
+                              .t_cell.col_23
+                                span 8 900 руб.
+                              .t_cell.col_24
+                                span 440
+                      
+                            .purchase_row
+                              .t_cell.col_21
+                                b 12 апреля 2017
+                              .t_cell.col_22
+                                a.gl_link.purchase_link(href='#'): span Smoothing Hydra-Gelee Nourishing Hair Perfector
+                              .t_cell.col_23
+                                span 8 900 руб.
+                              .t_cell.col_24
+                                span 440
+                    
+                .preloader_holder.text_center
+                  .preloader
+                    img(src='i/preloader.svg' width=90)
+                    
+
+      +footer()
+
+    +scripts(6)

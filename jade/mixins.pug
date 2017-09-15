@@ -38,7 +38,6 @@ mixin footer()
       .dev_block
         span Разработано в 
         a.gl_link(href='#') Yoldi.ru
-        
       
 mixin header(shop)
   .header
@@ -59,7 +58,7 @@ mixin header(shop)
       .main_menu_holder
         ul.main_menu
           li.main_m_item: a.menu_link(href='trends.html'): span Тренды
-          li.main_m_item: a.menu_link(href='pro.html'): span Профессионалам
+          li.main_m_item: a.menu_link(href='#'): span Профессионалам
           li.main_m_item: a.menu_link(href='delivery.html'): span Доставка и оплата
           li.main_m_item: a.menu_link(href='about.html'): span Мы WIC
           li.main_m_item: a.menu_link(href='contact.html'): span Контакты
@@ -132,6 +131,10 @@ mixin scripts(page)
     script(src='js/delivery.js')
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCl7THpWflv0u70jhfuU4T6KbuNy0fuxME&callback=loadMap')
     
+  - if (page == 6)
+    script(src='js/jquery.mCustomScrollbar.min.js')
+    script(src='js/referrals.js')
+    
 mixin aside(active, sub)
   .aside
     .aside_menu
@@ -158,7 +161,7 @@ mixin aside(active, sub)
                 span Склад
 
       .aside_m_item(class= (active === 3 ? 'drop_down' : ''))
-        a.aside_m_link(href='ref.html' class= (active === 3 ? 'openAsideMenu' : ''))
+        a.aside_m_link(href='referrals.html' class= (active === 3 ? 'openAsideMenu' : ''))
           span Рефералы
           - if (active === 3)
             span.aside_m_icon

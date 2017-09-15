@@ -1,0 +1,442 @@
+.ref_search_holder {
+  padding-bottom: 35px;
+  margin-top: 40px;
+
+  @include respond-to-min($resp_step_1) {
+    padding-bottom: 20px;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    padding-bottom: 20px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding-bottom: 30px;
+    margin-top: 0;
+  }
+
+  @include respond-to-max($resp_step_1) {
+
+  }
+}
+
+.f_cell {
+  position: relative;
+}
+
+.ref_search_form {
+  @extend %clearfix;
+  background: #f5f5f5;
+  padding-top: 20px;
+
+  ._cell_4 {
+    padding: 0 60px 20px;
+
+    &._last {
+      padding: 5px 0 0;
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    margin-top: 20px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    padding: 0 0 0 50px;
+    margin-top: 20px;
+    margin-bottom: 60px;
+
+    ._cell_4 {
+      float: left;
+      width: 22.5%;
+      padding: 12px 10px;
+
+      &._last {
+        float: right;
+        width: 27%;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.referral_info {
+
+  @include respond-to-min($resp_step_1) {
+    position: relative;
+  }
+}
+
+.referral_index {
+  width: 40px;
+  height: 40px;
+  background: #fafafa;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  span {
+    @extend %hor_vert_centr;
+    position: absolute;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 4px;
+  }
+
+  @include respond-to-min($resp_step_3) {
+    left: auto;
+    right: 100%;
+    top: -11px;
+    bottom: -11px;
+    height: auto;
+    margin: 0 19px 0 0;
+  }
+
+}
+
+.profile_referrals {
+
+  ._bg_gray {
+    background: #fafafa;
+  }
+
+  tr {
+
+    &.edit_row,
+    &.purchases {
+      display: none;
+    }
+  }
+
+  th {
+    font: 14px $FormularMedium;
+    text-align: left;
+  }
+
+  td {
+    font: 14px/1.4 $AvenirNextMedium;
+    text-align: left;
+  }
+
+  .edit_row {
+    td {
+      background: #f5f5f5;
+    }
+
+    .col_4,
+    .col_5 {
+      opacity: .4;
+    }
+    
+    @include respond-to-max($resp_step_1) {
+      background: #f5f5f5;
+      padding-bottom: 40px;
+    }
+  }
+
+  @include respond-to-min($resp_step_1) {
+    //display: table;
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+    //table-layout: fixed;
+
+    th {
+      display: table-cell;
+      font: 14px $FormularMedium;
+      padding: 19px 20px 10px 0;
+      border-bottom: 10px solid #fff;
+      vertical-align: top;
+    }
+
+    td {
+      display: table-cell;
+      padding: 12px 20px 10px 0;
+      vertical-align: top;
+      border-bottom: 10px solid #fff;
+      line-height: 1.4;
+    }
+
+    &._filtered {
+      th, td {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #d8d8d8;
+      }
+
+      .purchases {
+        td {
+
+        }
+      }
+    }
+  }
+
+  @include respond-to-max($resp_step_3) {
+    th {
+      padding-top: 0;
+    }
+
+    td {
+      padding-top: 44px;
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    display: block;
+    width: 100%;
+
+    tbody, thead {
+      display: block;
+      width: 100%;
+    }
+
+    tr {
+      width: 100%;
+      display: block;
+      position: relative;
+      padding: 15px 0 49px;
+      //margin-bottom: 18px;
+      border-bottom: 1px solid #d8d8d8;
+
+      &:before,
+      &:after {
+        content: " ";
+        display: table;
+      }
+      &:after {
+        clear: both;
+      }
+
+      &.edit_mode {
+        display: block !important;
+      }
+    }
+
+    &._has_index {
+      tr {
+        border: none;
+        padding: 40px 0 48px;
+
+        .col_7 {
+          top: 40px;
+        }
+      }
+    }
+
+    td {
+      display: block;
+      float: left;
+      box-sizing: border-box;
+      padding-top: 5px;
+    }
+
+    .purchase_link_holder {
+      position: absolute;
+      bottom: 18px;
+      left: 0;
+    }
+  }
+
+  .col_1 {
+    min-width: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    vertical-align: middle;
+
+    @include respond-to-max($resp_step_1) {
+      float: left;
+    }
+
+    @include respond-to-min($resp_step_1) {
+      //width: 72px;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      //width: 77px;
+    }
+  }
+
+  .col_2 {
+
+    @include respond-to-max($resp_step_1) {
+      width: 100%;
+      padding-right: 15%;
+    }
+
+    @include respond-to-min($resp_step_1) {
+      width: 28%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 29%;
+      padding-left: 19px;
+    }
+  }
+
+  .col_3 {
+
+    @include respond-to-max($resp_step_1) {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    @include respond-to-min($resp_step_1) {
+      width: 19%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 24.5%;
+    }
+  }
+
+  .col_4 {
+
+    @include respond-to-max($resp_step_1) {
+      width: 47%;
+      padding-right: 5px;
+    }
+
+    @include respond-to-min($resp_step_1) {
+      width: 16%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 17%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 15%;
+    }
+
+  }
+
+  .col_5 {
+
+    @include respond-to-max($resp_step_1) {
+      width: 33%;
+      padding-right: 5px;
+    }
+
+    @include respond-to-min($resp_step_1) {
+      width: 14%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 14%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 12.5%;
+    }
+
+    @include respond-to-max($resp_step_3) {
+
+    }
+  }
+
+  .col_6 {
+    @include respond-to-max($resp_step_1) {
+      float: right;
+      width: 20%;
+    }
+
+    @include respond-to-min($resp_step_1) {
+      width: 14%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 14%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 12%;
+    }
+  }
+
+  .col_7 {
+    @include respond-to-max($resp_step_1) {
+      position: absolute;
+      top: 15px;
+      right: 0;
+      width: 13%;
+    }
+
+    @include respond-to-min($resp_step_1) {
+      width: 9%;
+    }
+
+    @include respond-to-min($resp_step_2) {
+      width: 5%;
+    }
+
+    @include respond-to-min($resp_step_3) {
+      width: 9%;
+      min-width: 162px;
+    }
+  }
+
+  .col_30 {
+    width: 100%;
+    background: #f5f5f5;
+    padding: 0 !important;
+  }
+}
+
+.purchase_scroller {
+  @include respond-to-min($resp_step_2) {
+    height: 212px;
+
+    .mCSB_container {
+      padding: 20px 5px 20px 59px;
+    }
+
+    .mCSB_scrollTools {
+      right: -6px;
+    }
+  }
+}
+
+.purchase_row {
+  @extend %clearfix;
+  width: 100%;
+
+  .t_cell {
+    padding-bottom: 5px;
+  }
+
+  @include respond-to-min($resp_step_1) {
+    .t_cell {
+      float: left;
+      padding-right: 5px;
+      padding-bottom: 19px;
+    }
+
+    .col_21 {
+      width: 23%;
+    }
+
+    .col_22 {
+      width: 34%;
+    }
+
+    .col_23 {
+      width: 23%;
+    }
+
+    .col_24 {
+      width: 20%;
+    }
+
+    &:last-child {
+      .t_cell {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+}

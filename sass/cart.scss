@@ -1,0 +1,14 @@
+.cart_col {
+
+  @include respond-to-min($resp_step_1) {
+    float: left;
+
+    &._main {
+      width: 7/12 * 100%;
+    }
+
+    &._info {
+      width: 4/12 * 100%;
+    }
+  }
+}

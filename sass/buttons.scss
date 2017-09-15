@@ -3,6 +3,14 @@
 .btn_v1 {
   height: 56px;
 
+  &.filter_btn {
+    display: block;
+    width: 100%;
+    padding: 17px 15px;
+    font: 18px/22px $FormularBlack;
+    
+  }
+
   &.counter_btn {
     position: absolute;
     top: 0;
@@ -151,7 +159,7 @@
     font-size: 24px;
 
     span {
-      
+
     }
   }
 

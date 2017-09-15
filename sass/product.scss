@@ -183,6 +183,16 @@
 
   @include respond-to-min($resp_step_3) {
     position: absolute;
+
+    li {
+      &._counter {
+        width: 62%;
+
+        + li {
+          width: auto;
+        }
+      }
+    }
   }
 }
 
