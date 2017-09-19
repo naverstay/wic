@@ -33,6 +33,8 @@ function initScroller() {
 
   if (mcsb.length) {
 
+    $('.trendScrollerW').css('height', $('.stepItem').first().outerHeight());
+    
     if (wnd.width() > 767) {
       if (!mcsb.hasClass('mCustomScrollbar')) {
         mcsb.mCustomScrollbar({

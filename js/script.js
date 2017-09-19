@@ -6,14 +6,16 @@ $(function ($) {
   body_var = $('body');
   wnd = $(window);
 
-  var container = body_var[0];
-
   $('.product_info')
     .on('tap', function (e) {
       tapCallback(e);
     });
 
   body_var
+    .delegate('.seeAll', 'click', function () {
+      $(this).toggleClass('_opened').parent().find('.seeAllBlock').slideToggle();
+      return false;
+    })
     .delegate('.openMobSort', 'click', function () {
       $(this).parent().toggleClass('sort_open');
       return false;

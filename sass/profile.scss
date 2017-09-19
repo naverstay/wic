@@ -1025,6 +1025,13 @@
     bottom: 0;
     height: 20px;
   }
+  
+  &._inline {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin-top: 20px;
+  }
 }
 
 .preloader {
@@ -1546,9 +1553,9 @@
 
     &.td {
       @include respond-to-max($resp_step_3) {
-        float: right !important;
+        //float: right !important;
         margin-right: 9% !important;
-        padding-top: 5px;
+        //padding-top: 5px;
         max-width: 50%;
         text-align: right;
       }

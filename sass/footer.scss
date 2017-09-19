@@ -116,6 +116,48 @@
   color: $default_t_color;
   text-decoration: none;
 
+  &.see_all {
+    @extend %icon_pseudo;
+    @include transition_all(color .3s);
+    position: relative;
+    display: block;
+    color: rgba(0, 0, 0, 0.6);
+
+    &:before {
+      position: absolute;
+      width: 20px;
+      font-size: 12px;
+      height: 12px;
+      top: 50%;
+      margin-top: -6px;
+      right: 0;
+      font-weight: 700;
+      content: $i-chevron_down;
+    }
+
+    &:hover {
+      color: #000;
+    }
+
+    ._on {
+      display: none;
+    }
+
+    &._opened {
+      &:before {
+        content: $i-chevron_up;
+      }
+      
+      ._on {
+        display: block;
+      }
+
+      ._off {
+        display: none;
+      }
+    }
+  }
+
   &.cart_edit_link {
     font: 14px $AvenirNextRegular;
   }
