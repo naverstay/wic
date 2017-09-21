@@ -103,21 +103,58 @@ html(lang='ru')
                               .cart_checkout_price 24 390 руб.
                             p 2шт
                             
-                .select_box_v4
-                  select.select2(data-placeholder='Посмотреть все')
+                .see_all_holder
+                  
+                  //-select.select2(data-placeholder='Посмотреть все')
                     option(disabled selected)
                     option 1
                     option 2
-                    
+                      
+                  .seeAllBlock(style='display:none'): ul.cart_checkout_list
+                    li
+                      .cart_checkout_item
+                        .profile_orders
+                          .tr
+                            .td.prod_cell.col_1
+                              a.product_block(href='product.html')
+                                .product_bg
+                                  img(src='i/oribe_gray_bg.jpg')
+                                .product_img
+                                  img.shadowed(src='i/product_1.png')
+  
+                            .td.col_32
+                              p Anti-Aging Smoothing<br>Hydra-Gelee Nourishing<br>Hair Perfector
+                              p
+                                .cart_checkout_price 24 390 руб.
+                              p 2шт
+  
+                    li
+                      .cart_checkout_item
+                        .profile_orders
+                          .tr
+                            .td.prod_cell.col_1
+                              a.product_block(href='product.html')
+                                .product_bg
+                                  img(src='i/oribe_gray_bg.jpg')
+                                .product_img
+                                  img.shadowed(src='i/product_1.png')
+  
+                            .td.col_32
+                              p Anti-Aging Smoothing<br>Hydra-Gelee Nourishing<br>Hair Perfector
+                              p
+                                .cart_checkout_price 24 390 руб.
+                              p 2шт
+                              
+                  a.see_all.gl_link.seeAll(href='#')
+                    span._off Посмотреть все
+                    span._on Скрыть
+
                 dl.cart_summary._checkout
                   dt
                     .cart_label Итого к оплате
                   dd
                     .cart_checkout_price 12 860 руб.
                     
-                            
-                            
-              
       +footer()
 
     +scripts(7)

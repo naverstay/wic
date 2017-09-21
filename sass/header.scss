@@ -254,13 +254,13 @@
 
   ._active & {
     cursor: default;
-    color: #b43864;
+    color: $clr_red;
 
     &:before {
       content: '';
       position: absolute;
       height: 1px;
-      background: #b43864;
+      background: $clr_red;
       top: 50%;
       margin-top: 1px;
       right: -8px;
@@ -282,7 +282,7 @@
 }
 
 .store_menu {
-  background: #b43864;
+  background: $clr_red;
   text-align: center;
   display: table;
   width: 100%;

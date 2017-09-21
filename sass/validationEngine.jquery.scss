@@ -110,7 +110,15 @@
   position: relative;
   top: 0;
   left: 0;
-  display: inline-block;
+  //display: inline-block;
+
+  &.relative_mode .formErrorContent {
+    color: #000;
+    padding: 0;
+    font: 14px $AvenirNextMedium;
+    opacity: .6;
+  }
+  
 }
 
 .ajaxSubmit {

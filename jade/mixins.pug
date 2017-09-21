@@ -19,6 +19,10 @@ mixin loop_while(counter)
     block
 
 mixin footer()
+  .popup_controls
+    .section_inner
+      .popup_close.closePopupBtn
+
   .footer
     .section_inner.clearfix
       .logo_block
@@ -39,6 +43,49 @@ mixin footer()
         span Разработано в 
         a.gl_link(href='#') Yoldi.ru
       
+  .search_holder.searchBlock
+    .section_inner
+      .search_form
+        form(action='#')
+          .f_cell.search_row
+            input#search.f_input_v12.f_input
+            label.f_label_v2.f_label(for='search')
+              span Искать 
+              span.label_itp  (продукты, тренды)
+            button.btn_v3.search_btn
+              span.i-search
+              
+        .search_results
+          .search_result_col
+            .search_result_caption Продукты
+            ul.search_rslt_list
+              +loop_while(3)
+                li
+                  .search_rslt
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_1.png')
+                    
+                    p Anti-Aging Smoothing Hydra-Gelee Nourishing Hair Perfector
+                    p
+                      .search_rslt_price 2 490 руб.
+                      
+          .search_result_col
+            .search_result_caption Тренды
+            ul.search_rslt_list
+              +loop_while(3)
+                li
+                  .search_rslt
+                    a.product_block(href='product.html')
+                      .product_bg
+                        img(src='i/oribe_gray_bg.jpg')
+                      .product_img
+                        img.shadowed(src='i/product_1.png')
+                    .caption_tip Причёски
+                    p Women Of The 7Th Art,<br>Весна-Лето 2017
+                    
 mixin header(shop)
   .header
     .section_inner.clearfix
@@ -52,7 +99,7 @@ mixin header(shop)
           span.menu_l_icon.i-cart.cartIcon
         li._small: a.menu_link(href='wishlist.html'): span
           span.i-heart.menu_l_icon
-        li._small: a.menu_link(href='profile.html'): span
+        li._small: a.menu_link.authBtn(href='#'): span
           span.menu_l_icon.i-account
 
       .main_menu_holder
@@ -66,7 +113,7 @@ mixin header(shop)
           a.menu_link.openMobMenu(href='#')
             span.hamburger
               span
-        .main_m_item.tab_vis: a.menu_link(href='#'): span
+        .main_m_item.tab_vis: a.menu_link.openSearchBtn(href='#'): span
           span.i-search.menu_l_icon
           
     - if (shop)
@@ -94,8 +141,91 @@ mixin mob_sort()
 
 
 mixin scripts(page)
+  #reg_popup.popup.popup_v1
+    form.popup_inner(action='#')
+      .popup_caption Войти
+
+      .f_row.f_row_v6
+        .f_cell
+          input.f_input_v11.f_input(placeholder='Телефон или email')
+
+        .f_cell
+          input.f_input_v11.f_input(placeholder='Пароль')
+          a.remind_link(href='#') Забыли пароль?
+          
+      .f_row.f_row_v7
+        button.btn_v1.filter_btn.btn_black
+          span Войти
+        
+      .text_center
+        a.login_link.authBtn(href='#') или Зарегистрироваться
+          
+  #auth_popup.popup.popup_v1
+    form.popup_inner(action='#')
+      .popup_caption Регистрация
+      
+      ul#auth_switcher.f_row.f_row_v5
+        li.f_cell
+          a.tab_link(href='#auth_tab_1')
+            span.check_text Я частное лицо
+        li.f_cell
+          a.tab_link(href='#auth_tab_2')
+            span.check_text Я салон
+            
+      .tabBlock(data-tab-context='#auth_switcher')
+        #auth_tab_1.tab_panel
+          .f_row.f_row_v6
+            .f_cell
+              input.f_input_v11.f_input(placeholder='Ваш телефон')
+    
+            .f_cell
+              input.f_input_v11.f_input(placeholder='Ваш email')
+    
+            .f_cell
+              input.f_input_v11.f_input(placeholder='Название салона')
+    
+            .f_cell
+              input.f_input_v11.f_input(placeholder='Контактное лицо')
+              
+            .f_cell
+              input.f_input_v11.f_input(placeholder='Город')
+    
+            .f_cell
+              input.f_input_v11.f_input(placeholder='Придумайте пароль')
+              
+          .f_row.f_row_v7
+            button.btn_v1.filter_btn.btn_black
+              span Зарегистрироваться
+            
+          .text_center
+            a.login_link.regBtn(href='#') или Войти
+          
+        #auth_tab_2.tab_panel
+          .f_row.f_row_v6
+            .f_cell
+              input.f_input_v11.f_input(placeholder='Ваш телефон')
+    
+            .f_cell
+              input.f_input_v11.f_input(placeholder='Ваш email (опционально)')
+                  
+            .f_cell
+              input.f_input_v11.f_input(placeholder='Придумайте пароль')
+              
+          .f_row.f_row_v7
+            button.btn_v1.filter_btn.btn_black
+              span Зарегистрироваться
+            
+          .text_center
+            a.login_link.regBtn(href='#') или Войти
+          
+
+
+
   script(src='js/jquery1.10.js')
+  script(src='js/jquery-ui-1.11.4.js')
   script(src='js/select2.js')
+  script(src='js/jquery.validationEngine.js')
+  script(src='js/jquery.validationEngine-ru.js')
   script(src='js/tap.js')
   script(src='js/jquery.inputmask.bundle.js')
   script(src='js/script.js')

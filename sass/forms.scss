@@ -2,8 +2,63 @@
   display: none;
 }
 
+.input_w {
+  &._has_icon {
+    @extend %icon_pseudo;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      height: 20px;
+      font-size: 16px;
+      line-height: 20px;
+      margin-top: 2px;
+    }
+
+    &.success {
+      &:before {
+        content: $i-check;
+        color: #fff;
+      }
+    }
+
+    &.error {
+      &:before {
+        content: $i-close;
+        color: $clr_pink;
+      }
+    }
+
+    .f_input {
+      padding-right: 30px;
+    }
+  }
+}
+
 .f_row {
   @extend %clearfix;
+
+  &.f_row_v7 {
+    padding: 40px 0 16px;
+  }
+
+  &.f_row_v6 {
+    .f_cell {
+      position: relative;
+      margin-bottom: -1px;
+    }
+  }
+
+  &.f_row_v5 {
+    .f_cell {
+      float: left;
+      width: 50%;
+      margin-top: 6px;
+      margin-bottom: 16px;
+    }
+  }
 
   &.f_row_v4 {
     margin-bottom: 25px;
@@ -106,6 +161,7 @@
   -webkit-appearance: none;
 
   &.f_input_v1 {
+    @include transition_all(color .3s, border-color .3s);
     height: 40px;
     background: $default_t_color;
     font: 18px/26px $FormularMedium;
@@ -120,6 +176,11 @@
     &::-moz-placeholder {
       color: #fff;
       font-family: $FormularMedium;
+    }
+
+    &.error {
+      color: $clr_pink;
+      border-bottom-color: $clr_pink;
     }
 
     @include respond-to-max($resp_step_1) {
@@ -311,6 +372,20 @@
       padding: 23px 24px;
     }
   }
+
+  &.f_input_v12 {
+    height: 80px;
+    background: #f5f5f5;
+    border-bottom: 2px solid #000;
+    font-size: 32px;
+    padding: 24px;
+
+    @include respond-to-max($resp_step_1) {
+      height: 48px;
+      font-size: 18px;
+      padding: 8px;
+    }
+  }
 }
 
 textarea.f_input_v11.f_input {
@@ -359,12 +434,20 @@ textarea.f_input_v5.f_input {
 
     .select2-dropdown {
       border-radius: 0 !important;
+      border: none !important;
     }
 
     .select2-results__option {
+      @include transition_all(color .3s);
       font-size: 16px;
       line-height: 20px;
-      padding: 11px 20px;
+      padding: 15px 20px;
+      color: $default_t_color;
+      background: #f5f5f5 !important;
+
+      &:hover {
+        color: $clr_pink;
+      }
     }
 
     .select2-container {
@@ -375,6 +458,7 @@ textarea.f_input_v5.f_input {
       min-width: 240px;
       padding-right: 40px;
       padding-left: 16px;
+      color: $default_t_color;
       font: 16px/44px $AvenirNextMedium;
     }
 
@@ -383,7 +467,7 @@ textarea.f_input_v5.f_input {
     }
 
     .select2-selection--single {
-      @include transition_all(border .3s);
+      @include transition_all(border .3s, color .3s, background .3s);
       background: #fafafa;
       border-radius: 0;
       border: 2px solid transparent;
@@ -391,7 +475,13 @@ textarea.f_input_v5.f_input {
       box-shadow: none;
 
       &:hover {
-        border-color: #000;
+        //border-color: #000;
+        background: $clr_pink;
+        color: #fff;
+
+        .select2-selection__rendered {
+          color: #fff;
+        }
 
         .select2-selection__arrow:before {
 
@@ -404,7 +494,6 @@ textarea.f_input_v5.f_input {
       height: 48px;
 
       &:before {
-        @include transition_all(color .3s);
         position: absolute;
         font-size: 12px;
         height: 12px;
@@ -438,6 +527,15 @@ textarea.f_input_v5.f_input {
   }
 
   .select2-container--open {
+    .select2-selection--single {
+      background: $clr_red;
+      color: #fff;
+    }
+
+    .select2-selection__rendered {
+      color: #fff;
+    }
+
     .select2-selection__arrow {
 
       &:before {
@@ -462,6 +560,7 @@ textarea.f_input_v5.f_input {
     }
 
     .select2-results__option {
+      @include transition_all(background .3s);
       font-size: 16px;
       line-height: 20px;
       padding: 11px 20px;
@@ -476,7 +575,7 @@ textarea.f_input_v5.f_input {
       padding-right: 40px;
       padding-left: 22px;
       font: 20px/65px $FormularBold;
-      color: #b43864;
+      color: $clr_red;
     }
 
     .select2-selection__placeholder {
@@ -487,13 +586,13 @@ textarea.f_input_v5.f_input {
       @include transition_all(border .3s);
       background: #fafafa;
       border-radius: 0;
-      color: #b43864;
+      color: $clr_red;
       border: 2px solid transparent;
       height: 73px;
       box-shadow: none;
 
       &:hover {
-        border-color: #b43864;
+        border-color: $clr_red;
 
         .select2-selection__arrow:before {
 
@@ -608,7 +707,7 @@ textarea.f_input_v5.f_input {
       }
 
       &:hover {
-        //border-color: #b43864;
+        //border-color: $clr_red;
 
         .select2-selection__arrow:before {
 
@@ -709,7 +808,7 @@ textarea.f_input_v5.f_input {
       border-radius: 0;
 
       &:hover {
-        //border-color: #b43864;
+        //border-color: $clr_red;
 
         .select2-selection__arrow:before {
 
@@ -772,6 +871,33 @@ textarea.f_input_v5.f_input {
     font: 16px $FormularBold;
     margin-bottom: 24px;
   }
+
+  &.f_label_v2 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    font: 32px/1 $FormularBlack;
+    padding: 24px;
+
+    @include respond-to-max($resp_step_1) {
+      padding: 12px 8px;
+      font-size: 18px;
+    }
+
+    .f_input:focus ~ & {
+      display: none;
+    }
+  }
+
+  .label_itp {
+    font: 24px/1 $AvenirNextMedium;
+    opacity: .6;
+
+    @include respond-to-max($resp_step_1) {
+      font-size: 14px;
+    }
+  }
 }
 
 .f_check {
@@ -781,11 +907,13 @@ textarea.f_input_v5.f_input {
     cursor: pointer;
 
     .check_text {
+      @include transition_all(color .3s);
       display: block;
       position: relative;
       padding-left: 24px;
 
       &:before {
+        @include transition_all(border-color .3s);
         content: '';
         position: absolute;
         left: 0;
@@ -799,8 +927,10 @@ textarea.f_input_v5.f_input {
 
     &:hover {
       .check_text {
+        color: $clr_pink;
+        
         &:before {
-          background: #ccc;
+          border-color: $clr_pink;
         }
       }
     }
@@ -818,7 +948,27 @@ textarea.f_input_v5.f_input {
     cursor: pointer;
 
     .check_text {
-      color: #b43864;
+      color: $clr_red;
+      font: 20px/25px $FormularRegular;
+    }
+
+    &:hover {
+      .check_text {
+
+      }
+    }
+
+    .inp_hidden:checked ~ .check_text {
+      font-family: $FormularBold;
+    }
+  }
+
+  &.f_check_v3 {
+    cursor: pointer;
+    text-align: center;
+
+    .check_text {
+      color: $clr_red;
       font: 20px/25px $FormularRegular;
     }
 
@@ -953,12 +1103,61 @@ textarea.f_input_v5.f_input {
   color: $default_t_color;
 
   span {
-
     + span {
       padding-left: 20px;
     }
   }
+
+  &:hover {
+    color: $clr_pink;
+  }
+
+  &:active {
+    color: $clr_red;
+  }
 }
 
+.popup_caption {
+  font: 40px $FormularBold;
+  margin-bottom: 42px;
+  letter-spacing: .02em;
+
+  @include respond-to-max($resp_step_1) {
+    margin-bottom: 21px;
+  }
+}
+
+.tab_panel {
+  display: none;
+}
+
+.tab_link {
+  @include transition_all(background .3s, color .3s);
+  display: block;
+  height: 48px;
+  padding: 14px 5px;
+  text-align: center;
+  font: 16px/21px $AvenirNextDemiBold;
+  background: #fafafa;
+  color: #000;
+
+  .ui-state-active & {
+    color: #fff;
+    background: $clr_red;
+  }
+}
+
+.remind_link {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  color: #000;
+  opacity: .6;
+  line-height: 20px;
+}
+
+.popup_v1 {
+  padding: 0 3px;
+}
 
 

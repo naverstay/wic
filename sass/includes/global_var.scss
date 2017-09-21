@@ -45,6 +45,9 @@ $cross_font_Verdana: Verdana, 'Geneva CY', 'DejaVu Sans', sans-serif;
 $default_t_color: #000;
 $placeholder_color: #000;
 
+$clr_pink: #ed4b84;
+$clr_red: #b43864;
+
 @mixin opacity($val : 1, $important : 0) {
   @if $important == 0 {
     opacity: $val;

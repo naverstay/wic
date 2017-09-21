@@ -618,7 +618,7 @@
   }
 
   @include respond-to-min($resp_step_3) {
-    color: #b43864;
+    color: $clr_red;
     margin: 15px 0 0;
     font: 16px/22px $AvenirNextDemiBoldItalic;
 

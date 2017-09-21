@@ -142,6 +142,8 @@ body {
 
       .mCSB_scrollTools {
         right: 4px;
+        height: 70vh;
+        min-height: 500px;
 
         .mCSB_dragger .mCSB_dragger_bar {
           width: 1px;
@@ -248,7 +250,7 @@ body {
   }
 
   &._cart {
-    
+
     @include respond-to-min($resp_step_1) {
       padding-top: 144px;
     }
@@ -662,7 +664,7 @@ body {
   }
 
   .slick-arrow {
-    @include transition_all(background .3s, color .3s);
+    @include transition_all(background .3s, color .3s, border-color .3s);
     @extend %icon_pseudo;
     float: left;
     position: relative;
@@ -680,8 +682,15 @@ body {
     }
 
     &:hover {
-      background: #000;
+      background: $clr_pink;
+      border-color: $clr_pink;
       color: #fff;
+    }
+
+    &:active,
+    &:focus {
+      background: $clr_red;
+      border-color: $clr_red;
     }
 
     &.slide_prev {
@@ -901,7 +910,7 @@ body {
   }
 
   &._sale {
-    background: #b43864;
+    background: $clr_red;
   }
 
 }
@@ -1815,10 +1824,19 @@ body {
 
 .subscribe_row {
   background: #000;
+  position: relative;
 
   @include respond-to-max($resp_step_1) {
     margin: 0 -10px;
   }
+}
+
+.error_row {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  text-align: left;
 }
 
 .share_section {

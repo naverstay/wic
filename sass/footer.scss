@@ -1,5 +1,4 @@
 .footer {
-
   @include respond-to-min($resp_step_1) {
     position: absolute;
     bottom: 0;
@@ -81,6 +80,218 @@
   }
 }
 
+.search_holder {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, .98);
+
+  .section_inner {
+    position: relative;
+  }
+
+  .search_opened & {
+    display: block;
+  }
+}
+
+.popup_controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 25;
+  display: none;
+
+  .popup_opened &,
+  .search_opened & {
+    display: block;
+  }
+
+  .section_inner {
+    position: relative;
+  }
+}
+
+.popup_close {
+  @extend %icon_pseudo;
+  position: absolute;
+  top: 22px;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  right: 2px;
+  z-index: 1;
+  font-size: 38px;
+  cursor: pointer;
+
+  &:before {
+    content: $i-close;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+  }
+
+  @include respond-to-max($resp_step_3) {
+    right: 34px;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    right: 14px;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    top: 0;
+    right: -5px;
+    font-size: 20px;
+  }
+}
+
+.search_form {
+  position: relative;
+  margin: 0 auto;
+  max-width: 980px;
+  padding-top: 136px;
+
+  @include respond-to-max($resp_step_3) {
+    padding-top: 128px;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    padding-top: 136px;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    padding-top: 74px;
+  }
+
+}
+
+.search_results {
+  @extend %clearfix;
+  padding-top: 54px;
+  margin-left: -40px;
+
+  @include respond-to-max($resp_step_1) {
+    padding-top: 30px;
+  }
+}
+
+.search_result_col {
+  margin-bottom: 32px;
+  padding-left: 40px;
+
+  @include respond-to-min($resp_step_1) {
+    width: 47.5%;
+    float: left;
+  }
+
+  @include respond-to-min($resp_step_2) {
+    width: 49%;
+  }
+}
+
+.search_result_caption {
+  opacity: .2;
+  font: 24px $FormularBlack;
+
+  @include respond-to-max($resp_step_1) {
+    font-size: 18px;
+  }
+}
+
+.search_rslt_list {
+
+  li {
+    margin: 12px 0 24px;
+
+    @include respond-to-max($resp_step_2) {
+      margin-bottom: 21px;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      margin-bottom: 13px;
+    }
+  }
+}
+
+.search_rslt {
+  position: relative;
+  padding-left: 100px;
+  min-height: 80px;
+
+  p {
+    font: 18px/25px $AvenirNextMedium;
+
+    + p {
+      margin-top: 5px;
+
+      @include respond-to-max($resp_step_1) {
+        margin-top: 0;
+      }
+    }
+
+    @include respond-to-max($resp_step_2) {
+      font-size: 14px;
+      line-height: 19px;
+      padding-top: 5px;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      padding-top: 0;
+    }
+  }
+
+  .caption_tip {
+    margin-bottom: 12px;
+  }
+
+  .product_block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+
+    @include respond-to-max($resp_step_1) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  .product_img img {
+    max-width: 26px;
+    max-height: 50px;
+  }
+
+  @include respond-to-max($resp_step_1) {
+    padding-left: 80px;
+    min-height: 60px;
+  }
+}
+
+.search_rslt_price {
+  color: $clr_red;
+  font: 18px/25px $AvenirNextDemiBoldItalic;
+
+  @include respond-to-max($resp_step_1) {
+    font-size: 16px;
+  }
+}
+
+.search_row {
+
+  .f_input {
+    padding-right: 80px;
+  }
+}
+
 .copyrights {
   color: #979797;
   font: 12px $AvenirNextRegular;
@@ -147,7 +358,7 @@
       &:before {
         content: $i-chevron_up;
       }
-      
+
       ._on {
         display: block;
       }
@@ -292,6 +503,12 @@
   }
 }
 
+.login_link {
+  color: #000;
+  font: 16px $AvenirNextMedium;
+  letter-spacing: .01em;
+}
+
 .fz_16 {
   font-size: 16px;
 }
@@ -301,7 +518,7 @@
 }
 
 .clr_red {
-  color: #ed4b84;
+  color: $clr_pink;
 }
 
 .mob_only {

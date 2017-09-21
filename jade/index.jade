@@ -203,23 +203,27 @@ html(lang='ru')
         .subscribe_section
           .section_inner
             .subscribe_block
-              form(action='#')
+              form.validateMe(action='#')
                 .block_title Оставайся в тренде
                 p Лучший способ узнать о наших  новостях, акциях, скидках и специальных предложениях - это подписаться на нашу рассылку
                 
                 .subscribe_row
                   .f_row.f_row_v1
                     .f_cell
-                      .input_w
-                        input.f_input_v1.f_input(placeholder='Ваше имя')
+                      .input_w.formCell._has_icon
+                        input.f_input_v1.f_input(placeholder='Ваше имя' class='validate[required]' data-prompt-target='errorRow' data-prompt-position='inline')
                       
                     .f_cell
-                      .input_w
-                        input.f_input_v1.f_input(placeholder='Ваш email')
+                      .input_w.formCell._has_icon
+                        input.f_input_v1.f_input(placeholder='Ваш email' class='validate[required,custom[email]]' data-errormessage-custom-error="Проверьте верно ли указан e-mail" data-prompt-target='errorRow' data-prompt-position='inline')
                       
                     .f_cell
                       button.btn_v2.btn_black_bd.subscribe_btn
                         span Подписаться
+                  
+                  .error_row#errorRow
+                    
+                      
                         
         .share_section
           .section_inner.clearfix

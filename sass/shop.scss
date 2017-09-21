@@ -45,7 +45,7 @@
   right: 0;
 
   .slick-arrow {
-    @include transition_all(opacity .3s);
+    @include transition_all(opacity .3s, color .3s);
     @extend %icon_pseudo;
     position: absolute;
     top: 50%;
@@ -76,6 +76,7 @@
 
     &:hover {
       opacity: 1;
+      color: $clr_pink;
     }
 
     @include respond-to-max($resp_step_2) {
@@ -122,7 +123,12 @@
 }
 
 .filter_collapse {
+  @include transition_all(background .3s);
   padding: 40px 27px;
+
+  &:hover {
+    background: #f5f5f5;
+  }
 
   @include respond-to-min($resp_step_1) {
     padding: 40px;
@@ -231,7 +237,7 @@
   position: relative;
   padding: 0 66px 0 48px;
   font: 20px/24px $FormularBold;
-  color: #b43864;
+  color: $clr_red;
 }
 
 .filter_counter {
@@ -243,7 +249,7 @@
   right: 0;
   top: 50%;
   margin-top: -14px;
-  background: #b43864;
+  background: $clr_red;
   color: #fff;
   font: 18px/32px $AvenirNextMediumItalic;
 }
@@ -261,7 +267,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    background: #b43864;
+    background: $clr_red;
   }
 
   &:after {
@@ -642,7 +648,7 @@
   }
 
   .counter {
-    color: #b43864;
+    color: $clr_red;
     font: 60px $AvenirNextDemiBoldItalic;
     margin-bottom: 3px;
 

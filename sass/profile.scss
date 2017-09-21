@@ -308,7 +308,7 @@
         font: 16px/1.4 $AvenirNextRegular;
 
         &:hover {
-          background: #ed4b84;
+          background: $clr_pink;
         }
 
         &._active {
@@ -424,7 +424,7 @@
   font: 16px/1.4 $AvenirNextRegular;
 
   &:hover {
-    background: #ed4b84;
+    background: $clr_pink;
   }
 }
 

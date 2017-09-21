@@ -276,7 +276,7 @@
   color: #000;
 
   &._end {
-    color: #b43864;
+    color: $clr_red;
   }
 }
 
@@ -428,7 +428,7 @@
   }
 
   @include respond-to-min($resp_step_3) {
-    color: #b43864;
+    color: $clr_red;
   }
 }
 
@@ -633,7 +633,7 @@
 }
 
 .delivery_val {
-  color: #b43864;
+  color: $clr_red;
   font: 30px/41px $AvenirNextDemiBold;
 
   @include respond-to-min($resp_step_1) {

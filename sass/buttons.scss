@@ -27,7 +27,6 @@
     @include respond-to-min($resp_step_2) {
       width: 40%;
     }
-
   }
 
   &.counter_btn {
@@ -148,6 +147,30 @@
 .btn_v3 {
   height: 48px;
 
+  &.search_btn {
+    position: absolute;
+    width: 48px;
+    top: 50%;
+    margin-top: -24px;
+    right: 16px;
+    z-index: 1;
+    background: none;
+    font-size: 38px;
+    text-align: center;
+    line-height: 52px;
+
+    @include respond-to-max($resp_step_2) {
+      right: 36px;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      right: 0;
+      font-size: 20px;
+      line-height: 40px;
+      width: 36px;
+    }
+  }
+
   &.msg_btn {
     float: left;
     padding: 14px;
@@ -254,19 +277,21 @@
 }
 
 .btn_gray_red {
-  @include transition_all(background .3s, border .3s);
+  @include transition_all(background .3s, border .3s, color .3s);
   background: #f5f5f5;
   border: 2px solid transparent;
   color: #000;
 
   &:hover {
-    border-color: #000;
+    //border-color: $clr_pink;
+    background: $clr_pink;
+    color: #fff;
   }
 
   &._active {
     cursor: default;
-    border-color: #b43864;
-    background: #b43864;
+    border-color: $clr_red;
+    background: $clr_red;
     color: #fff;
   }
 }
@@ -283,14 +308,21 @@
 }
 
 .btn_black_bd {
-  @include transition_all(color .3s, background .3s);
+  @include transition_all(color .3s, background .3s, border-color .3s);
   color: $default_t_color;
   background: #fff;
   border: 2px solid $default_t_color;
 
   &:hover {
     color: #fff;
-    background: $default_t_color;
+    background: $clr_pink;
+    border-color: $clr_pink;
+  }
+
+  &:active,
+  &:focus {
+    background: $clr_red;
+    border-color: $clr_red;
   }
 
   &._disabled {
