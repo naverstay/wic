@@ -154,6 +154,7 @@
 
   .trend_prev,
   .trend_next {
+    @include transition_all(color .3s);
     @extend %icon_pseudo;
     display: block;
     position: absolute;
@@ -167,6 +168,15 @@
     line-height: 24px;
     text-align: center;
     color: #000;
+
+    &:hover {
+      color: $clr_pink;
+    }
+
+    &:focus,
+    &:active {
+      color: $clr_red;
+    }
   }
 
   @include respond-to-max($resp_step_3) {

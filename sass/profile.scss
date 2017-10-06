@@ -403,7 +403,22 @@
   border-bottom: 1px solid #fff;
 
   &.drop_down {
+    > a {
+      background: $clr_red;
+      cursor: default;
+    }
+    
     //border-bottom-width: 4px;
+
+    //@include respond-to-min($resp_step_2) {
+      &._opened {
+        
+        > a {
+          background: $clr_red;
+          cursor: default;
+        }
+      }
+    //}
 
     @include respond-to-max($resp_step_2) {
       .aside_m_link {
@@ -426,6 +441,12 @@
   &:hover {
     background: $clr_pink;
   }
+
+  &:focus,
+  &:active {
+    background: $clr_red;
+  }
+
 }
 
 .aside_submenu {
@@ -446,7 +467,12 @@
   color: $default_t_color;
   font: 16px/22px $AvenirNextRegular;
 
+  &:hover {
+    color: $clr_pink;
+  }
+
   &._active {
+    color: $default_t_color;
     cursor: default;
     font-family: $AvenirNextDemiBold;
   }
@@ -790,6 +816,7 @@
 }
 
 .profile_settings_link {
+  @include transition_all(color .3s);
   font: 16px/20px $FormularBold;
   color: $default_t_color;
 
@@ -802,6 +829,15 @@
         text-transform: uppercase;
       }
     }
+  }
+
+  &:hover {
+    color: $clr_pink;
+  }
+
+  &:active,
+  &:focus {
+    color: $clr_red;
   }
 
   @include respond-to-max($resp_step_1) {
@@ -1019,19 +1055,19 @@
   font: 16px/20px $FormularBold;
   color: #000;
 
-  @include respond-to-min($resp_step_3) {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 20px;
-  }
-  
-  &._inline {
+  //@include respond-to-min($resp_step_3) {
+  //  position: absolute;
+  //  left: 0;
+  //  bottom: 0;
+  //  height: 20px;
+  //}
+
+  //&._inline {
     display: inline-block;
     vertical-align: middle;
     position: relative;
     margin-top: 20px;
-  }
+  //}
 }
 
 .preloader {
@@ -1661,10 +1697,21 @@
 }
 
 .cart_icon {
+  @include transition_all(color .3s);
   font-size: 20px;
+  cursor: pointer;
 
   + .cart_icon {
     padding-left: 7px;
+  }
+
+  &:hover {
+    color: $clr_pink;
+  }
+
+  &:active,
+  &:focus {
+    color: $clr_red;
   }
 
   @include respond-to-max($resp_step_3) {

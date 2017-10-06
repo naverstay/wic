@@ -10,33 +10,108 @@ html(lang='ru')
 
         .main_content
           .section_inner
-            .hero_slider.heroSlider
-              +loop_while(5)
-                .slide
-                  .hero_box
-                    .hero_img
-                      img(src='i/index_hero.jpg')
-                    .hero_text
-                      .hero_caption Мы не следуем трендам, мы создаём их
-
-                    .product_w
-                      .product_unit
-                        a.product_block(href='product.html')
-                          .product_bg
-                            img(src='i/liquid_wax.jpg')
-                          .product_img
-                            img.shadowed(src='i/product_4.png')
-                          
-                        .product_info
-                          p Жидкий воск для<br>фиксации и текстуры
-                          .product_name 
-                            span Sebastian Resintek<br>Hypershine With Intense 
-                            span.dt_vis <br>
-                            span  Memory Hold
-                          
+            .hero_slider
+              .heroSlider.slider_main_block
+                +loop_while(2)
+                  .slide
+                    .hero_box
+                      .hero_box_bg
+                      .hero_img
+                        img(src='i/index_hero.jpg')
+                      .hero_text
+                        .hero_caption.loadAnimCaption Мы не следуем трендам, мы создаём их
+  
+                      .product_w
+                        .product_unit
+                          a.product_block(href='product.html')
+                            .hero_box_bg
+                            .product_bg
+                              img(src='i/liquid_wax.jpg')
+                            .product_img
+                              img.shadowed(src='i/product_4.png')
+                            
+                          .product_info.loadAnimCaption: .product_info_inner
+                            p Жидкий воск для<br>фиксации и текстуры
+                            .product_name 
+                              span Sebastian Resintek<br>Hypershine With Intense 
+                              span.dt_vis <br>
+                              span  Memory Hold
+                            
+                  .slide
+                    .hero_box
+                      .hero_box_bg
+                      .hero_img
+                        img(src='i/index_hero_2.jpg')
+                      .hero_text
+                        .hero_caption.loadAnimCaption Мы не следуем трендам, мы создаём их 2
+  
+                      .product_w
+                        .product_unit
+                          a.product_block(href='product.html')
+                            .hero_box_bg
+                            .product_bg
+                              img(src='i/oribe_silverati_bg.jpg')
+                            .product_img
+                              img.shadowed(src='i/product_2.png')
+                            
+                          .product_info.loadAnimCaption: .product_info_inner
+                            p Жидкий воск для<br>фиксации и текстуры 2
+                            .product_name 
+                              span Sebastian Resintek<br>Hypershine With Intense 
+                              span.dt_vis <br>
+                              span  Memory Hold 2
+                            
+                  .slide
+                    .hero_box
+                      .hero_box_bg
+                      .hero_img
+                        img(src='i/index_hero.jpg')
+                      .hero_text
+                        .hero_caption.loadAnimCaption Мы не следуем трендам, мы создаём их 3
+  
+                      .product_w
+                        .product_unit
+                          a.product_block(href='product.html')
+                            .hero_box_bg
+                            .product_bg
+                              img(src='i/liquid_wax.jpg')
+                            .product_img
+                              img.shadowed(src='i/product_4.png')
+                            
+                          .product_info.loadAnimCaption: .product_info_inner
+                            p Жидкий воск для<br>фиксации и текстуры
+                            .product_name 
+                              span Sebastian Resintek<br>Hypershine With Intense 
+                              span.dt_vis <br>
+                              span  Memory Hold
+                            
+                  .slide
+                    .hero_box
+                      .hero_box_bg
+                      .hero_img
+                        img(src='i/index_hero_2.jpg')
+                      .hero_text
+                        .hero_caption.loadAnimCaption Мы не следуем трендам, мы создаём их 4
+  
+                      .product_w
+                        .product_unit
+                          a.product_block(href='product.html')
+                            .hero_box_bg
+                            .product_bg
+                              img(src='i/oribe_silverati_bg.jpg')
+                            .product_img
+                              img.shadowed(src='i/product_2.png')
+                            
+                          .product_info.loadAnimCaption: .product_info_inner
+                            p Жидкий воск для<br>фиксации и текстуры 2
+                            .product_name 
+                              span Sebastian Resintek<br>Hypershine With Intense 
+                              span.dt_vis <br>
+                              span  Memory Hold 2
+                            
               .slider_controls._right
-                .slide_prev
-                .slide_next
+                .slide_prev.slick-arrow.animPrev
+                .slide_next.slick-arrow.animNext
                   
         .partners_section
           .section_inner
@@ -245,8 +320,7 @@ html(lang='ru')
               li.tab_vis: .share_link._half
               li._upper: a.share_link(href='#'): img(src='i/share_5.jpg')
               
-              
-
       +footer()
 
     +scripts(1)
+    

@@ -10,8 +10,14 @@ $(function ($) {
     .on('tap', function (e) {
       tapCallback(e);
     });
-
+  
   body_var
+    .delegate('.checkEmpty', 'blur', function () {
+      var inp = $(this);
+
+      inp.toggleClass('not_empty', inp.val().length > 0);
+
+    })
     .delegate('.openSearchBtn', 'click', function () {
       body_var.toggleClass('search_opened').toggleClass('popup_opened');
       return false;
@@ -157,7 +163,7 @@ $(function ($) {
     });
 
   initTabs();
-  
+
   initMask();
 
   initSelect2();
@@ -167,7 +173,7 @@ $(function ($) {
   initScrollBars();
 
   initAuthPopup();
-  
+
   initRegPopup();
 
   //sameHeighter($('.sameHeight'));
@@ -188,6 +194,7 @@ function initRegPopup() {
     collision: "fit",
     position: {my: "top center", at: "top center", of: window},
     open: function (event, ui) {
+      console.log(event, ui);
       body_var.addClass('popup_opened');
     },
     close: function (event, ui) {
@@ -217,6 +224,8 @@ function initAuthPopup() {
     collision: "fit",
     position: {my: "top center", at: "top center", of: window},
     open: function (event, ui) {
+      console.log(event, ui);
+
       body_var.addClass('popup_opened');
     },
     close: function (event, ui) {
@@ -355,12 +364,13 @@ function initValidation() {
     var f = $(this);
 
     f.validationEngine({
-      //binded: false,
+      binded: true,
       scroll: false,
-      showPrompts: true,
+      showPrompts: !f.attr('data-prompts'),
       showArrow: false,
       addSuccessCssClassToField: 'success',
       addFailureCssClassToField: 'error',
+      validationEventTrigger: 'keyup',
       parentFieldClass: '.formCell',
       // parentFormClass: '.order_block',
       promptPosition: "centerRight",
@@ -369,6 +379,7 @@ function initValidation() {
       autoHidePrompt: false,
       autoHideDelay: 3000,
       autoPositionUpdate: false,
+      clearValidationIfEmpty: true,
       prettySelect: true,
       //useSuffix                : "_VE_field",
       addPromptClass: 'relative_mode one_msg',
@@ -401,10 +412,10 @@ function initTabs() {
       active: 0,
       tabContext: tab.data('tab-context'),
       activate: function (e, u) {
-      
+
       },
       create: function (e, u) {
-     
+
       }
     });
   });
@@ -478,5 +489,7 @@ function all_dialog_close_gl() {
 $(window).resize(function () {
 
   //sameHeighter($('.sameHeight'));
+
+}).on('load', function () {
 
 });

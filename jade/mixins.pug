@@ -48,7 +48,7 @@ mixin footer()
       .search_form
         form(action='#')
           .f_cell.search_row
-            input#search.f_input_v12.f_input
+            input#search.f_input_v12.f_input.checkEmpty
             label.f_label_v2.f_label(for='search')
               span Искать 
               span.label_itp  (продукты, тренды)
@@ -105,7 +105,7 @@ mixin header(shop)
       .main_menu_holder
         ul.main_menu
           li.main_m_item: a.menu_link(href='trends.html'): span Тренды
-          li.main_m_item: a.menu_link(href='#'): span Профессионалам
+          li.main_m_item: a.menu_link(href='profile.html'): span Профессионалам
           li.main_m_item: a.menu_link(href='delivery.html'): span Доставка и оплата
           li.main_m_item: a.menu_link(href='about.html'): span Мы WIC
           li.main_m_item: a.menu_link(href='contact.html'): span Контакты
@@ -141,16 +141,23 @@ mixin mob_sort()
 
 
 mixin scripts(page)
+  -if (page === 1)
+    .page_loader.pageLoader
+      span
+        +logo_svg_white()
+    
   #reg_popup.popup.popup_v1
-    form.popup_inner(action='#')
+    form.popup_inner(action='#' data-prompts="false")
       .popup_caption Войти
 
       .f_row.f_row_v6
-        .f_cell
-          input.f_input_v11.f_input(placeholder='Телефон или email')
+        .f_cell: .input_w.formCell._has_icon
+          input#login_phone.f_input_v11.checkEmpty.f_input(class= 'validate[required]' data-inputmask="'alias': 'decimal', 'rightAlign': false, 'autoGroup': false")
+          label.f_label.f_label_v3(for='login_phone') Телефон или email
 
-        .f_cell
-          input.f_input_v11.f_input(placeholder='Пароль')
+        .f_cell: .input_w.formCell._has_icon
+          input#login_pass.f_input_v11.checkEmpty.f_input(class= 'validate[required]' type='password')
+          label.f_label.f_label_v3(for='login_pass') Пароль
           a.remind_link(href='#') Забыли пароль?
           
       .f_row.f_row_v7
@@ -161,66 +168,74 @@ mixin scripts(page)
         a.login_link.authBtn(href='#') или Зарегистрироваться
           
   #auth_popup.popup.popup_v1
-    form.popup_inner(action='#')
+    .popup_inner
       .popup_caption Регистрация
       
       ul#auth_switcher.f_row.f_row_v5
         li.f_cell
-          a.tab_link(href='#auth_tab_1')
+          a.tab_link(href='#auth_tab_2')
             span.check_text Я частное лицо
         li.f_cell
-          a.tab_link(href='#auth_tab_2')
+          a.tab_link(href='#auth_tab_1')
             span.check_text Я салон
             
       .tabBlock(data-tab-context='#auth_switcher')
         #auth_tab_1.tab_panel
-          .f_row.f_row_v6
-            .f_cell
-              input.f_input_v11.f_input(placeholder='Ваш телефон')
-    
-            .f_cell
-              input.f_input_v11.f_input(placeholder='Ваш email')
-    
-            .f_cell
-              input.f_input_v11.f_input(placeholder='Название салона')
-    
-            .f_cell
-              input.f_input_v11.f_input(placeholder='Контактное лицо')
-              
-            .f_cell
-              input.f_input_v11.f_input(placeholder='Город')
-    
-            .f_cell
-              input.f_input_v11.f_input(placeholder='Придумайте пароль')
-              
-          .f_row.f_row_v7
-            button.btn_v1.filter_btn.btn_black
-              span Зарегистрироваться
+          form.validateMe(action='#' data-prompts="false")
+            .f_row.f_row_v6
+              .f_cell: .input_w.formCell._has_icon
+                input#salon_phone.f_input_v11.checkEmpty.f_input(class= 'validate[required]' data-inputmask="'alias': 'decimal', 'rightAlign': false, 'autoGroup': false")
+                label.f_label.f_label_v3(for='salon_phone') Ваш телефон
+      
+              .f_cell: .input_w.formCell._has_icon
+                input#salon_email.f_input_v11.checkEmpty.f_input(class= 'validate[required,custom[email]]')
+                label.f_label.f_label_v3(for='salon_email') Ваш email
+      
+              .f_cell: .input_w.formCell._has_icon
+                input#salon_name.f_input_v11.checkEmpty.f_input(class= 'validate[required]')
+                label.f_label.f_label_v3(for='salon_name') Название салона
+      
+              .f_cell: .input_w.formCell._has_icon
+                input#salon_contact.f_input_v11.checkEmpty.f_input(class= 'validate[required]')
+                label.f_label.f_label_v3(for='salon_contact') Контактное лицо
+                
+              .f_cell: .input_w.formCell._has_icon
+                input#salon_city.f_input_v11.checkEmpty.f_input(class= 'validate[required]')
+                label.f_label.f_label_v3(for='salon_city') Город
+      
+              .f_cell: .input_w.formCell._has_icon
+                input#salon_pass.f_input_v11.checkEmpty.f_input(class= 'validate[required]' type='password')
+                label.f_label.f_label_v3(for='salon_pass') Придумайте пароль
+                
+            .f_row.f_row_v7
+              button.btn_v1.filter_btn.btn_black
+                span Зарегистрироваться
             
           .text_center
             a.login_link.regBtn(href='#') или Войти
           
         #auth_tab_2.tab_panel
-          .f_row.f_row_v6
-            .f_cell
-              input.f_input_v11.f_input(placeholder='Ваш телефон')
-    
-            .f_cell
-              input.f_input_v11.f_input(placeholder='Ваш email (опционально)')
-                  
-            .f_cell
-              input.f_input_v11.f_input(placeholder='Придумайте пароль')
+          form.validateMe(action='#' data-prompts="false")
+            .f_row.f_row_v6
+              .f_cell: .input_w.formCell._has_icon
+                input#private_phone.f_input_v11.checkEmpty.f_input(class= 'validate[required]' data-inputmask="'alias': 'decimal', 'rightAlign': false, 'autoGroup': false")
+                label.f_label.f_label_v3(for='private_phone') Ваш телефон
+      
+              .f_cell: .input_w.formCell._has_icon
+                input#private_email.f_input_v11.checkEmpty.f_input(class= 'validate[custom[email]]')
+                label.f_label.f_label_v3(for='private_email') Ваш email (опционально)
+                    
+              .f_cell: .input_w.formCell._has_icon
+                input#private_pass.f_input_v11.checkEmpty.f_input(class= 'validate[required]' type='password')
+                label.f_label.f_label_v3(for='private_pass') Придумайте пароль
+                
+            .f_row.f_row_v7
+              button.btn_v1.filter_btn.btn_black
+                span Зарегистрироваться
               
-          .f_row.f_row_v7
-            button.btn_v1.filter_btn.btn_black
-              span Зарегистрироваться
+            .text_center
+              a.login_link.regBtn(href='#') или Войти
             
-          .text_center
-            a.login_link.regBtn(href='#') или Войти
-          
-
-
-
   script(src='js/jquery1.10.js')
   script(src='js/jquery-ui-1.11.4.js')
   script(src='js/select2.js')
@@ -232,6 +247,10 @@ mixin scripts(page)
   
   - if (page === 1)
     script(src='js/slick.js')
+    script(src='js/tweenmax/TweenMax.min.js')
+    script(src='js/tweenmax/TimelineMax.min.js')
+    script(src='js/tweenmax/EasePack.min.js')
+    script(src='js/tweenmax/CSSPlugin.min.js')
     script(src='js/index.js')
     
   - if (page === 2)
@@ -309,6 +328,9 @@ mixin aside(active, sub)
           - if (active === 5)
             span.aside_m_icon
 
+mixin logo_svg_white()
+  <svg width="64px" height="20px" viewBox="0 0 64 20" version="1.1" xmlns="http://www.w3.org/2000/svg"      xmlns:xlink="http://www.w3.org/1999/xlink">   <title>wic</title>   <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">     <g id="logo_layer" transform="translate(0.000000, -40.000000)" fill-rule="nonzero" fill="#fff">       <g id="wic" transform="translate(0.000000, 40.000000)">         <g id="Layer_1">           <path             d="M60.6490566,13.1409091 C59.2501754,15.9226082 56.167253,17.4176519 53.1268777,16.7887421 C50.0865024,16.1598323 47.8435936,13.5631261 47.6542907,10.4529068 C47.4649879,7.34268758 49.3762944,4.49121676 52.3177846,3.49545845 C55.2592747,2.49970014 58.5005822,3.60689922 60.2264151,6.1969697 L63.5864151,6.1969697 C61.7426295,1.7973945 57.0280813,-0.648940499 52.3860326,0.385195944 C47.743984,1.41933239 44.5030434,5.63795834 44.6865093,10.4074127 C44.8699753,15.1768671 48.4253376,19.1320763 53.1330064,19.8038287 C57.8406752,20.4755811 62.3532608,17.6716132 63.8535849,13.1424242 L60.6490566,13.1424242 L60.6490566,13.1409091 Z"             id="Shape"></path>           <rect id="Rectangle-path" x="33.4430189" y="0.389393939" width="3.06113208" height="19.2757576"></rect>           <polygon id="Shape"                    points="3.06113208 0.389393939 0 0.389393939 6.97811321 19.6651515 10.0392453 19.6651515"></polygon>           <polygon id="Shape"                    points="11.5139623 0.389393939 8.45283019 0.389393939 15.4309434 19.6651515 18.4920755 19.6651515"></polygon>           <polygon id="Shape"                    points="22.525283 0.389393939 25.5864151 0.389393939 18.6083019 19.6651515 15.5471698 19.6651515"></polygon>           <polygon id="Shape"                    points="11.2618868 8.24393939 14.3230189 8.24393939 10.0543396 19.6651515 6.99320755 19.6651515"></polygon>         </g>       </g>     </g>   </g> </svg>
+  
 mixin logo_svg()
   <svg width="64px" height="20px" viewBox="0 0 64 20" version="1.1" xmlns="http://www.w3.org/2000/svg"      xmlns:xlink="http://www.w3.org/1999/xlink">   <title>wic</title>   <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">     <g id="logo_layer" transform="translate(0.000000, -40.000000)" fill-rule="nonzero" fill="#000000">       <g id="wic" transform="translate(0.000000, 40.000000)">         <g id="Layer_1">           <path             d="M60.6490566,13.1409091 C59.2501754,15.9226082 56.167253,17.4176519 53.1268777,16.7887421 C50.0865024,16.1598323 47.8435936,13.5631261 47.6542907,10.4529068 C47.4649879,7.34268758 49.3762944,4.49121676 52.3177846,3.49545845 C55.2592747,2.49970014 58.5005822,3.60689922 60.2264151,6.1969697 L63.5864151,6.1969697 C61.7426295,1.7973945 57.0280813,-0.648940499 52.3860326,0.385195944 C47.743984,1.41933239 44.5030434,5.63795834 44.6865093,10.4074127 C44.8699753,15.1768671 48.4253376,19.1320763 53.1330064,19.8038287 C57.8406752,20.4755811 62.3532608,17.6716132 63.8535849,13.1424242 L60.6490566,13.1424242 L60.6490566,13.1409091 Z"             id="Shape"></path>           <rect id="Rectangle-path" x="33.4430189" y="0.389393939" width="3.06113208" height="19.2757576"></rect>           <polygon id="Shape"                    points="3.06113208 0.389393939 0 0.389393939 6.97811321 19.6651515 10.0392453 19.6651515"></polygon>           <polygon id="Shape"                    points="11.5139623 0.389393939 8.45283019 0.389393939 15.4309434 19.6651515 18.4920755 19.6651515"></polygon>           <polygon id="Shape"                    points="22.525283 0.389393939 25.5864151 0.389393939 18.6083019 19.6651515 15.5471698 19.6651515"></polygon>           <polygon id="Shape"                    points="11.2618868 8.24393939 14.3230189 8.24393939 10.0543396 19.6651515 6.99320755 19.6651515"></polygon>         </g>       </g>     </g>   </g> </svg>
 

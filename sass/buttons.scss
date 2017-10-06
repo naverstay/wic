@@ -38,6 +38,7 @@
 
     &:after,
     &:before {
+      @include transition_all(background .3s);
       content: '';
       position: absolute;
       top: 50%;
@@ -62,6 +63,13 @@
         height: 24px;
         width: 2px;
         margin: -12px 0 0 -1px;
+      }
+    }
+
+    &:hover {
+      &:after,
+      &:before {
+        background: $clr_pink;
       }
     }
   }
@@ -247,6 +255,7 @@
 
     &:after,
     &:before {
+      @include transition_all(background .3s);
       content: '';
       position: absolute;
       top: 50%;
@@ -271,6 +280,21 @@
         height: 10px;
         width: 2px;
         margin: -5px 0 0 -1px;
+      }
+    }
+
+    &:hover {
+      &:after,
+      &:before {
+        background: $clr_pink;
+      }
+    }
+
+    &:focus,
+    &:active {
+      &:after,
+      &:before {
+        background: $clr_red;
       }
     }
   }
@@ -339,7 +363,13 @@
 
   &:hover {
     color: #fff;
-    background: $default_t_color;
+    background: $clr_pink;
+  }
+
+  &:active,
+  &:focus {
+    background: $clr_red;
+    color: #fff;
   }
 }
 

@@ -799,11 +799,25 @@
   @include respond-to-min($resp_step_3) {
     padding: 15px 0 50px;
   }
-
 }
 
 .contact_list {
   padding-top: 8px;
+
+  .gl_link {
+    @include transition_all(color .3s);
+
+    &:hover {
+      color: $clr_pink;
+      text-decoration: underline;
+    }
+
+    &:active,
+    &:focus {
+      color: $clr_red;
+      text-decoration: underline;
+    }
+  }
 
   dt {
     opacity: .6;

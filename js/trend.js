@@ -2,8 +2,6 @@ var mcsb, position = 0;
 
 $(function ($) {
 
-  initScroller();
-
   body_var
     .delegate('.trendPrev', 'click', function () {
       if (mcsb.length) {
@@ -34,7 +32,7 @@ function initScroller() {
   if (mcsb.length) {
 
     $('.trendScrollerW').css('height', $('.stepItem').first().outerHeight());
-    
+
     if (wnd.width() > 767) {
       if (!mcsb.hasClass('mCustomScrollbar')) {
         mcsb.mCustomScrollbar({
@@ -49,7 +47,7 @@ function initScroller() {
                 H = el.outerHeight(),
                 items = el.find('.stepItem');
 
-              position = Math.floor((items.length * top + H/2) / H);
+              position = Math.floor((items.length * top + H / 2) / H);
 
               $('.scrollStep').toggleClass('_end', (position === items.length - 1)).text(('0' + (position + 1)).slice(-2));
 
@@ -73,7 +71,11 @@ function initScroller() {
   }
 }
 
-$(window).resize(function () {
+$(window).on('load', function () {
+
+  initScroller();
+
+}).on('resize', function () {
 
   initScroller();
 

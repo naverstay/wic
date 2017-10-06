@@ -385,6 +385,7 @@
 }
 
 .cart_remove {
+  @include transition_all(color .3s);
   cursor: pointer;
   position: absolute;
   right: 0;
@@ -395,6 +396,16 @@
   line-height: 16px;
   text-align: center;
   z-index: 1;
+  color: #000;
+
+  &:hover {
+    color: $clr_pink;
+  }
+
+  &:focus,
+  &:active {
+    color: $clr_red;
+  }
 
   @include respond-to-max($resp_step_2) {
     right: 0;

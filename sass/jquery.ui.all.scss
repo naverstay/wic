@@ -24,11 +24,13 @@
   }
 
   &.dialog_g_size_1 {
+    top: 55px !important;
+    
     @include respond-to-max($resp_step_2) {
+      top: 40px !important;
       max-width: 95%;
     }
   }
-
 }
 
 .dialog_global {

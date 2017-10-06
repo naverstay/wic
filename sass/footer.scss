@@ -449,11 +449,25 @@
     text-decoration: underline;
 
     span {
+      @include transition_all(color .3s);
       color: $default_t_color;
     }
 
     &:hover {
-      color: #000;
+      color: $clr_pink;
+      
+      span {
+        color: $clr_pink;
+      }
+    }
+
+    &:focus,
+    &:active {
+      color: $clr_red;
+      
+      span {
+        color: $clr_red;
+      }
     }
   }
 
@@ -594,5 +608,56 @@
 }
 
 .collapseBtn {
+  @include transition_all(background .3s);
   cursor: pointer;
+
+  &:hover {
+    background: #f5f5f5;
+  }
+}
+
+.page_loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 35;
+  background: #fff;
+
+  &:before {
+    @include transition_all(transform .4s);
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: #000;
+  }
+  
+  span {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    line-height: 50px;
+    text-align: center;
+    height: 50px;
+    width: 100px;
+    margin: -25px 0 0 -50px;
+  }
+
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+  }
+
+  &._loaded {
+    &:before {
+      @include transform_translate(0, -100%);
+    }
+  }
 }

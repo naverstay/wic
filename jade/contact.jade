@@ -46,21 +46,23 @@ html(lang='ru')
             .block_title._wish_mode Написать нам
               
             .contact_form
-              form(action='#')
+              form.validateMe(action='#' data-prompts='false')
                 .f_row.f_row_v3
                   .f_cell
-                    .input_w
-                      input.f_input_v3.f_input(placeholder='Ваше имя')
-                
+                    .input_w.formCell._has_icon
+                      input#contacts_name.f_input_v3.checkEmpty.f_input(class='validate[required]')
+                      label.f_label.f_label_v3(for='contacts_name') Ваше имя
                   .f_cell
-                    .input_w
-                      input.f_input_v3.f_input(placeholder='Ваш email')
-                
+                    .input_w.formCell._has_icon
+                      input#contacts_email.f_input_v3.checkEmpty.f_input(class='validate[required,custom[email]]')
+                      label.f_label.f_label_v3(for='contacts_email') Ваш email
+
                 .f_row.f_row_v4
                   .f_cell
                     .input_w
-                      textarea.f_input_v3.f_input(placeholder='Ваше сообщение')
-                
+                      textarea#contacts_msg.f_input_v3.checkEmpty.f_input()
+                      label.f_label.f_label_v3(for='contacts_msg') Ваше сообщение
+
                 .f_row.f_row_v2
                   .f_cell
                     button.btn_v3.btn_black.contact_btn Отправить

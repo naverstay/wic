@@ -15,6 +15,13 @@
       font-size: 16px;
       line-height: 20px;
       margin-top: 2px;
+
+      .popup_v1 &,
+      .contact_form & {
+        right: 24px;
+        margin-top: -10px;
+        color: #000 !important;
+      }
     }
 
     &.success {
@@ -76,6 +83,10 @@
         + .f_cell {
           .f_input {
             border-left: none !important;
+
+            ~ .f_label_v3 {
+              left: 22px;
+            }
           }
         }
       }
@@ -210,15 +221,15 @@
     padding: 22px;
     border: 2px solid #000;
     background: none;
-    font: 16px/30px $AvenirNextDemiBold;
+    font: 16px/30px $AvenirNextMedium;
     color: #000;
 
     &::-webkit-input-placeholder {
-      font-family: $AvenirNextDemiBold;
+      font-family: $AvenirNextMedium;
     }
 
     &::-moz-placeholder {
-      font-family: $AvenirNextDemiBold;
+      font-family: $AvenirNextMedium;
     }
   }
 
@@ -278,6 +289,14 @@
     &::-moz-placeholder {
       color: #000;
       font-family: $AvenirNextMedium;
+    }
+
+    &:focus {
+      border-color: $clr_pink;
+
+      ~ .btn_black {
+        background: $clr_pink;
+      }
     }
 
     @include respond-to-max($resp_step_1) {
@@ -367,9 +386,17 @@
       font-family: $AvenirNextMedium;
     }
 
+    ~ .f_label.f_label_v3 {
+      left: 25px;
+    }
+    
     @include respond-to-max($resp_step_2) {
       height: 72px;
       padding: 23px 24px;
+
+      ~ .f_label.f_label_v3 {
+        left: 23px;
+      }
     }
   }
 
@@ -463,6 +490,7 @@ textarea.f_input_v5.f_input {
     }
 
     .select2-selection__placeholder {
+      @include transition_all(color .3s);
       color: $placeholder_color;
     }
 
@@ -479,6 +507,7 @@ textarea.f_input_v5.f_input {
         background: $clr_pink;
         color: #fff;
 
+        .select2-selection__placeholder,
         .select2-selection__rendered {
           color: #fff;
         }
@@ -660,15 +689,19 @@ textarea.f_input_v5.f_input {
 
     .select2-dropdown {
       border-radius: 0 !important;
+      border: none !important;
     }
 
     .select2-results__option {
+      @include transition_all(color .3s);
       font-size: 16px;
       line-height: 20px;
-      padding: 8px 20px;
+      padding: 15px 20px;
+      color: $default_t_color;
+      background: #f5f5f5 !important;
 
-      .edit_row & {
-        font-size: 12px;
+      &:hover {
+        color: $clr_pink;
       }
     }
 
@@ -775,12 +808,20 @@ textarea.f_input_v5.f_input {
 
     .select2-dropdown {
       border-radius: 0 !important;
+      border: none !important;
     }
 
     .select2-results__option {
+      @include transition_all(color .3s);
       font-size: 16px;
       line-height: 20px;
-      padding: 8px 20px;
+      padding: 15px 20px;
+      color: $default_t_color;
+      background: #f5f5f5 !important;
+
+      &:hover {
+        color: $clr_pink;
+      }
     }
 
     .select2-container {
@@ -885,8 +926,24 @@ textarea.f_input_v5.f_input {
       font-size: 18px;
     }
 
+    .not_empty ~ &,
     .f_input:focus ~ & {
       display: none;
+    }
+  }
+
+  &.f_label_v3 {
+    @include transition_all(top .3s, color .3s, font-size .3s);
+    position: absolute;
+    top: 26px;
+    left: 23px;
+    font: 16px/1 $AvenirNextMedium;
+
+    .not_empty ~ &,
+    .f_input:focus ~ & {
+      top: 10px;
+      font-size: 12px;
+      color: #b43864;
     }
   }
 
@@ -928,7 +985,7 @@ textarea.f_input_v5.f_input {
     &:hover {
       .check_text {
         color: $clr_pink;
-        
+
         &:before {
           border-color: $clr_pink;
         }
@@ -1157,7 +1214,36 @@ textarea.f_input_v5.f_input {
 }
 
 .popup_v1 {
-  padding: 0 3px;
+  padding: 0 3px 40px;
 }
 
+.autocomplete_v1 {
+  position: absolute;
+  top: 100%;
+  right: 48px;
+  left: 0;
+  z-index: 2;
+  background: #f5f5f5;
+  max-height: 330px;
 
+  .mCSB_scrollTools {
+    top: 16px;
+    bottom: 16px;
+  }
+
+  .ui-autocomplete {
+    padding: 6px 0;
+
+    li {
+      @include transition_all(color .3s);
+      font: 16px/21px $AvenirNextMedium;
+      padding: 8px 16px;
+      color: $default_t_color;
+      cursor: pointer;
+
+      &:hover {
+        color: $clr_pink;
+      }
+    }
+  }
+}

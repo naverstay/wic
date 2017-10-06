@@ -10,6 +10,13 @@ html {
 body {
   font: 14px/1.2 $AvenirNextMedium;
   color: $default_t_color;
+
+  &.popup_opened {
+    .wrapper {
+      max-height: 100%;
+      overflow: hidden;
+    }
+  }
 }
 
 .hide {
@@ -61,10 +68,16 @@ body {
 }
 
 .wrapper {
+  @include transition_all(opacity .3s .1s);
   position: relative;
   padding-top: 90px;
   min-height: 100%;
   overflow: hidden;
+  opacity: 1;
+
+  &._load_anim {
+    opacity: 0;
+  }
 
   @include respond-to-max($resp_step_1) {
     &._trends {
@@ -296,10 +309,192 @@ body {
   }
 }
 
+.img_w {
+  overflow: hidden;
+}
+
+$anim_time: .5s;
+
+.slide_text {
+  @extend %translate3d;
+  @include transition_all(transform $anim_time/2, opacity $anim_time/2);
+  @include transform_translate(-100%, 0);
+  position: absolute;
+  opacity: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  .product_unit & {
+    @include transition_all(transform $anim_time/2 $anim_time/2.5, opacity $anim_time/2 $anim_time/2.5);
+
+    @include respond-to-max($resp_step_1) {
+      //@include transform_translate(100%, 0);
+    }
+
+  }
+
+  &._move {
+    @include transform_translate(0, 0);
+    opacity: 1;
+
+    ~ .hero_caption {
+      @include transform_translate(100%, 0);
+      opacity: 0;
+    }
+
+    ~ .product_info_inner {
+      @include transform_translate(100%, 0);
+      opacity: 0;
+
+      @include respond-to-max($resp_step_1) {
+        //@include transform_translate(-100%, 0);
+      }
+    }
+
+    .product_unit & {
+
+      //@include respond-to-max($resp_step_1) {
+      //  @include transform_translate(0, 0);
+      //
+      //  ~ .product_info_inner {
+      //    @include transform_translate(-100%, 0);
+      //  }
+      //}
+    }
+  }
+}
+
+.product_info_inner {
+  @extend %translate3d;
+  @include transition_all(transform $anim_time/2 $anim_time/2.5, opacity $anim_time/2 $anim_time/2.5);
+  position: relative;
+}
+
+.slide_roller {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #fff;
+
+  &:before {
+    @include transition_all(width .5s);
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: 30px;
+    //min-width: 10px;
+    //max-width: 100px;
+    background: #fff;
+
+    .product_unit & {
+      @include transition_all(width .4s);
+    }
+  }
+
+  .product_unit & {
+    @include respond-to-max($resp_step_1) {
+      //width: 40% !important;
+      max-width: 40%;
+      margin-left: 60%;
+      //right: 0;
+      //left: auto;
+
+      .img_w {
+        height: 100%;
+      }
+
+      .product_bg,
+      .product_img,
+      .product_block {
+        //width: 100% !important;
+        //height: 100% !important;
+        min-width: 100%;
+        min-height: 100%;
+      }
+    }
+  }
+
+  .hero_img {
+    height: 100%;
+  }
+
+  .product_img {
+    margin-left: -100%;
+    opacity: 0;
+  }
+
+  &._full {
+    @include transition_all(width $anim_time*1.2);
+    width: 100%;
+  }
+
+  &._wide {
+    &:before {
+      @include transition_all(width $anim_time/2);
+      width: 30%;
+
+      .product_unit & {
+        @include transition_all(width $anim_time/2 $anim_time/3.5);
+      }
+    }
+
+    .product_img {
+      margin-left: 0;
+      opacity: 1;
+    }
+
+    ~ .product_block {
+
+      .product_img {
+        opacity: 0;
+        margin-left: 100%;
+      }
+    }
+  }
+}
+
+.slider_main_block {
+  @extend %clearfix;
+
+  .slide {
+    background: #fff;
+    float: left;
+    width: 100%;
+    margin-left: -100%;
+    overflow: hidden;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &._current {
+      z-index: 15;
+      overflow: visible;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      .hero_box:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        background: #000;
+        height: 50%;
+      }
+    }
+  }
+}
+
 .hero_slider {
   margin: 0 0 25px;
   position: relative;
-  overflow: hidden;
 
   .slide {
     position: relative;
@@ -312,10 +507,17 @@ body {
   &.slick-initialized {
     .slide {
       float: left;
+
+      &.slick-current {
+        opacity: 1 !important;
+      }
     }
   }
 
   .hero_img {
+    position: relative;
+    overflow: hidden;
+
     img {
       display: block;
       max-width: 100%;
@@ -323,12 +525,12 @@ body {
   }
 
   .hero_text {
-
     @include respond-to-max($resp_step_1) {
       //padding-top: 120px;
       margin-left: 43%;
       padding-top: 40%;
       margin-bottom: 30px;
+      position: relative;
     }
 
     @include respond-to-min($resp_step_1) {
@@ -355,6 +557,8 @@ body {
   }
 
   .hero_caption {
+    @extend %translate3d;
+    @include transition_all(transform .8s, opacity .7s);
     position: relative;
     z-index: 1;
     font: 40px/.9 $FormularBlack;
@@ -369,10 +573,36 @@ body {
     }
   }
 
+  .hero_box_bg {
+    @include transition_all(width .5s .2s);
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    background: #fff;
+    pointer-events: none;
+    z-index: 3;
+
+    ._load_anim & {
+      width: 100%;
+    }
+
+    @include respond-to-max($resp_step_1) {
+      height: 56%;
+    }
+  }
+
+  @include respond-to-max($resp_step_1) {
+    .product_unit .hero_box_bg {
+      @include transition_all(width .5s .7s);
+      height: 100%;
+    }
+  }
+
   .hero_box {
     position: relative;
     padding-bottom: 84px;
-    //padding-right: 180px;
 
     @include respond-to-max($resp_step_1) {
       padding-bottom: 75px;
@@ -381,16 +611,6 @@ body {
         position: relative;
         float: left;
         width: 40%;
-
-        &:before {
-          content: '';
-          position: absolute;
-          top: 0;
-          right: -800px;
-          left: 0;
-          bottom: -84px;
-          background: #000;
-        }
 
         img {
           position: relative;
@@ -414,7 +634,6 @@ body {
       padding-right: 38.3%;
       padding-bottom: 130px;
       //padding-right: 33.9% !important;
-
     }
 
     @include respond-to-min($resp_step_3) {
@@ -506,13 +725,18 @@ body {
       position: absolute;
       top: -30px;
       right: -100px;
-      z-index: 1;
+      z-index: 4;
     }
 
     .product_info {
+      @include transition_all(transform .5s, opacity .5s);
+      @include transform_translate(0, 0);
 
       @include respond-to-min($resp_step_1) {
+        //@include transform_translate(100%, 0);
+        //opacity: 0;
         position: absolute;
+        z-index: 1;
         left: 100%;
         bottom: 0;
         width: 100%;
@@ -532,6 +756,8 @@ body {
         bottom: auto;
         margin: 0 43% 0 0;
         padding-top: 14%;
+        position: relative;
+        z-index: 1;
       }
     }
 
@@ -610,6 +836,23 @@ body {
     }
   }
 
+  .slick-current {
+    .product_w {
+      .product_info {
+        @include transform_translate(100%, 0);
+        opacity: 1;
+
+        @include respond-to-min($resp_step_1) {
+          @include transform_translate(0, 0);
+        }
+      }
+    }
+  }
+
+  &.mod_1 {
+    overflow: hidden;
+  }
+
   @include respond-to-min($resp_step_1) {
     margin-top: 40px;
 
@@ -648,7 +891,7 @@ body {
 .slider_controls {
   position: absolute;
   bottom: 0;
-  z-index: 2;
+  z-index: 15;
 
   &._left {
     left: -4px;
@@ -773,6 +1016,20 @@ body {
 .product_info {
   position: relative;
 
+  a {
+    @include transition_all(color .3s);
+    color: #000;
+
+    &:hover {
+      color: $clr_pink;
+    }
+
+    &:focus,
+    &:active {
+      color: $clr_red;
+    }
+  }
+
   p {
     font-size: 16px;
 
@@ -794,7 +1051,7 @@ body {
 }
 
 .product_rm {
-  @include transition_all(opacity .3s);
+  @include transition_all(opacity .3s, background .3s);
   @extend %icon_pseudo;
   position: absolute;
   top: 0;
@@ -818,6 +1075,16 @@ body {
     opacity: 1;
   }
 
+  &:hover {
+    opacity: 1;
+    background: $clr_pink;
+  }
+
+  &:focus,
+  &:active {
+    opacity: 1;
+    background: $clr_red;
+  }
 }
 
 .product_unit {
@@ -855,6 +1122,50 @@ body {
 
   @include respond-to-min($resp_step_3) {
     //width: 280px;
+  }
+
+  .caption_tip {
+    @include transition_all(color .3s);
+
+    &:before {
+      @include transition_all(background .3s);
+    }
+  }
+
+  .gl_link {
+    @include transition_all(color .3s);
+  }
+
+  &:hover {
+    .caption_tip {
+      color: $clr_pink !important;
+
+      &:before {
+        background: $clr_pink !important;
+      }
+    }
+
+    p,
+    .product_name {
+      .gl_link {
+        color: $clr_pink !important;
+      }
+    }
+  }
+
+  &:focus,
+  &:active {
+    .caption_tip {
+      color: $clr_red !important;
+
+      &:before {
+        background: $clr_red !important;
+      }
+    }
+
+    .gl_link {
+      color: $clr_red !important;
+    }
   }
 }
 
@@ -936,6 +1247,34 @@ body {
   position: absolute;
   z-index: 1;
   will-change: transform;
+
+  .slider_main_block & {
+    @include transition_all(margin-left $anim_time/1.5 $anim_time/2.5, opacity $anim_time/1.5 $anim_time/4);
+
+    @include respond-to-max($resp_step_2) {
+      min-width: 100%;
+    }
+  }
+
+  .slider_main_block .product_unit > .product_block > & {
+    @include respond-to-max($resp_step_1) {
+      @include transition_all(margin-left $anim_time $anim_time/10, opacity $anim_time $anim_time/10);
+    }
+  }
+
+  //.slider_main_block & {
+  //  @include transition_all(margin-left 1s .35s, opacity 1s .35s);
+  //
+  //  @include respond-to-max($resp_step_2) {
+  //    min-width: 100%;
+  //  }
+  //}
+  //
+  //.slider_main_block .product_unit > .product_block > & {
+  //  @include respond-to-max($resp_step_1) {
+  //    @include transition_all(margin-left 1s .1s, opacity 1s .1s);
+  //  }
+  //}
 
   img {
     z-index: 1;
